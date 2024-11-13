@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Dan Olner">
+<meta name="dcterms.date" content="2024-11-10">
 
-<title>Dan Olner’s Data Dispatch</title>
+<title>Dan Olner’s Data Dispatch - Open data and code used for ONS subnational data conference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,77 +69,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Dan Olner’s Data Dispatch</span>
     </a>
   </div>
@@ -150,7 +92,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -181,155 +123,86 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Dan Olner’s Data Dispatch</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Open data and code used for ONS subnational data conference</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">ons</div>
+                <div class="quarto-category">planning</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Dan Olner </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 10, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(2)</span></div><div class="category" data-category="firms">firms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="gumph">gumph <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ons">ons <span class="quarto-category-count">(2)</span></div><div class="category" data-category="planning">planning <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p>Off the back of presenting at the <a href="https://www.eventbrite.co.uk/e/subnational-data-conference-supporting-local-decision-making-tickets-1042576082127">ONS subnational data conference</a>, thought I’d collect (1) the key open data / code bits I used in <a href="https://www.dropbox.com/scl/fi/6sgk49k3bf9cw0u40hkdb/PDF_DanOlner_ONS_subnational_14_11_24_FINAL.pdf?rlkey=9dmk50bh0z03vrfcnu0l8hjgo&amp;dl=1">the slides</a> and (2) a few other open data bits and bobs in the same place, as well as a few extra bits mentioned in there.</p>
+<p>There’s a mix here of <strong>step by step data walkthroughs</strong> and <strong>raw code</strong>: I want to work on getting more of this into a form that’s useable by more people. Part of that is testing what actually <em>is</em> useful and iterating.</p>
+<p>I’ll add in <strong>some to-do notes</strong> on things that need updating / changing / improving and change this page as those get done.</p>
+<section id="data-and-code-used" class="level2">
+<h2 class="anchored" data-anchor-id="data-and-code-used">Data and code used</h2>
+<ul>
+<li><strong>For the 1971-81 ‘scarring’ work</strong> (used in <a href="https://eprints.whiterose.ac.uk/218201/1/Steel%20City_fv%20_oct2023_aug2024%20English%20version.pdf">‘Steel City: Deindustrialisation and Peripheralisation in Sheffield’</a> with Jay Emery and Gwilym Pryce):
+<ul>
+<li><a href="https://github.com/DanOlner/HarmonisedCountryOfBirthDatasets">Harmonised Census data 1971 to 2011</a>: country of birth and employment variables harmonised along with consistent geography. Full explanation in the readme there talks through how to get the data for country of birth (and further down the page there’s a link to the employment data). <strong>POSSIBLE TO-DO: HARMONISE WITH 2021 (and 1961???)</strong></li>
+<li>That data is used in <a href="https://github.com/DanOlner/dataStitching/blob/master/SheffieldScarring_Writeup1_Apr2022.Rmd">this RMarkdown output</a> that produces the plots used (from <a href="https://github.com/DanOlner/dataStitching">this repo</a> with general data stitching code). The data for the RMarkdown output, using the harmonised datasets, is processed in <a href="https://github.com/DanOlner/dataStitching/blob/master/unemploymentChanges_scarring.R">this R Script</a>.</li>
+</ul></li>
+<li><strong>For the sector proportion plots</strong>, and other code on processing ONS regional GVA data for location quotients, mapping and other bits, see <a href="https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html">this code and data stepthrough</a> on the <a href="https://danolner.github.io/RegionalEconomicTools">regecontools site</a>.</li>
+<li><strong>The productivity “GVA vs JOBS percent change” plots and map</strong> don’t have a good walkthrough yet - the code (including code to update to latest BRES and regional GVA data) is <a href="https://github.com/DanOlner/ukcompare/blob/3a455b7212fb0a0763cd99f3a8535ebe35300df2/explore_code/GVA_region_by_sector_explore.R#L6734">here in the repo for the first tranche of sector analysis work</a> done for SYMCA, and is fairly readable and self-contained there. That BRES data is automatically extracted using the super-useful NOMISR package in <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/BRES_API_download.R">this script</a> and processed in <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/BRES_process.R">this script</a> (where it’s linked to the <a href="https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/finalestimates/2022">LCREE dataset</a>, along with GVA data - work done in <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/Analysis_of_lcree_jobs_gva_linkeddata.R">this script</a> and then collated for a report in <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/quarto_docs/SectorGrowthInvestment_July2024.qmd">this Quarto doc</a>). <strong>TO-DO: MAKE WALKTHROUGH FOR PROD PLOTS</strong></li>
+<li>The <strong>GVA per hour plot</strong> is part of <a href="https://danolner.github.io/RegionalEconomicTools/gdp_gaps.html">this walkthrough on the regecontools page</a> looking more broadly at some GVA per capita / per hour worked.</li>
+<li>The <strong>Beatty / Fothergill rank change plot</strong> is <a href="https://danolner.github.io/RegionalEconomicTools/beattyfothergill.html">from this</a> fuller breakdown of their data, with code walkthrough, on the <a href="https://danolner.github.io/RegionalEconomicTools/">regecontools</a> site.</li>
+</ul>
+</section>
+<section id="other-links" class="level2">
+<h2 class="anchored" data-anchor-id="other-links">Other links</h2>
+<ul>
+<li>The <a href="https://y-pern.org.uk/">Y-PERN website</a>.</li>
+<li><a href="https://www.danolner.net/2019/02/sheffields-first-data-for-good-hack-day">Write up / blog post</a> of the 2019 Sheffield Data for Good hack day.</li>
+<li><a href="https://civicdatacooperative.com/">Liverpool City Region Civic Data Coop</a></li>
+<li><a href="https://nowthenmagazine.com/articles/why-defining-sheffield-neighbourhoods-could-be-the-first-step-towards-transformative-change-in-the-city-mapping-participatory-democracy">Story</a> on Sheffield Neighbourhood Mapping project (<a href="https://felt.com/map/Sheffield-Neighbourhoods-Basemap-Layer-v1-1-mzP9BFSMHQsibMbkaH9AzOQA?loc=53.4021,-1.5212,11.55z">link</a> to current map version).</li>
+<li>Centre for Cities <a href="https://www.centreforcities.org/publication/la-evidential/">LA Evidential report</a>.</li>
+</ul>
+<p>References from the presentation:</p>
+<ul>
+<li>Rice / Venables: “The persistent consequences of adverse shocks: how the 1970s shaped UK regional inequality” <a href="https://academic.oup.com/oxrep/article-abstract/37/1/132/6211742">here</a></li>
+<li>Sarah Willams, <a href="https://mitpress.mit.edu/9780262545310/data-action/">Data Action</a>: Using Data for Public Good.</li>
+<li>Martin A. Schwartz, “The Importance of Stupidity in Scientific Research.” <a href="https://journals.biologists.com/jcs/article/121/11/1771/30038/The-importance-of-stupidity-in-scientific-research">Journal of Cell Science 121</a>.</li>
+<li>Peter Tennant on <a href="https://bsky.app/profile/pwgtennant.bsky.social/post/3l7psm2xmkl2h">Bluesky talking about</a> how we grow and why we need an open mind and be willing to be wrong.</li>
+</ul>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="code,ons,planning" data-listing-date-sort="1731196800000" data-listing-file-modified-sort="1731504024034" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
-<div class="thumbnail">
-<p><a href="./posts/ons_subnational_data_conf/index.html" class="no-external"></a></p><a href="./posts/ons_subnational_data_conf/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/ons_subnational_data_conf/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ons_subnational_data_conf/index.html" class="no-external">Open data and code used for ONS subnational data conference</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/ons_subnational_data_conf/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ons'); return false;">
-ons
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('planning'); return false;">
-planning
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/ons_subnational_data_conf/index.html" class="no-external">Off the back of presenting at the ONS subnational data conference, thought I’d collect (1) the key open data / code bits I used in the slides and (2) a few other open data…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/ons_subnational_data_conf/index.html" class="no-external">
-<div class="listing-date">
-Nov 10, 2024
-</div>
-<div class="listing-author">
-Dan Olner
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="code,ons,firms" data-listing-date-sort="1730764800000" data-listing-file-modified-sort="1731497310799" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="427">
-<div class="thumbnail">
-<p><a href="./posts/business_demography/index.html" class="no-external"></a></p><a href="./posts/business_demography/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/business_demography/excel_hell2.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/business_demography/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/business_demography/index.html" class="no-external">How to automate your way out of Excel hell &amp; other ONS data wrangling stories (business demography edition)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/business_demography/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ons'); return false;">
-ons
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('firms'); return false;">
-firms
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/business_demography/index.html" class="no-external">I’ve been analysing the latest ONS business demography data (that ONS pull from the IDBR). It contains a tonne of great data on business births, deaths, numbers, ‘high…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/business_demography/index.html" class="no-external">
-<div class="listing-date">
-Nov 5, 2024
-</div>
-<div class="listing-author">
-Dan Olner
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="gumph" data-listing-date-sort="1730678400000" data-listing-file-modified-sort="1731498849028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="163">
-<div class="thumbnail">
-<p><a href="./posts/welcome/index.html" class="no-external"></a></p><a href="./posts/welcome/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/welcome/kittenonunicorn.jpeg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/welcome/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/welcome/index.html" class="no-external">What this situation needs is another blog, said no-one ever</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/welcome/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('gumph'); return false;">
-gumph
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/welcome/index.html" class="no-external">“Another blog! Thank the Gods! Blogging is so <em>now</em>, isn’t it?”</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html" class="no-external">
-<div class="listing-date">
-Nov 4, 2024
-</div>
-<div class="listing-author">
-Dan Olner
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
