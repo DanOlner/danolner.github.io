@@ -5,7 +5,7 @@ date: "2024-11-10"
 categories: [code,ons,planning]
 ---
 
-Off the back of presenting at the [ONS subnational data conference](https://www.eventbrite.co.uk/e/subnational-data-conference-supporting-local-decision-making-tickets-1042576082127), thought I'd collect (1) the key open data / code bits I used in [the slides](https://www.dropbox.com/scl/fi/6sgk49k3bf9cw0u40hkdb/PDF_DanOlner_ONS_subnational_14_11_24_FINAL.pdf?rlkey=9dmk50bh0z03vrfcnu0l8hjgo&dl=1) and (2) a few other open data bits and bobs in the same place, as well as a few extra bits mentioned in there.
+Off the back of presenting at the [ONS subnational data conference](https://www.eventbrite.co.uk/e/subnational-data-conference-supporting-local-decision-making-tickets-1042576082127), this post collects the open data / code I used in [the slides](https://www.dropbox.com/scl/fi/6sgk49k3bf9cw0u40hkdb/PDF_DanOlner_ONS_subnational_14_11_24_FINAL.pdf?rlkey=9dmk50bh0z03vrfcnu0l8hjgo&dl=1), as well as a few extra bits mentioned in there.
 
 The presentation talks about the **huge value and power of ONS data** for the UK: how it can help us understand where we’ve come from and where we are now – and so help us work out we want to go.
 
@@ -41,7 +41,7 @@ Deindustrialisation and Peripheralisation in Sheffield'](https://eprints.whitero
 * Martin A. Schwartz, “The Importance of Stupidity in Scientific Research.” [Journal of Cell Science 121](https://journals.biologists.com/jcs/article/121/11/1771/30038/The-importance-of-stupidity-in-scientific-research).
 * Peter Tennant on [Bluesky talking about](https://bsky.app/profile/pwgtennant.bsky.social/post/3l7psm2xmkl2h) how we grow and why we need an open mind and be willing to be wrong.
 
-## Bits I didn't get to leave in the slides
+## Bits I didn't manage to cram in the slides
 
 * [Analysis of ONS business demography data](https://danolner.github.io/FirmAnalysis/ONS_business_demography.html) that links local authorities across the dataset, including business 'efficiency' (balance of births and deaths) showing something shifted in more recent years in the south. (I write about automating your way out of an Excel data hole for this project [here](https://danolner.github.io/posts/business_demography/.)
 * The incredible Dutch secure data service data used in our Rotterdam project - paper [here](https://journals.sagepub.com/doi/full/10.1177/23998083231173696), supplementary material with a map [here](https://journals.sagepub.com/doi/suppl/10.1177/23998083231173696/suppl_file/sj-pdf-1-epb-10.1177_23998083231173696.pdf). Individual-level data! 100m^2, track over time! Link to other survey data! Secure, trustworthy, easy to use!

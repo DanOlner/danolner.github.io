@@ -53,7 +53,7 @@
     "href": "posts/ons_subnational_data_conf/index.html",
     "title": "Open data and code used for ONS subnational data conference",
     "section": "",
-    "text": "Off the back of presenting at the ONS subnational data conference, thought I’d collect (1) the key open data / code bits I used in the slides and (2) a few other open data bits and bobs in the same place, as well as a few extra bits mentioned in there.\nThe presentation talks about how powerful ONS data can be for telling stories about where we’ve come from and where we are – and so help us work out where we’re going in the UK.\nThere’s a mix here of step by step data walkthroughs and raw code: I want to work on getting more of this into a form that’s useable by more people. Part of that is testing what actually is useful and iterating.\nI’ll add in some to-do notes on things that need updating / changing / improving and change this page as those get done."
+    "text": "Off the back of presenting at the ONS subnational data conference, this post collects the open data / code I used in the slides, as well as a few extra bits mentioned in there.\nThe presentation talks about the huge value and power of ONS data for the UK: how it can help us understand where we’ve come from and where we are now – and so help us work out we want to go.\nThere’s a mix here of step by step data walkthroughs and raw code: I want to work on getting more of this into a form that’s useable by more people. Part of that is testing what actually is useful and iterating.\nI’ll add in some to-do notes on things that need updating / changing / improving and change this page as those get done."
   },
   {
     "objectID": "posts/ons_subnational_data_conf/index.html#data-and-code-used",
@@ -82,5 +82,12 @@
     "title": "Open data and code used for ONS subnational data conference",
     "section": "Bits I didn’t get to leave in the slides",
     "text": "Bits I didn’t get to leave in the slides\n\nAnalysis of ONS business demography data that links local authorities across the dataset, including business ‘efficiency’ (balance of births and deaths) showing something shifted in more recent years in the south. (I write about automating your way out of an Excel data hole for this project here\nThe incredible Dutch secure data service data used in our Rotterdam project - paper here, supplementary material with a map here. Individual-level data! 100m^2, track over time! Link to other survey data! Secure, trustworthy, easy to use!\nNorthern Irish Census data - summarised down to 100m^2. Allows you to e.g. see Belfast like this (interactive map)."
+  },
+  {
+    "objectID": "posts/ons_subnational_data_conf/index.html#bits-i-didnt-manage-to-cram-in-the-slides",
+    "href": "posts/ons_subnational_data_conf/index.html#bits-i-didnt-manage-to-cram-in-the-slides",
+    "title": "Open data and code used for ONS subnational data conference",
+    "section": "Bits I didn’t manage to cram in the slides",
+    "text": "Bits I didn’t manage to cram in the slides\n\nAnalysis of ONS business demography data that links local authorities across the dataset, including business ‘efficiency’ (balance of births and deaths) showing something shifted in more recent years in the south. (I write about automating your way out of an Excel data hole for this project here\nThe incredible Dutch secure data service data used in our Rotterdam project - paper here, supplementary material with a map here. Individual-level data! 100m^2, track over time! Link to other survey data! Secure, trustworthy, easy to use!\nNorthern Irish Census data - summarised down to 100m^2. Allows you to e.g. see Belfast like this (interactive map)."
   }
 ]
