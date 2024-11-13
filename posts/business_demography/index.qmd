@@ -1,0 +1,52 @@
+---
+title: "How to automate your way out of Excel hell & other ONS data wrangling stories (business demography edition)"
+author: "Dan Olner"
+date: "2024-11-05"
+categories: [code, ons, firms]
+---
+
+I've been analysing the latest [ONS business demography](https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable) data (that ONS pull from the [IDBR](https://www.ons.gov.uk/aboutus/whatwedo/paidservices/interdepartmentalbusinessregisteridbr)). It contains a tonne of great data on business births, deaths, numbers, 'high growth' firms, survival rates, down to local authority level (though sadly sector breakdowns only at national level).
+
+* My report from that is [here](https://danolner.github.io/FirmAnalysis/ONS_business_demography.html) (a work in progress as I'm writing)
+* Prep code is [here](https://github.com/DanOlner/FirmAnalysis/blob/master/ONS_business_demography.R)
+* Quarto code for the report is [here](https://github.com/DanOlner/FirmAnalysis/blob/master/docs/QUARTO_ONS_businessdemography.qmd)
+
+![](excel_hell2.png)
+
+Getting data out of Excel documents can be a bit extremely horrible [noting, to be clear, that Excel docs like this are super useful for many people, but just nasty for those of us who want to get the data into something like R or Python, so...]. In this case, what we've got is this:
+
+* For each type of data (firm births, deaths, active count, high growth count etc) there are **four sheets** covering different time periods, with two spanning two years and two with a single year. Why? That's unclear until you check the geographies - the local authorities (LAs) used **don't match** across sheets. Why? Because the **boundaries changed**, so there's a **different sheet each year they've changed.**
+
+So if we want consistent data across all time periods, we've got a couple of things to do: 
+
+1. Get the data out of each set of four sheets into one; 
+2. Harmonise the geographies so datapoints are consistent.
+
+Luckily, the LA changes have all been to combine into larger units over time (usually unitary authorities) - so all earlier LAs fit neatly into later boundaries. Phew. This means **values from earlier LAs can be summed to the larger/later ones** - backcasting 2022 boundaries through all previous data.
+
+Some anonymous angel/angels [made this Wikipedia page](https://en.wikipedia.org/wiki/2019%E2%80%932023_structural_changes_to_local_government_in_England) clearly laying out when and what local authorities combined into larger unitary ones in recent years. Using that, we can piece together the changes to get to [this function](https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L181) that does the harmonising. It groups previous LAs - that only needs to backcast 2021/2022 names once, no faffing around with each separate sheet - and then summarises counts for those new groups, for previous years' data.
+
+Prior to that, though, we need to pull the sheets into R. There are a _lot_ of sheets - doing this manually would be baaad... 
+
+* The [readxl package](https://readxl.tidyverse.org/) to the rescue! Part of the tidyverse, it can be used to automate extracting data from any sheet and set of cells in an Excel document. I do that in the function [here](https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L223), specifically for pulling out the correct cells from the ONS demography Excel. That's used in the code here.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(Image stolen from [here](https://michelbaudin.com/2016/08/02/excel-hell-an-insiders-report-chad-smith-linkedin-pulse/)).
+

@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Dan Olner’s Data Dispatch",
+    "section": "",
+    "text": "What this situation needs is another blog, said no-one ever\n\n\n\n\n\n\ngumph\n\n\n\n\n\n\n\n\n\nNov 5, 2024\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nNov 5, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "What this situation needs is another blog, said no-one ever",
+    "section": "",
+    "text": "“Another blog! Thank the Gods! Blogging is so now, isn’t it?”\nThat’s quite enough sarcasm from you. What this lovely website is for:\n\nUsing the ace Quarto blogging platform for writing up data / techie / code / mapping stuff in a much more straightforward way than using Jekyll (the previous github frontend, now archived here). RStudio just makes it for you! With some tweaks.\nA place to explain what I’ve done with R projects - not least explaining them to future me. Future me is very forgetful and needs to have things laid out clearly.\nGet down the techie bits behind work I’m doing to support regional economic data analysis, so I can keep that separate from things like the regional economic tools site (also Quarto).\n\n*Links to my github / linkedin / bluesky / wordpress site (or use links up above).\nHere is a picture of a kitten on a unicorn, via here. You’re welcome."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "“Another blog! Thank the Gods! Blogging is so now, isn’t it?”\nThat’s quite enough sarcasm from you. What this lovely website is for:\n\nUsing the ace Quarto blogging platform for writing up data / techie / code / mapping stuff in a much more straightforward way than using Jekyll (the previous github frontend, now archived here). RStudio just makes it for you! With some tweaks.\nA place to explain what I’ve done with R projects - not least explaining them to future me. Future me is very forgetful and needs to have things laid out clearly.\nGet down the techie bits behind work I’m doing to support regional economic data analysis, so I can keep that separate from things like the regional economic tools site (also Quarto).\n\n*Links to my github / linkedin / bluesky / wordpress site (or use links up above).\nHere is a picture of a kitten on a unicorn, via here. You’re welcome."
+  },
+  {
+    "objectID": "posts/business_demography/index.html",
+    "href": "posts/business_demography/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+  }
+]

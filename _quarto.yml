@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Dan Olner's Data Dispatch"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/DanOlner
+      - icon: linkedin
+        href: https://www.linkedin.com/in/danolner/
+      - text: "{{< iconify simple-icons:bluesky >}}"
+        href: https://bsky.app/profile/danolner.bsky.social
+      - text: "{{< iconify simple-icons:wordpress >}}"
+        href: https://www.danolner.net/
+format:
+  html:
+    theme: lux
+    css: styles.css
+
+#See here for using iconify in Quarto: https://github.com/quarto-dev/quarto-cli/discussions/5816#discussioncomment-6091449
+#Install this (can use RStudio terminal): https://github.com/mcanouil/quarto-iconify
+#Use this e.g. for Bluesky: https://icon-sets.iconify.design/simple-icons/bluesky/ 

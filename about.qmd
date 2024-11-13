@@ -1,0 +1,30 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: github
+      href: https://github.com/DanOlner
+    - icon: linkedin
+      href: https://www.linkedin.com/in/danolner/
+    - text: "{{< iconify simple-icons:bluesky >}}"
+      href: https://bsky.app/profile/danolner.bsky.social
+    - text: "{{< iconify simple-icons:wordpress >}}"
+      href: https://www.danolner.net/
+
+---
+
+"Another blog! Thank the Gods! Blogging is so _now_, isn't it?"
+
+That's quite enough sarcasm from you. What this lovely website is for:
+
+* Using the ace [Quarto blogging platform](https://quarto.org/docs/websites/website-blog.html) for writing up data / techie / code / mapping stuff in a much more straightforward way than using Jekyll (the previous github frontend, now archived [here](http://danolner.github.io/archived-jekyll-site-danolner.github.io/)). RStudio just makes it for you! With some tweaks.
+* A place to explain what I've done with R projects - not least explaining them to future me. Future me is very forgetful and needs to have things laid out clearly.
+* Get down the techie bits behind work I'm doing to support regional economic data analysis, so I can keep that separate from things like the [regional economic tools](https://danolner.github.io/RegionalEconomicTools/) site (also Quarto). 
+
+***Links to my [github](https://github.com/DanOlner) / [linkedin](https://www.linkedin.com/in/danolner/) / [bluesky](https://bsky.app/profile/danolner.bsky.social) / [wordpress site](https://www.danolner.net/) (or use links up above).**
+
+Here is a picture of a kitten on a unicorn, via [here](https://bsky.app/profile/richardkadrey.bsky.social/post/3la7evuq7kb2x). You're welcome.
+
+![](kittenonunicorn.jpeg)
