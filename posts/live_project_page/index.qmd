@@ -1,0 +1,47 @@
+---
+title: "Open data and code used for ONS subnational data conference"
+author: "Dan Olner"
+date: "2024-11-10"
+categories: [code,ons,planning]
+---
+
+Off the back of presenting at the [ONS subnational data conference](https://www.eventbrite.co.uk/e/subnational-data-conference-supporting-local-decision-making-tickets-1042576082127), thought I'd collect (1) the key open data / code bits I used in [the slides](https://www.dropbox.com/scl/fi/6sgk49k3bf9cw0u40hkdb/PDF_DanOlner_ONS_subnational_14_11_24_FINAL.pdf?rlkey=9dmk50bh0z03vrfcnu0l8hjgo&dl=1) and (2) a few other open data bits and bobs in the same place, as well as a few extra bits mentioned in there.
+
+There's a mix here of **step by step data walkthroughs** and **raw code**: I want to work on getting more of this into a form that's useable by more people. Part of that is testing what actually *is* useful and iterating.
+
+I'll add in **some to-do notes** on things that need updating / changing / improving and change this page as those get done.
+
+## Data and code used
+
+* **For the 1971-81 'scarring' work** (used in ['Steel City:
+Deindustrialisation and Peripheralisation in Sheffield'](https://eprints.whiterose.ac.uk/218201/1/Steel%20City_fv%20_oct2023_aug2024%20English%20version.pdf) with Jay Emery and Gwilym Pryce):
+    - [Harmonised Census data 1971 to 2011](https://github.com/DanOlner/HarmonisedCountryOfBirthDatasets): country of birth and employment variables harmonised along with consistent geography. Full explanation in the readme there talks through how to get the data for country of birth (and further down the page there's a link to the employment data). **POSSIBLE TO-DO: HARMONISE WITH 2021 (and 1961???)**
+    - That data is used in [this RMarkdown output](https://github.com/DanOlner/dataStitching/blob/master/SheffieldScarring_Writeup1_Apr2022.Rmd) that produces the plots used (from [this repo](https://github.com/DanOlner/dataStitching) with general data stitching code). The data for the RMarkdown output, using the harmonised datasets, is processed in [this R Script](https://github.com/DanOlner/dataStitching/blob/master/unemploymentChanges_scarring.R).
+* **For the sector proportion plots**, and other code on processing ONS regional GVA data for location quotients, mapping and other bits, see [this code and data stepthrough](https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html) on the [regecontools site](https://danolner.github.io/RegionalEconomicTools).
+* **The productivity "GVA vs JOBS percent change" plots and map** don't have a good walkthrough yet - the code (including code to update to latest BRES and regional GVA data) is [here in the repo for the first tranche of sector analysis work](https://github.com/DanOlner/ukcompare/blob/3a455b7212fb0a0763cd99f3a8535ebe35300df2/explore_code/GVA_region_by_sector_explore.R#L6734) done for SYMCA, and is fairly readable and self-contained there. That BRES data is automatically extracted using the super-useful NOMISR package in [this script](https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/BRES_API_download.R) and processed in [this script](https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/BRES_process.R) (where it's linked to the [LCREE dataset](https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/finalestimates/2022), along with GVA data - work done in [this script](https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/Analysis_of_lcree_jobs_gva_linkeddata.R) and then collated for a report in [this Quarto doc](https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/quarto_docs/SectorGrowthInvestment_July2024.qmd)). **TO-DO: MAKE WALKTHROUGH FOR PROD PLOTS**
+* The **GVA per hour plot** is part of [this walkthrough on the regecontools page](https://danolner.github.io/RegionalEconomicTools/gdp_gaps.html) looking more broadly at some GVA per capita / per hour worked.
+* The **Beatty / Fothergill rank change plot** is [from this](https://danolner.github.io/RegionalEconomicTools/beattyfothergill.html) fuller breakdown of their data, with code walkthrough, on the [regecontools](https://danolner.github.io/RegionalEconomicTools/) site.
+
+
+## Other links
+
+* The [Y-PERN website](https://y-pern.org.uk/).
+* [Write up / blog post](https://www.danolner.net/2019/02/sheffields-first-data-for-good-hack-day) of the 2019 Sheffield Data for Good hack day.
+* [Liverpool City Region Civic Data Coop](https://civicdatacooperative.com/)
+* [Story](https://nowthenmagazine.com/articles/why-defining-sheffield-neighbourhoods-could-be-the-first-step-towards-transformative-change-in-the-city-mapping-participatory-democracy) on Sheffield Neighbourhood Mapping project ([link](https://felt.com/map/Sheffield-Neighbourhoods-Basemap-Layer-v1-1-mzP9BFSMHQsibMbkaH9AzOQA?loc=53.4021,-1.5212,11.55z) to current map version).
+* Centre for Cities [LA Evidential report](https://www.centreforcities.org/publication/la-evidential/).
+
+References from the presentation:
+
+* Rice / Venables: "The persistent consequences of adverse shocks: how the 1970s shaped UK regional inequality" [here](https://academic.oup.com/oxrep/article-abstract/37/1/132/6211742)
+* Sarah Willams, [Data Action](https://mitpress.mit.edu/9780262545310/data-action/): Using Data for Public Good. 
+* Martin A. Schwartz, “The Importance of Stupidity in Scientific Research.” [Journal of Cell Science 121](https://journals.biologists.com/jcs/article/121/11/1771/30038/The-importance-of-stupidity-in-scientific-research).
+* Peter Tennant on [Bluesky talking about](https://bsky.app/profile/pwgtennant.bsky.social/post/3l7psm2xmkl2h) how we grow and why we need an open mind and be willing to be wrong.
+
+
+
+
+
+
+
+

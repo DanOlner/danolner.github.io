@@ -17,7 +17,7 @@ website:
         href: https://www.danolner.net/
 format:
   html:
-    theme: lux
+    theme: darkly
     css: styles.css
 
 #See here for using iconify in Quarto: https://github.com/quarto-dev/quarto-cli/discussions/5816#discussioncomment-6091449

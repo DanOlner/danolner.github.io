@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Dan Olner’s Data Dispatch",
     "section": "",
-    "text": "How to automate your way out of Excel hell & other ONS data wrangling stories (business demography edition)\n\n\n\n\n\n\ncode\n\n\nons\n\n\nfirms\n\n\n\n\n\n\n\n\n\nNov 5, 2024\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nWhat this situation needs is another blog, said no-one ever\n\n\n\n\n\n\ngumph\n\n\n\n\n\n\n\n\n\nNov 4, 2024\n\n\nDan Olner\n\n\n\n\n\n\nNo matching items"
+    "text": "Open data and code used for ONS subnational data conference\n\n\n\n\n\n\ncode\n\n\nons\n\n\nplanning\n\n\n\n\n\n\n\n\n\nNov 10, 2024\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nHow to automate your way out of Excel hell & other ONS data wrangling stories (business demography edition)\n\n\n\n\n\n\ncode\n\n\nons\n\n\nfirms\n\n\n\n\n\n\n\n\n\nNov 5, 2024\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nWhat this situation needs is another blog, said no-one ever\n\n\n\n\n\n\ngumph\n\n\n\n\n\n\n\n\n\nNov 4, 2024\n\n\nDan Olner\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
     "title": "What this situation needs is another blog, said no-one ever",
     "section": "",
-    "text": "“Another blog! Thank the Gods! Blogging is so now, isn’t it?”\nThat’s quite enough sarcasm from you. What this lovely website is for:\n\nUsing the ace Quarto blogging platform for writing up data / techie / code / mapping stuff in a much more straightforward way than using Jekyll (the previous github frontend, now archived here). RStudio just makes it for you! With some tweaks.\nA place to explain what I’ve done with R projects - not least explaining them to future me. Future me is very forgetful and needs to have things laid out clearly.\nGet down the techie bits behind work I’m doing to support regional economic data analysis, so I can keep that separate from things like the regional economic tools site (also Quarto).\n\n*Links to my github / linkedin / bluesky / wordpress site (or use links up above).\nHere is a picture of a kitten on a unicorn, via here. You’re welcome."
+    "text": "“Another blog! Thank the Gods! Blogging is so now, isn’t it?”\nThat’s quite enough sarcasm from you. What this lovely website is for:\n\nUsing the ace Quarto blogging platform for writing up data / techie / code / mapping stuff in a much more straightforward way than using Jekyll (the previous github frontend, now archived here). RStudio just makes it for you! With some tweaks. Github repo for this blog is here.\nA place to explain what I’ve done with R projects - not least explaining them to future me. Future me is very forgetful and needs to have things explained very simply to him\nGet down the techie bits behind work I’m doing to support regional economic data analysis, so I can keep that separate from things like the regional economic tools site (also Quarto).\n\n*Links to my github / linkedin / bluesky / wordpress site (or use links up above).\nHere is a picture of a kitten on a unicorn, via here. You’re welcome."
   },
   {
     "objectID": "posts/business_demography/index.html",
@@ -25,6 +25,27 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "“Another blog! Thank the Gods! Blogging is so now, isn’t it?”\nThat’s quite enough sarcasm from you. What this lovely website is for:\n\nUsing the ace Quarto blogging platform for writing up data / techie / code / mapping stuff in a much more straightforward way than using Jekyll (the previous github frontend, now archived here). RStudio just makes it for you! With some tweaks.\nA place to explain what I’ve done with R projects - not least explaining them to future me. Future me is very forgetful and needs to have things laid out clearly.\nGet down the techie bits behind work I’m doing to support regional economic data analysis, so I can keep that separate from things like the regional economic tools site (also Quarto).\n\n*Links to my github / linkedin / bluesky / wordpress site (or use links up above).\nHere is a picture of a kitten on a unicorn, via here. You’re welcome."
+    "text": "“Another blog! Thank the Gods! Blogging is so now, isn’t it?”\nThat’s quite enough sarcasm from you. What this lovely website is for:\n\nUsing the ace Quarto blogging platform for writing up data / techie / code / mapping stuff in a much more straightforward way than using Jekyll (the previous github frontend, now archived here). RStudio just makes it for you! With some tweaks. Github repo for this blog is here.\nA place to explain what I’ve done with R projects - not least explaining them to future me. Future me is very forgetful and needs to have things explained very simply to him.\nGet down the techie bits behind work I’m doing to support regional economic data analysis, so I can keep that separate from things like the regional economic tools site (also Quarto).\n\n*Links to my github / linkedin / bluesky / wordpress site (or use links up above).\nHere is a picture of a kitten on a unicorn, via here. You’re welcome."
+  },
+  {
+    "objectID": "posts/live_project_page/index.html",
+    "href": "posts/live_project_page/index.html",
+    "title": "Open data and code used for ONS subnational data conference",
+    "section": "",
+    "text": "Off the back of presenting at the ONS subnational data conference, thought I’d collect (1) the key open data / code bits I used in the slides and (2) a few other open data bits and bobs in the same place, as well as a few extra bits mentioned in there.\nThere’s a mix here of step by step data walkthroughs and raw code: I want to work on getting more of this into a form that’s useable by more people. Part of that is testing what actually is useful and iterating.\nI’ll add in some to-do notes on things that need updating / changing / improving and change this page as those get done."
+  },
+  {
+    "objectID": "posts/live_project_page/index.html#data-and-code-used",
+    "href": "posts/live_project_page/index.html#data-and-code-used",
+    "title": "Open data and code used for ONS subnational data conference",
+    "section": "Data and code used",
+    "text": "Data and code used\n\nFor the 1971-81 ‘scarring’ work (used in ‘Steel City: Deindustrialisation and Peripheralisation in Sheffield’ with Jay Emery and Gwilym Pryce):\n\nHarmonised Census data 1971 to 2011: country of birth and employment variables harmonised along with consistent geography. Full explanation in the readme there talks through how to get the data for country of birth (and further down the page there’s a link to the employment data). POSSIBLE TO-DO: HARMONISE WITH 2021 (and 1961???)\nThat data is used in this RMarkdown output that produces the plots used (from this repo with general data stitching code). The data for the RMarkdown output, using the harmonised datasets, is processed in this R Script.\n\nFor the sector proportion plots, and other code on processing ONS regional GVA data for location quotients, mapping and other bits, see this code and data stepthrough on the regecontools site.\nThe productivity “GVA vs JOBS percent change” plots and map don’t have a good walkthrough yet - the code (including code to update to latest BRES and regional GVA data) is here in the repo for the first tranche of sector analysis work done for SYMCA, and is fairly readable and self-contained there. That BRES data is automatically extracted using the super-useful NOMISR package in this script and processed in this script (where it’s linked to the LCREE dataset, along with GVA data - work done in this script and then collated for a report in this Quarto doc). TO-DO: MAKE WALKTHROUGH FOR PROD PLOTS\nThe GVA per hour plot is part of this walkthrough on the regecontools page looking more broadly at some GVA per capita / per hour worked.\nThe Beatty / Fothergill rank change plot is from this fuller breakdown of their data, with code walkthrough, on the regecontools site."
+  },
+  {
+    "objectID": "posts/live_project_page/index.html#other-links",
+    "href": "posts/live_project_page/index.html#other-links",
+    "title": "Open data and code used for ONS subnational data conference",
+    "section": "Other links",
+    "text": "Other links\n\nThe Y-PERN website.\nWrite up / blog post of the 2019 Sheffield Data for Good hack day.\nLiverpool City Region Civic Data Coop\nStory on Sheffield Neighbourhood Mapping project (link to current map version).\nCentre for Cities LA Evidential report.\n\nReferences from the presentation:\n\nRice / Venables: “The persistent consequences of adverse shocks: how the 1970s shaped UK regional inequality” here\nSarah Willams, Data Action: Using Data for Public Good.\nMartin A. Schwartz, “The Importance of Stupidity in Scientific Research.” Journal of Cell Science 121.\nPeter Tennant on Bluesky talking about how we grow and why we need an open mind and be willing to be wrong."
   }
 ]
