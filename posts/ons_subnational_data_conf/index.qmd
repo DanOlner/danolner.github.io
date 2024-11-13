@@ -45,7 +45,7 @@ Deindustrialisation and Peripheralisation in Sheffield'](https://eprints.whitero
 * The incredible Dutch secure data service data used in our Rotterdam project - paper [here](https://journals.sagepub.com/doi/full/10.1177/23998083231173696), supplementary material with a map [here](https://journals.sagepub.com/doi/suppl/10.1177/23998083231173696/suppl_file/sj-pdf-1-epb-10.1177_23998083231173696.pdf). Individual-level data! 100m^2, track over time! Link to other survey data! Secure, trustworthy, easy to use!
 * Northern Irish Census data - summarised down to 100m^2. Allows you to e.g. [see Belfast like this](https://danolner.github.io/r_training/belfast_catholicproportion.html) (interactive map).
 
-
+![](shock7181.png)
 
 
 
