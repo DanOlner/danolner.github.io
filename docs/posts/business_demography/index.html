@@ -165,9 +165,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>I’ve been analysing the latest <a href="https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable">ONS business demography</a> data (that ONS pull from the <a href="https://www.ons.gov.uk/aboutus/whatwedo/paidservices/interdepartmentalbusinessregisteridbr">IDBR</a>). It contains a tonne of great data on business births, deaths, numbers, ‘high growth’ firms, survival rates, down to local authority level (though sadly sector breakdowns only at national level).</p>
+<p>I’ve <a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">been analysing</a> the latest <a href="https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable">ONS business demography</a> data (that ONS pull from the <a href="https://www.ons.gov.uk/aboutus/whatwedo/paidservices/interdepartmentalbusinessregisteridbr">IDBR</a>). It contains a tonne of great data on business births, deaths, numbers, ‘high growth’ firms, survival rates, down to local authority level (though sadly sector breakdowns only at national level).</p>
 <ul>
-<li>My report from that is <a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">here</a> (a work in progress as I’m writing)</li>
+<li>My working report from that is <a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">here</a> - hoping to add more</li>
 <li>Prep code is <a href="https://github.com/DanOlner/FirmAnalysis/blob/master/ONS_business_demography.R">here</a></li>
 <li>Quarto code for the report is <a href="https://github.com/DanOlner/FirmAnalysis/blob/master/docs/QUARTO_ONS_businessdemography.qmd">here</a></li>
 </ul>
@@ -185,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Some anonymous angel/angels <a href="https://en.wikipedia.org/wiki/2019%E2%80%932023_structural_changes_to_local_government_in_England">made this Wikipedia page</a> clearly laying out when and what local authorities combined into larger unitary ones in recent years. Using that, we can piece together the changes to get to <a href="https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L181">this function</a> that does the harmonising. It groups previous LAs - that only needs to backcast 2021/2022 names once, no faffing around with each separate sheet - and then summarises counts for those new groups, for previous years’ data.</p>
 <p>Prior to that, though, we need to pull the sheets into R. There are a <em>lot</em> of sheets - doing this manually would be baaad…</p>
 <ul>
-<li>The <a href="https://readxl.tidyverse.org/">readxl package</a> to the rescue! Part of the tidyverse, it can be used to automate extracting data from random places in the Excel document. I had somehow managed to miss up to now that this package allows you to specify exactly which cells to pull out, and from which sheet. I do that in the function <a href="https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L223">here</a>, specifically for pulling out the correct cells from the ONS demography Excel. That’s used in the code here.</li>
+<li>The <a href="https://readxl.tidyverse.org/">readxl package</a> to the rescue! Part of the tidyverse, it can be used to automate extracting data from any sheet and set of cells in an Excel document. I do that in the function <a href="https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L223">here</a>, specifically for pulling out the correct cells from the ONS demography Excel. That’s used in the code here.</li>
 </ul>
 <p>(Image stolen from <a href="https://michelbaudin.com/2016/08/02/excel-hell-an-insiders-report-chad-smith-linkedin-pulse/">here</a>).</p>
 
