@@ -5,9 +5,9 @@ date: "2024-11-05"
 categories: [code, ons, firms]
 ---
 
-I've been analysing the latest [ONS business demography](https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable) data (that ONS pull from the [IDBR](https://www.ons.gov.uk/aboutus/whatwedo/paidservices/interdepartmentalbusinessregisteridbr)). It contains a tonne of great data on business births, deaths, numbers, 'high growth' firms, survival rates, down to local authority level (though sadly sector breakdowns only at national level).
+I've [been analysing](https://danolner.github.io/FirmAnalysis/ONS_business_demography.html) the latest [ONS business demography](https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable) data (that ONS pull from the [IDBR](https://www.ons.gov.uk/aboutus/whatwedo/paidservices/interdepartmentalbusinessregisteridbr)). It contains a tonne of great data on business births, deaths, numbers, 'high growth' firms, survival rates, down to local authority level (though sadly sector breakdowns only at national level).
 
-* My report from that is [here](https://danolner.github.io/FirmAnalysis/ONS_business_demography.html) (a work in progress as I'm writing)
+* My working report from that is [here](https://danolner.github.io/FirmAnalysis/ONS_business_demography.html) - hoping to add more
 * Prep code is [here](https://github.com/DanOlner/FirmAnalysis/blob/master/ONS_business_demography.R)
 * Quarto code for the report is [here](https://github.com/DanOlner/FirmAnalysis/blob/master/docs/QUARTO_ONS_businessdemography.qmd)
 
