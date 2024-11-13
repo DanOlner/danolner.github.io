@@ -26,19 +26,24 @@ Deindustrialisation and Peripheralisation in Sheffield'](https://eprints.whitero
 ## Other links
 
 * The [Y-PERN website](https://y-pern.org.uk/).
+* [SYMCA Plan for Good Growth](https://www.southyorkshire-ca.gov.uk/plan-for-good-growth) page, which includes the [M-D economic analysis](https://www.southyorkshire-ca.gov.uk/getattachment/0fde98ad-f890-4b5a-8e80-0c02972ba37f/South-Yorkshire-Plan-for-Growth-Economic-Analysis.pdf) and my own sectoral [3-pager summary](https://www.southyorkshire-ca.gov.uk/getmedia/75e687c5-a6b5-40c1-ad0c-73344f64f084/SYMCA_Plan-for-Good-Growth_analysis.pdf).
 * [Write up / blog post](https://www.danolner.net/2019/02/sheffields-first-data-for-good-hack-day) of the 2019 Sheffield Data for Good hack day.
 * [Liverpool City Region Civic Data Coop](https://civicdatacooperative.com/)
 * [Story](https://nowthenmagazine.com/articles/why-defining-sheffield-neighbourhoods-could-be-the-first-step-towards-transformative-change-in-the-city-mapping-participatory-democracy) on Sheffield Neighbourhood Mapping project ([link](https://felt.com/map/Sheffield-Neighbourhoods-Basemap-Layer-v1-1-mzP9BFSMHQsibMbkaH9AzOQA?loc=53.4021,-1.5212,11.55z) to current map version).
 * Centre for Cities [LA Evidential report](https://www.centreforcities.org/publication/la-evidential/).
 
-References from the presentation:
+## References from the presentation:
 
 * Rice / Venables: "The persistent consequences of adverse shocks: how the 1970s shaped UK regional inequality" [here](https://academic.oup.com/oxrep/article-abstract/37/1/132/6211742)
 * Sarah Willams, [Data Action](https://mitpress.mit.edu/9780262545310/data-action/): Using Data for Public Good. 
 * Martin A. Schwartz, “The Importance of Stupidity in Scientific Research.” [Journal of Cell Science 121](https://journals.biologists.com/jcs/article/121/11/1771/30038/The-importance-of-stupidity-in-scientific-research).
 * Peter Tennant on [Bluesky talking about](https://bsky.app/profile/pwgtennant.bsky.social/post/3l7psm2xmkl2h) how we grow and why we need an open mind and be willing to be wrong.
 
+## Bits I didn't get to leave in the slides
 
+* [Analysis of ONS business demography data](https://danolner.github.io/FirmAnalysis/ONS_business_demography.html) that links local authorities across the dataset, including business 'efficiency' (balance of births and deaths) showing something shifted in more recent years in the south. (I write about automating your way out of an Excel data hole for this project [here](https://danolner.github.io/posts/business_demography/.)
+* The incredible Dutch secure data service data used in our Rotterdam project - paper [here](https://journals.sagepub.com/doi/full/10.1177/23998083231173696), supplementary material with a map [here](https://journals.sagepub.com/doi/suppl/10.1177/23998083231173696/suppl_file/sj-pdf-1-epb-10.1177_23998083231173696.pdf). Individual-level data! 100m^2, track over time! Link to other survey data! Secure, trustworthy, easy to use!
+* Northern Irish Census data - summarised down to 100m^2. Allows you to e.g. [see Belfast like this](https://danolner.github.io/r_training/belfast_catholicproportion.html) (interactive map).
 
 
 

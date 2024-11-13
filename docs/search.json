@@ -67,6 +67,20 @@
     "href": "posts/ons_subnational_data_conf/index.html#other-links",
     "title": "Open data and code used for ONS subnational data conference",
     "section": "Other links",
-    "text": "Other links\n\nThe Y-PERN website.\nWrite up / blog post of the 2019 Sheffield Data for Good hack day.\nLiverpool City Region Civic Data Coop\nStory on Sheffield Neighbourhood Mapping project (link to current map version).\nCentre for Cities LA Evidential report.\n\nReferences from the presentation:\n\nRice / Venables: “The persistent consequences of adverse shocks: how the 1970s shaped UK regional inequality” here\nSarah Willams, Data Action: Using Data for Public Good.\nMartin A. Schwartz, “The Importance of Stupidity in Scientific Research.” Journal of Cell Science 121.\nPeter Tennant on Bluesky talking about how we grow and why we need an open mind and be willing to be wrong."
+    "text": "Other links\n\nThe Y-PERN website.\nSYMCA Plan for Good Growth page, which includes the M-D economic analysis and my own sectoral 3-pager summary.\nWrite up / blog post of the 2019 Sheffield Data for Good hack day.\nLiverpool City Region Civic Data Coop\nStory on Sheffield Neighbourhood Mapping project (link to current map version).\nCentre for Cities LA Evidential report."
+  },
+  {
+    "objectID": "posts/ons_subnational_data_conf/index.html#references-from-the-presentation",
+    "href": "posts/ons_subnational_data_conf/index.html#references-from-the-presentation",
+    "title": "Open data and code used for ONS subnational data conference",
+    "section": "References from the presentation:",
+    "text": "References from the presentation:\n\nRice / Venables: “The persistent consequences of adverse shocks: how the 1970s shaped UK regional inequality” here\nSarah Willams, Data Action: Using Data for Public Good.\nMartin A. Schwartz, “The Importance of Stupidity in Scientific Research.” Journal of Cell Science 121.\nPeter Tennant on Bluesky talking about how we grow and why we need an open mind and be willing to be wrong."
+  },
+  {
+    "objectID": "posts/ons_subnational_data_conf/index.html#bits-i-didnt-get-to-leave-in-the-slides",
+    "href": "posts/ons_subnational_data_conf/index.html#bits-i-didnt-get-to-leave-in-the-slides",
+    "title": "Open data and code used for ONS subnational data conference",
+    "section": "Bits I didn’t get to leave in the slides",
+    "text": "Bits I didn’t get to leave in the slides\n\nAnalysis of ONS business demography data that links local authorities across the dataset, including business ‘efficiency’ (balance of births and deaths) showing something shifted in more recent years in the south. (I write about automating your way out of an Excel data hole for this project here\nThe incredible Dutch secure data service data used in our Rotterdam project - paper here, supplementary material with a map here. Individual-level data! 100m^2, track over time! Link to other survey data! Secure, trustworthy, easy to use!\nNorthern Irish Census data - summarised down to 100m^2. Allows you to e.g. see Belfast like this (interactive map)."
   }
 ]
