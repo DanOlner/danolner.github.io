@@ -53,7 +53,7 @@
     "href": "posts/ons_subnational_data_conf/index.html",
     "title": "Open data and code used for ONS subnational data conference",
     "section": "",
-    "text": "Off the back of presenting at the ONS subnational data conference, thought I’d collect (1) the key open data / code bits I used in the slides and (2) a few other open data bits and bobs in the same place, as well as a few extra bits mentioned in there.\nThere’s a mix here of step by step data walkthroughs and raw code: I want to work on getting more of this into a form that’s useable by more people. Part of that is testing what actually is useful and iterating.\nI’ll add in some to-do notes on things that need updating / changing / improving and change this page as those get done."
+    "text": "Off the back of presenting at the ONS subnational data conference, thought I’d collect (1) the key open data / code bits I used in the slides and (2) a few other open data bits and bobs in the same place, as well as a few extra bits mentioned in there.\nThe presentation talks about how powerful ONS data can be for telling stories about where in the UK we’ve come from and where we are – and so help us work out where we’re going.\nThere’s a mix here of step by step data walkthroughs and raw code: I want to work on getting more of this into a form that’s useable by more people. Part of that is testing what actually is useful and iterating.\nI’ll add in some to-do notes on things that need updating / changing / improving and change this page as those get done."
   },
   {
     "objectID": "posts/ons_subnational_data_conf/index.html#data-and-code-used",
