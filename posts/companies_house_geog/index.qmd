@@ -1,0 +1,8 @@
+---
+title: "Geographical clustering of businesses, companies house edition"
+author: "Dan Olner"
+date: "2024-11-20"
+categories: [code,firms,geo]
+draft: true
+---
+
