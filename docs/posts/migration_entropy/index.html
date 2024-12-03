@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dan Olner">
+<meta name="dcterms.date" content="2016-01-16">
+
+<title>Migration entropy – Dan Olner’s Data Dispatch</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Dan Olner’s Data Dispatch</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/DanOlner"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/danolner/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/danolner.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="simple-icons:bluesky" aria-label="Icon bluesky from simple-icons Iconify.design set." title="Icon bluesky from simple-icons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.danolner.net/"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="simple-icons:wordpress" aria-label="Icon wordpress from simple-icons Iconify.design set." title="Icon wordpress from simple-icons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Migration entropy</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">migration</div>
+                <div class="quarto-category">modelling</div>
+                <div class="quarto-category">segregation</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Dan Olner </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 16, 2016</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="preamble" class="level1">
+<h1>Preamble</h1>
+<p>One of the parts of my new job (both <a href="https://www.sheffield.ac.uk/smi">here</a> and <a href="http://ubdc.ac.uk/">here</a>) is a project examining how migration and a host of other spatial-economic and social things interact. This is awesome news for me: the movement of people (and its interaction with the spatial economy) was both essential to the PhD and a mirror to the stuff in <a href="http://www.coveredinbees.org/node/411">GRIT</a>.</p>
+<p>I’ve got a long <strong>long</strong> way to go with the topic - some of the best social science has been done in this area for a long time, I’ve got a lot of catching up to do. So this post is just an initial, probably hugely misinformed, maybe plain dumb, ramble - <strong>and</strong> an excuse to build a little agent-based model in R (not sure I’ll be doing the latter again - back to Java and exporting result to R - but it was fun!)</p>
+<p>My initial hook into this post was hearing the idea of <a href="https://en.wikipedia.org/wiki/White_flight">white flight</a> (or ‘native flight’ too) in some presentations. The focus was specifically about how immigrants external to the UK might be causing this. With an agent-modelling head on, it feels like you could get something that has its characteristics while actually being little more than random movement plus spatial economics. And, especially, that one has to be very careful to separate out the driving economic forces from the people themselves. That might end up meaning exactly the same thing, but…</p>
+<p>To put it another way: I’ve got this, still currently very vague, sense that you could find statistically significant patterns just by arbitrarily labelling one bunch of people as ‘x’ and another ‘y’. Somewhat trivially obviously, you wouldn’t be able to do any quant work if those groups <strong>hadn’t</strong> been labelled differently - but I want to know if you arbitrarily labelled a random sample, perhaps, how would you tell the effects apart?</p>
+<p>A simple thought experiment to illustrate the point. Imagine a variation on <a href="https://en.wikipedia.org/wiki/Maxwell's_demon">Maxwell’s Demon</a>: a box with two halves, joined by a gap that, over time, produces a maximal entropy state, perfectly mixed. Initially all molecules are identical, but the demon has the power to arbitrarily deem 50% of the right-hand box as ‘blue’ and the rest across both boxes ‘red’.</p>
+<p>Suddenly, rather than an entirely boring statistical evenness, the red left are being invaded by blues (coming over ere with their entropy-maximising randomness). One could show this by measuring the percentage of red vs blue in the left box as it rapidly dropped (which I do below, with a few additions to this thought experiment). But nothing has changed apart from the labelling - the same particle motion is taking place.</p>
+<p>It’s a dumb idea but it gets the point across: there’s a labelling effect that could, in theory, mislead if the underlying process involved is not accounted for. Or alternatively, it’s not misleading at all if that designation of different groups is, in itself, a real feature of social life. Which it obviously is in some ways - but it’s still a tricksy idea. (Compare with <a href="https://www.youtube.com/watch?v=1iDxKskmB_k">Akala talking about</a> the, seemingly entirely arbitrary, difference between ‘immigrants’ and ‘ex-pats’.)</p>
+<p>Just to re-iterate, none of this is probably relevant to the work that triggered this thought. This is just me working through my intuition. I’m guessing it’s easy enough to distinguish area effects for places with the same overall characteristics/migration-flows but separate out the effect of differing groups. But let’s just carry on with the thought process anyhoo.</p>
+</section>
+<section id="coupla-lit-bits" class="level1">
+<h1>Coupla lit bits</h1>
+<p>There are a couple of facts from my first head-butt of the literature that jump out. First-up are the basic demographic differences involved. Not only do migrants from outside the UK tend to be much younger, but there’s a difference in <em>internal</em> migration rates between ethnic groups too (though obv, best not to conflate ethnicity and external migration!) This is analysed in <a href="http://onlinelibrary.wiley.com/doi/10.1002/psp.481/abstract">Finney/Simpson 2008</a>. Their key finding is that, once demographics are controlled for, ethnic groups in the UK -</p>
+<blockquote class="blockquote">
+<p>do not have a significantly different migration rate from the White Briton group when group composition is accounted for. [76]</p>
+</blockquote>
+<p>They also mention, in passing, that:</p>
+<blockquote class="blockquote">
+<p>accommodation that is privately rented is occupied by residents that are almost twice as likely to have migrated in the past year than the average resident.[72]</p>
+</blockquote>
+<p>And vice-versa - home-owners are much less likely to move, a finding that’s consistent across all groups. The <a href="http://epn.sagepub.com/content/36/9/1633">Fotheringham <em>et al</em> 2004</a> paper - a stupendous piece of work - looks just at out-migration rates (between 98 ‘family health service areas’) in England and Wales. They’d found -</p>
+<blockquote class="blockquote">
+<p>a strong positive relationship between out-migration rates and the proportion of nonwhite population in an FHSA…</p>
+</blockquote>
+<p>And, mechanism-wise, they saw two possibilities:</p>
+<blockquote class="blockquote">
+<p>The generally positive relationship could be caused by the white population leaving areas of mixed race or by nonwhite populations having higher migration rates.</p>
+</blockquote>
+<p>Finney/Simpson’s work suggests the latter - but that this is due to demographic differences. Also, Among the bzillion dynamics Fotheringham <em>et al</em> analyse, one that jumped out at me was:</p>
+<blockquote class="blockquote">
+<p>Higher out-migration rates are associated with areas of high employment growth, suggesting a high turnover effect operates in such areas. That is, in-migration volumes will be high into such areas because of high employment growth, but recent migrants tend to be highly mobile and out-migration rates are therefore also likely to be high. [1666]</p>
+</blockquote>
+<p>So we’ve got this high churn going on in economically attractive places - which also connects to the housing market, of course. More property-owning pushes an area away from this high-churn. And that could go both ways, couldn’t it? High turnover, from a Putnam perspective, could undermine some of social-capital formation and knock on to house prices. Those areas, if generally younger, might also be more urban, less desirable by older groups looking for family homes.</p>
+<p>Or prices could be pushed up if people are piling in - but you can see equilibrium pressures at work as out-migration rates increase too.</p>
+</section>
+<section id="model-pre-amble" class="level1">
+<h1>Model pre-amble</h1>
+<p>Which segues me nicely into to the following silly little model. I’ve got a very long way to fully mapping out the dynamics involved but, here, I just wanted to get started with something very basic. This post is <strong>also</strong> an attempt to persuade R to do a simple little agent/stochastic model. I’ll wibble a bit at the end about the coding experience…</p>
+<p>So this is a sorta-<a href="https://en.wikipedia.org/wiki/Agent-based_model">ABM</a> with zero-intelligence agents making the simplest probabilistic moves. It looks like this:</p>
+<ul>
+<li><strong>Nine hundred agents</strong> initially split evenly between <strong>three zones</strong>.</li>
+<li>All agents have the same <strong>1 in 100 chance</strong> of deciding to move on every timestep…
+<ul>
+<li>Though that 1 in 100 chance is <strong>weighted slightly</strong> by the population of their current zone. If it’s more than an even proportion of the total population, their chance of wanting to move is increased slightly, and vice versa.</li>
+</ul></li>
+<li>Once an agent decides to move, they have a different function to choose <em>where</em> to move.
+<ul>
+<li>For two-thirds of them, they have no preference - they’ll decide to either stay, or move to one of the other two, with equal probability (but weighted by population).</li>
+<li>One third of the agents, however, will have a preference for two of the zones (or a preference against one of them - same thing). This could be slight or large, depending on their preference set.</li>
+</ul></li>
+</ul>
+<p>A few things to note before getting to the code:</p>
+<ol type="1">
+<li><p>The 1/3 agents are arbitrary - it’s 1 in 3 in each zone initially but it doesn’t matter. This is one aspect of the way the problem is thought about that I’d like to be sure I’m thinking straight on - if one (a) marks out a group of people as a specific sub-group and then (b) examine how that sub-group’s flows affect others’, might the result be an artifact of the labelling itself?</p></li>
+<li><p>I haven’t dug into the original pieces of research in enough depth to make any sweeping statements. So, just to be clear, this piece isn’t in any way meant as a criticism of anyone else’s approach - it’s entirely just me thinking through some of the most trivially basic mechanisms that might be involved.</p></li>
+<li><p>The population-weighted probability of moving I’m using is a way to push zone numbers back to equilibrium. It could stand in for any kind of pressure to move that agents might come under, from house prices to environment. I’m also aware there are plenty of mechanisms, in reality, that can make larger zones <strong>more</strong> attractive, not less, e.g.&nbsp;through Krugmanesque increasing returns feedbacks. The assumption here is that all those forces balance to a net-negative response to higher population.</p></li>
+<li><p>Since I haven’t posted one of these little models for a while, I should point out that, not only do I think this kind of simple model is useful, I believe they can be extremely powerful and criticisms about lack of realism miss the point. See <a href="https://github.com/DanOlner/PhD-thesis-n-code">PhD chapter 3</a>. But then I would say that, I suppose.</p></li>
+</ol>
+<p>Right, that’s a lot of wiffle. On to…</p>
+</section>
+<section id="the-actual-code.-1-set-up." class="level1">
+<h1>The actual code. 1: Set up.</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)<span class="co">#For running means</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>‘Store’ just stores each timestep’s data for outputting once the model’s run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Store of time series data (to match how table gets converted to dataframe for rbinding)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Time is iteration</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>store <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">zone =</span> <span class="fu">as.integer</span>(), </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">agent_type =</span> <span class="fu">as.integer</span>(),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">number_of_agents =</span> <span class="fu">as.integer</span>(),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">time =</span> <span class="fu">as.integer</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then set per-zone population, each agent’s base probability of moving and the number of timesteps (though note below, I’ve hard-coded stuff that only works with 300 agents per zone… oops).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#population per zone</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#(so they can be evenly distributed to zones to start with)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">300</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#probability of an agent wanting to move on each turn</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#1 in 100</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fl">0.01</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#iterations</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ites <span class="ot">=</span> <span class="dv">1500</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As mentioned, there are two <strong>agent types</strong>: two-thirds of agents don’t care where they move, if they’ve decided to move. The other third have a preference. These two preferences are set by giving each agent type its own vector for selecting a zone to move to.</p>
+<p>This was one easy way of defining how a sub-group can be biased towards two zones: if, as here, their choice vector is 10 / 10 / 1, they only have a 1 in 21 chance of deciding to move to zone 3. (Note the range of other preferences for ‘bias’ in the comments.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#even probability of choosing any zone (including my own)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>even <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="at">each =</span> <span class="dv">10</span>),<span class="fu">rep</span>(<span class="dv">2</span>,<span class="at">each =</span> <span class="dv">10</span>),<span class="fu">rep</span>(<span class="dv">3</span>,<span class="at">each =</span> <span class="dv">10</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#preference for zones one and two</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Slight preference</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># bias &lt;- c(rep(1,each = 10),rep(2,each = 10),rep(3,each = 8))</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Weaker preference</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># bias &lt;- c(rep(1,each = 10),rep(2,each = 10),rep(3,each = 3))</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Even weaker preference for one zone (thus stronger for other two)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>bias <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="at">each =</span> <span class="dv">10</span>),<span class="fu">rep</span>(<span class="dv">2</span>,<span class="at">each =</span> <span class="dv">10</span>),<span class="fu">rep</span>(<span class="dv">3</span>,<span class="at">each =</span> <span class="dv">1</span>))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Won't ever choose 3 (useful for testing assignment works)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># bias &lt;- c(rep(1,each = 10),rep(2,each = 10)) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Each ‘agent’ is just a row in a dataframe. Each row has an agent’s current zone, whether it’s going to move this turn and a reference to its preference (!). So it’s here that we set 2/3s of agents to ‘don’t care which zone’ (even) and 1/3 to ‘bias’.</p>
+<p>A probability column gets added further below that determines their first decision - ‘shall I move this turn?’ Like most agent models, this is a little bit markov-chainy. I think.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#THE AGENTS:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Keep them all in a single long dataframe</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#assign agents to zones initially evenly</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#One row per agent</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#'moving' is flag: am I moving this turn?</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#'prob': flag for which zone probability to use. </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#0 is even; 1 is biased</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Set a third of agents to prefer zones 1 and 2.</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Distribute them evenly between zones to start with</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>agents <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">zone =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="at">each =</span> n), </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">moving =</span> <span class="dv">0</span>, </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">prob =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">times =</span> n))<span class="co">#codes 2/3 majority</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Just to show exactly what that creates: Zones 1 to 3 each have 300 agents in, and there are 200 who don’t care where they move to (0) and a hundred (1) that will use the ‘bias’ probability.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(agents<span class="sc">$</span>zone, agents<span class="sc">$</span>prob)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+      0   1
+  1 200 100
+  2 200 100
+  3 200 100</code></pre>
+</div>
+</div>
+<p>Each timestep produces a ‘result’ table that summarises the number and type of agent per zone. Each of these ‘results’ goes into the ‘store’ dataframe for graphing later. But we need an initial ‘result’ to start with, as it’s used to work out how to weight moving probability on the next timestep - but the first timestep needs one too! So this one is just hard-coded to match the agent table above. I should probably work out how not to hard-code this. I’m not going to right now. So!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#WARNING: hard-coding the numbers for this first set of values based on 900 agents in total</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#and a 2/3 majority</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#So this matches store structure and initial agent state:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">zone =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times =</span> <span class="dv">2</span>), </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">agent_type =</span> <span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,<span class="at">each =</span> <span class="dv">3</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">number_of_agents =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">200</span>,<span class="at">each=</span><span class="dv">3</span>),<span class="fu">rep</span>(<span class="dv">100</span>,<span class="at">each=</span><span class="dv">3</span>)),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">time =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And that’s everything set up. On to -&gt;</p>
+</section>
+<section id="running-the-model" class="level1">
+<h1>2: Running the model…</h1>
+<p>Here’s the model for-loop itself:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">###########</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># RUNRUNRUN</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>ites) {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#1. Weight probability of moving by population in each zone</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Find zone population for this timestep</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  zonepop <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(result<span class="sc">$</span>number_of_agents, <span class="at">by=</span><span class="fu">list</span>(result<span class="sc">$</span>zone),sum)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Sensible names for following the logic...</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(zonepop) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'zone'</span>,<span class="st">'population'</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Weight probability of moving by population difference from even</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># zonepop$newprob &lt;- (zonepop$x/(n)) * p</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#raise to power to make a larger effect (but 1 stays 1)</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  zonepop<span class="sc">$</span>newprob <span class="ot">&lt;-</span> ((zonepop<span class="sc">$</span>population<span class="sc">/</span>(n))<span class="sc">^</span><span class="dv">4</span>) <span class="sc">*</span> p</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#drop any previous newprob column from agents</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  agents<span class="sc">$</span>newprob <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Merge the probability for each zone into the agents</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">#zonepop columns one and three is just 'zone' (for matching)</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">#and the new probability of moving</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  agents <span class="ot">&lt;-</span> <span class="fu">merge</span>(agents, zonepop[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)], <span class="at">by =</span> <span class="st">'zone'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This first section weights each agent’s probability of moving to the size of the zone they’re in. We know the populations are all even on the first step, so the initial ‘result’ above just uses the base probability, but on future steps it’s higher if more crowded, lower if less.</p>
+<p>Note that the probability-calculating line raises the ‘zone population’/‘agent number’ ratio to the power of 4. This makes any deviation from an even population have an increasingly strong effect on agent’s likelihood of deciding to move (or stay, if the population’s lower than even.)</p>
+<p>And then this just returns 1 if I’m deciding to move on this timestep:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#2. Using weighted prob... Am I moving this turn?</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  agents<span class="sc">$</span>moving <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="fu">nrow</span>(agents), <span class="dv">1</span> , agents<span class="sc">$</span>newprob)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can see this produces roughly a 1 in 100 chance of each agent moving…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">rbinom</span>(<span class="fu">nrow</span>(agents), <span class="dv">1</span> , agents<span class="sc">$</span>newprob))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+892   8 </code></pre>
+</div>
+</div>
+<p>But if population is higher in all zones (which it can’t be in the model, but just to illustrate). 10 times the current probability of 0.01 is about 1 in 10 deciding to move:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">rbinom</span>(<span class="fu">nrow</span>(agents), <span class="dv">1</span> , <span class="fu">rep</span>(<span class="dv">10</span> <span class="sc">*</span> p,<span class="fu">nrow</span>(agents))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+823  77 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">rbinom</span>(<span class="fu">nrow</span>(agents), <span class="dv">1</span> , <span class="fu">rep</span>(<span class="dv">10</span> <span class="sc">*</span> p,<span class="fu">nrow</span>(agents))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+803  97 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">rbinom</span>(<span class="fu">nrow</span>(agents), <span class="dv">1</span> , <span class="fu">rep</span>(<span class="dv">10</span> <span class="sc">*</span> p,<span class="fu">nrow</span>(agents))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+813  87 </code></pre>
+</div>
+</div>
+<p>And if lower in all zones, agents are more likely to stay put:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">rbinom</span>(<span class="fu">nrow</span>(agents), <span class="dv">1</span> , <span class="fu">rep</span>(<span class="fl">0.1</span> <span class="sc">*</span> p,<span class="fu">nrow</span>(agents))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+898   2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">rbinom</span>(<span class="fu">nrow</span>(agents), <span class="dv">1</span> , <span class="fu">rep</span>(<span class="fl">0.1</span> <span class="sc">*</span> p,<span class="fu">nrow</span>(agents))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+899   1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">rbinom</span>(<span class="fu">nrow</span>(agents), <span class="dv">1</span> , <span class="fu">rep</span>(<span class="fl">0.1</span> <span class="sc">*</span> p,<span class="fu">nrow</span>(agents))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0 
+900 </code></pre>
+</div>
+</div>
+<p>For those who <strong>are</strong> moving, in this next step, they decide where to go. The fiddly part here are the two selections from the ‘even’ and ‘bias’ vectors that tell agents which zone they’re moving to. To explain it as much for my own later sanity as anything, here’s what’s going on. We’re just selecting a random index from each of them. In the case of ‘even’, 1,2 and 3 have the same chance of being chosen (as can be seen if we whack the number of random selections right up). Whereas ‘bias’ ends up telling about a tenth the number of biased agents to move to #3:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(even[<span class="fu">floor</span>(<span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">1000000</span>, <span class="at">min=</span><span class="dv">1</span>, <span class="at">max=</span><span class="fu">length</span>(even)<span class="sc">+</span><span class="dv">1</span>))])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     1      2      3 
+333529 332695 333776 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bias[<span class="fu">floor</span>(<span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">1000000</span>, <span class="at">min=</span><span class="dv">1</span>, <span class="at">max=</span><span class="fu">length</span>(bias)<span class="sc">+</span><span class="dv">1</span>))])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     1      2      3 
+475498 477214  47288 </code></pre>
+</div>
+</div>
+<p>In the zone selection itself, each random selection is the same length as agents of that type. As the comments note, I’m a little amazed this works - I’m not really clear on how that random vector can be created and then, via an ifelse, be assigned to the correct index… oh well, it works!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#3. If moving, where to?</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  agents<span class="sc">$</span>zone <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(agents<span class="sc">$</span>moving <span class="sc">==</span> <span class="dv">1</span>,<span class="co">#If I decided to move...</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">ifelse</span>(agents<span class="sc">$</span>prob<span class="sc">==</span><span class="dv">0</span>,<span class="co">#Move based on my preference of zone (or no preference)</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                               even[<span class="fu">floor</span>(<span class="fu">runif</span>(<span class="at">n =</span> <span class="fu">nrow</span>(agents[agents<span class="sc">$</span>prob<span class="sc">==</span><span class="dv">0</span>,]), <span class="at">min=</span><span class="dv">1</span>, <span class="at">max=</span><span class="fu">length</span>(even)<span class="sc">+</span><span class="dv">1</span>))],</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>                               bias[<span class="fu">floor</span>(<span class="fu">runif</span>(<span class="at">n =</span> <span class="fu">nrow</span>(agents[agents<span class="sc">$</span>prob<span class="sc">==</span><span class="dv">1</span>,]), <span class="at">min=</span><span class="dv">1</span>, <span class="at">max=</span><span class="fu">length</span>(bias)<span class="sc">+</span><span class="dv">1</span>))]),</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>                        agents<span class="sc">$</span>zone</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Explanation for the zone selection above, since I'll probably forget.</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Choose a random position from my (either even or biased/weighted) array of zone choices</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Passing in a uniform random pick from each of the choice arrays</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Of the correct length (the nrow subset)</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#It's still some form of witchcraft though - how does R know to distribute</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#the result to the correct index via the ifelse???</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The result for this timestep is then stuck into the store for output later (also adding in a column to mark the current iteration). Converting a table to a data.frame reshapes it so it’s the right orientation to bind to the ongoing ‘store’ of results:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#GET THE RESULT OF THIS ITERATION AND STORE IT</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#automatically reshapes, it turns out</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#so zone is in first column, zone pref type in second</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(agents<span class="sc">$</span>zone,agents<span class="sc">$</span>prob))</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Rename those fields to something sensible</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(result) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'zone'</span>,<span class="st">'agent_type'</span>,<span class="st">'number_of_agents'</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#mark what iteration it is</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  result<span class="sc">$</span>time <span class="ot">&lt;-</span> i</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Then add this step to the end of the data store</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  store <span class="ot">&lt;-</span> <span class="fu">rbind</span>(store, result)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="er">}</span><span class="co">#end for</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="display-results" class="level1">
+<h1>Display results</h1>
+<p>So that’s the results found. Now to show ’em. First-up, let’s add some extra data for total population per zone on each timestep:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Find "total population in each zone at each iteration"</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Will be added as an extra bunch of rows to the output dataframe</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co">#To fit the 'long' format ggplot wants</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>totpop_perzone_timestep <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(store<span class="sc">$</span>number_of_agents, <span class="at">by=</span><span class="fu">list</span>(store<span class="sc">$</span>zone, store<span class="sc">$</span>time), sum)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(totpop_perzone_timestep) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"zone"</span>,<span class="st">"time"</span>,<span class="st">"number_of_agents"</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Make a new column for faceting the data.</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co">#This one will be total population per zone</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>totpop_perzone_timestep<span class="sc">$</span>facet <span class="ot">&lt;-</span> <span class="st">'total pop'</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Relabel store's two agent types so each can have its own facet</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>store<span class="sc">$</span>facet <span class="ot">&lt;-</span> <span class="st">'agent-type: no pref'</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>store<span class="sc">$</span>facet[store<span class="sc">$</span>agent_type<span class="sc">==</span><span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">'agent-type: bias'</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Drop old agent_type column</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>store<span class="sc">$</span>agent_type <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="co">#Stick 'em together in a new store</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>store2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(store,totpop_perzone_timestep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now the data’s ready - just one nice little addition by combining ddply and rollmean from the zoo package to give us a running mean. This can help show the trend over time in a simple way. This sort of thing is really satisfying in R, when it works. One line! So ddply is applying the running mean for the number of agents in each zone/facet sub-group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Running mean...</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>smood <span class="ot">&lt;-</span> <span class="fu">ddply</span>(store2, .(zone,facet), mutate, </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">rollingmean =</span> <span class="fu">rollmean</span>(number_of_agents,<span class="dv">250</span>,<span class="at">fill =</span> <span class="fu">list</span>(<span class="cn">NA</span>, <span class="cn">NULL</span>, <span class="cn">NA</span>)))</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(smood) <span class="sc">+</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> smood, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> number_of_agents, <span class="at">colour =</span> zone), <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> smood, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> rollingmean, <span class="at">colour =</span> zone)) <span class="sc">+</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>facet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 747 rows containing missing values or values outside the scale range
+(`geom_line()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And there’s the basic result, then:</p>
+<ul>
+<li>The ‘bias’ agents (left-hand plot) move more to zones 1 and 2, as you’d expect.</li>
+<li>The ‘even’ agents in the middle plot, who (all other things being equal) don’t care where they go, end up having a larger number in zone 3 as they respond to the pressure of increasing population. Remember, that pressure is only coming from one-third of the agents.</li>
+<li>Overall, zones 1 and 2 end up with higher total populations because of the minority groups’ preferences.</li>
+</ul>
+<p>I’ve not tested whether/at what point the ‘bias’ agents’ preference function wouldn’t outweigh the population push but, here at least, their large preference for those two zones wins out.</p>
+<p>To look at it from another perspective, the following re-jigs the data so we have the <strong>proportion</strong> of ‘even’ vs ‘bias’ agents in each zone:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Different output for looking at the proportion change of the two groups in each zone</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Use the original 'store' for this</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Convert wide so that each agent type has its own column</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co">#To make finding proportion  per zone easier</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>proportions <span class="ot">&lt;-</span> <span class="fu">dcast</span>(store, zone<span class="sc">+</span>time <span class="sc">~</span> facet, <span class="at">value.var =</span> <span class="st">"number_of_agents"</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Proportion of majority as percentage of whole</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>proportions<span class="sc">$</span>percent_majority <span class="ot">&lt;-</span> (proportions<span class="sc">$</span><span class="st">`</span><span class="at">agent-type: no pref</span><span class="st">`</span><span class="sc">/</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>                       (proportions<span class="sc">$</span><span class="st">`</span><span class="at">agent-type: bias</span><span class="st">`</span><span class="sc">+</span>proportions<span class="sc">$</span><span class="st">`</span><span class="at">agent-type: no pref</span><span class="st">`</span>))<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(proportions, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> percent_majority, <span class="at">colour =</span> zone)) <span class="sc">+</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() </span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Zones 1 and 2 see a lot of ‘even-agent flight’, it seems. Which makes perfect sense given the trivially simple dynamic: it’s nothing more than a response to some equilibrium pressure as one group who prefers a zone (for whatever reason) decides to move there.</p>
+<p>All agents, regardless of type, are affected in the same way by population pressure: their decision <strong>to</strong> move is the same. They only differ in where they prefer to move to. Many of the ‘bias’ group prefer to move somewhere in the same zone or a similar one.</p>
+<p>I’m really labouring the point now, I know, but… the point being, assigning causality here is a little murky. Without the ‘bias’ groups’ preference, the ‘evens’ wouldn’t end up dominating zone 3.</p>
+<p>This is, in a way, just a slightly different take on the Schelling segregation dynamic, except that it’s not about people’s preferences for any particular type of neighbour, but rather <strong>some</strong> people’s preferences for particular places, and what the knock-on effects of that could be.</p>
+</section>
+<section id="random-coding-wibble" class="level1">
+<h1>Random coding wibble</h1>
+<p>So that’s enough ill-informed migration wiffle. On to coding wibble. That was in some ways amazingly easy to set up, and R does some things just beautifully. The tricky part: I went away for a month and then it took me about two hours of staring to figure out how it worked. I fixed that by naming variables sensibly. Phew.</p>
+<p>As far as I was able to figure, there was no way to circumvent the main for-loop and subsequently it’s pretty slow. “As far as I was able to figure” isn’t very much, so perhaps there’s a way of making this more R-native - though I suspect the kind of non-ergodic timestep processes that drive ABM might not be R’s forte. Though though: the slow part is actually the rbinding and table-making, so there may be another way.</p>
+<p>On the plus side, I can write it up like this in RMarkdown… though perhaps Python will let me do that too, if I can get round to trying it. And my first thought on coming back to the model after a break: if this were Java, it would be perhaps make a lot more sense right now, and running faster. OOP and ABM go together: it’s very easy to see what the agents are. Here, pleasing in its brevity but challenging to keep all the working parts in mind.</p>
+<p><img src="modelplot.png" class="img-fluid"></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
