@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Dan Olner">
+<meta name="dcterms.date" content="2016-12-07">
 
-<title>Dan Olner’s Data Dispatch</title>
+<title>Pub crawl optimiser – Dan Olner’s Data Dispatch</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,77 +69,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Dan Olner’s Data Dispatch</span>
     </a>
   </div>
@@ -150,7 +92,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -181,272 +123,74 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Dan Olner’s Data Dispatch</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Pub crawl optimiser</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">teaching</div>
+                <div class="quarto-category">geo</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Dan Olner </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 7, 2016</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(3)</span></div><div class="category" data-category="firms">firms <span class="quarto-category-count">(2)</span></div><div class="category" data-category="geo">geo <span class="quarto-category-count">(2)</span></div><div class="category" data-category="gumph">gumph <span class="quarto-category-count">(1)</span></div><div class="category" data-category="io">io <span class="quarto-category-count">(1)</span></div><div class="category" data-category="migration">migration <span class="quarto-category-count">(1)</span></div><div class="category" data-category="modelling">modelling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ons">ons <span class="quarto-category-count">(2)</span></div><div class="category" data-category="planning">planning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="segregation">segregation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="teaching">teaching <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="spatial-r-for-social-good" class="level1">
+<h1>Spatial R for social good!</h1>
+<p>Well maybe. <a href="http://sheffieldr.github.io/">Sheffield R User Group</a> kindly invited me to wiffle at them about an R topic of my choosing. So I chose two. As well as taking the chance to share my pain in coding the analysis for <a href="http://www.climatexchange.org.uk/reducing-emissions/impact-wind-farms-property-prices/">this windfarms project</a>, I thought I’d bounce up and down about how great R’s spatial stuff is for anyone who hasn’t used it. It’s borderline magical.</p>
+<p>So by way of introduction to spatial R, and to honour the R User Group’s <a href="http://www.red-deer-sheffield.co.uk/">venue of choice</a>, I present the <strong><a href="https://github.com/DanOlner/optimalPubCrawl">Pub Crawl Optimiser</a></strong>.</p>
+<p>I’ve covered everything that it does in the code comments, along with links. But just to explain, there were a few things I wanted to get across. (A lot of this is done better and in more depth at my <a href="https://cran.r-project.org/doc/contrib/intro-spatial-rl.pdf">go-to intro to spatial R</a> by Robin Lovelace and James Cheshire.) The following points have matching sections in the <a href="https://github.com/DanOlner/optimalPubCrawl/blob/master/pubCrawlOptimiser.R">pubCrawlOptimiser.R</a> code.</p>
+<ul>
+<li><p><strong>The essentials of spatial datasets</strong>: (in ‘subset pubs’) - how to load or make them from points and polygons, how to use one to easily subset the other using R’s existing dataframe syntax. How to set coordinate reference systems and project something to a different one, so everything’s in the same CRS and will happily work together. (The Travel to Work Area shapefile is included in the project data folder.)</p></li>
+<li><p><strong>Working with JSON and querying services</strong>: a couple of examples of loading and processing JSON data using the <a href="https://cran.r-project.org/web/packages/jsonlite/index.html">jsonlite package</a>, including asking google to tell us the time it takes between pubs - accounting for hilliness. This is <a href="http://mdfs.net/Docs/Sheffield/Hills/">very important in Sheffield</a> if one wants to move optimally between pubs. Pub data is downloaded separately from <a href="http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dpub">OpenStreetMap</a> but we query OSM directly to work out the centroids of pubs supplied as <a href="http://wiki.openstreetmap.org/wiki/Way">ways</a>.</p></li>
+<li><p><strong>A little spatial analysis task</strong> using the <a href="https://cran.r-project.org/web/packages/TSP/index.html">TSP package</a> to find shortest paths between our list of pubs - both for asymmetric matrices with different times depending on direction, and symmetric ones just using distance.</p></li>
+<li><p><strong>Plotting the results</strong> using ggmap to get a live OSM map for Sheffield. Note how easy it is to just drop TSP’s integer output into geom_path’s data to plot the route of the optimal pub crawl.</p></li>
+<li><p>There’s also <a href="https://github.com/DanOlner/optimalPubCrawl/blob/master/realAlePubs_spatialDependence.R">a separate script</a> looking at creating a <strong>spatial weights matrix</strong> to examine spatial dependence. These are easy to create and do very handy jobs with little effort - e.g.&nbsp;if we want to know what the average number of real ale pubs per head of population in neighbouring zones, it’s just the weights matrix multiplied by our vector of zones.</p></li>
+</ul>
+<p>The very first part of code that’s processing pub data downloaded from OSM - couple of things to note:</p>
+<ul>
+<li>Just follow the <a href="http://overpass-turbo.eu/">overpass turbo link</a> via the <a href="http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dpub">pub tag wiki page</a>.</li>
+<li>I remove the relations line ( <em>relation[“amenity”=“pub”]({{bbox}});</em> ) just to keep nodes and ways.</li>
+<li>Once you’ve selected an area and downloaded the raw JSON, the R code runs through it to create a dataframe of pubs, keeping only those with names. It also runs through any that are ways (shapes describing the pub building), finds their points and averages them as a rough approximation of those pubs’ point location. I could have selected a smaller subset of data right here, of course, but wanted to show a typical spatial subsetting task.</li>
+</ul>
+<p>A couple of friends have actually suggested attempting the 29 pub crawl in the code (below, starting at the Red Deer and ending at the Bath Hotel). I am not sure that would be wise.</p>
+<p>So what would you want to see in an essential introduction to spatial R for anyone new to it?</p>
+<p><img src="https://raw.githubusercontent.com/DanOlner/optimalPubCrawl/master/images/optimal.png" width="550"></p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="code,ons,planning" data-listing-date-sort="1731196800000" data-listing-file-modified-sort="1731525457756" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="675">
-<div class="thumbnail">
-<p><a href="./posts/ons_subnational_data_conf/index.html" class="no-external"></a></p><a href="./posts/ons_subnational_data_conf/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/ons_subnational_data_conf/shock7181.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/ons_subnational_data_conf/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ons_subnational_data_conf/index.html" class="no-external">Open data and code used for ONS subnational data conference</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/ons_subnational_data_conf/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ons'); return false;">
-ons
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('planning'); return false;">
-planning
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/ons_subnational_data_conf/index.html" class="no-external">Off the back of presenting at the ONS subnational data conference, this post collects the open data / code I used in the slides, as well as a few extra bits mentioned in…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/ons_subnational_data_conf/index.html" class="no-external">
-<div class="listing-date">
-Nov 10, 2024
-</div>
-<div class="listing-author">
-Dan Olner
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="code,ons,firms" data-listing-date-sort="1730764800000" data-listing-file-modified-sort="1731497310799" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="427">
-<div class="thumbnail">
-<p><a href="./posts/business_demography/index.html" class="no-external"></a></p><a href="./posts/business_demography/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/business_demography/excel_hell2.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/business_demography/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/business_demography/index.html" class="no-external">How to automate your way out of Excel hell &amp; other ONS data wrangling stories (business demography edition)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/business_demography/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ons'); return false;">
-ons
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('firms'); return false;">
-firms
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/business_demography/index.html" class="no-external">I’ve been analysing the latest ONS business demography data (that ONS pull from the IDBR). It contains a tonne of great data on business births, deaths, numbers, ‘high…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/business_demography/index.html" class="no-external">
-<div class="listing-date">
-Nov 5, 2024
-</div>
-<div class="listing-author">
-Dan Olner
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="gumph" data-listing-date-sort="1730678400000" data-listing-file-modified-sort="1731498849028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="163">
-<div class="thumbnail">
-<p><a href="./posts/welcome/index.html" class="no-external"></a></p><a href="./posts/welcome/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/welcome/kittenonunicorn.jpeg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/welcome/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/welcome/index.html" class="no-external">What this situation needs is another blog, said no-one ever</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/welcome/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('gumph'); return false;">
-gumph
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/welcome/index.html" class="no-external">“Another blog! Thank the Gods! Blogging is so <em>now</em>, isn’t it?”</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html" class="no-external">
-<div class="listing-date">
-Nov 4, 2024
-</div>
-<div class="listing-author">
-Dan Olner
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="code,teaching,geo" data-listing-date-sort="1481068800000" data-listing-file-modified-sort="1733234518419" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="598">
-<div class="thumbnail">
-<p><a href="./posts/pubcrawloptimiser/index.html" class="no-external"></a></p><a href="./posts/pubcrawloptimiser/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/pubcrawloptimiser/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pubcrawloptimiser/index.html" class="no-external">Pub crawl optimiser</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pubcrawloptimiser/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('teaching'); return false;">
-teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('geo'); return false;">
-geo
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/pubcrawloptimiser/index.html" class="no-external">Well maybe. Sheffield R User Group kindly invited me to wiffle at them about an R topic of my choosing. So I chose two. As well as taking the chance to share my pain in…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/pubcrawloptimiser/index.html" class="no-external">
-<div class="listing-date">
-Dec 7, 2016
-</div>
-<div class="listing-author">
-Dan Olner
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="migration,modelling,segregation" data-listing-date-sort="1452902400000" data-listing-file-modified-sort="1733233844515" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="23" data-listing-word-count-sort="4536">
-<div class="thumbnail">
-<p><a href="./posts/migration_entropy/index.html" class="no-external"></a></p><a href="./posts/migration_entropy/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/migration_entropy/index_files/figure-html/unnamed-chunk-18-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/migration_entropy/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/migration_entropy/index.html" class="no-external">Migration entropy</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/migration_entropy/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('migration'); return false;">
-migration
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('modelling'); return false;">
-modelling
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('segregation'); return false;">
-segregation
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/migration_entropy/index.html" class="no-external">One of the parts of my new job (both here and here) is a project examining how migration and a host of other spatial-economic and social things interact. This is awesome…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/migration_entropy/index.html" class="no-external">
-<div class="listing-date">
-Jan 16, 2016
-</div>
-<div class="listing-author">
-Dan Olner
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="firms,geo,io" data-listing-date-sort="1416960000000" data-listing-file-modified-sort="1733232500211" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="783">
-<div class="thumbnail">
-<p><a href="./posts/uk_intermediate_tradeflows/index.html" class="no-external"></a></p><a href="./posts/uk_intermediate_tradeflows/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/uk_intermediate_tradeflows/io.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/uk_intermediate_tradeflows/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/uk_intermediate_tradeflows/index.html" class="no-external">UK trade flows</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/uk_intermediate_tradeflows/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('firms'); return false;">
-firms
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('geo'); return false;">
-geo
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('io'); return false;">
-io
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/uk_intermediate_tradeflows/index.html" class="no-external">This is one of the fun things I coded up in the process of developing the last grant I worked on. I’ll explain a bit about it and then share some thoughts on whether it’s…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/uk_intermediate_tradeflows/index.html" class="no-external">
-<div class="listing-date">
-Nov 26, 2014
-</div>
-<div class="listing-author">
-Dan Olner
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
