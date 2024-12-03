@@ -33,4 +33,4 @@ A couple of friends have actually suggested attempting the 29 pub crawl in the c
 
 So what would you want to see in an essential introduction to spatial R for anyone new to it?
 
-<img src="https://raw.githubusercontent.com/DanOlner/optimalPubCrawl/master/images/optimal.png" width="550"/>
+![](optimal.png)
