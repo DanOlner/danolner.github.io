@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Dan Olner’s Data Dispatch",
     "section": "",
-    "text": "Outputs live list (currently for Y-PERN)\n\n\n\n\n\n\nplanning\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nOpen data and code used for ONS subnational data conference\n\n\n\n\n\n\ncode\n\n\nons\n\n\nplanning\n\n\n\n\n\n\n\n\n\nNov 10, 2024\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nHow to automate your way out of Excel hell & other ONS data wrangling stories (business demography edition)\n\n\n\n\n\n\ncode\n\n\nons\n\n\nfirms\n\n\n\n\n\n\n\n\n\nNov 5, 2024\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nWhat this situation needs is another blog, said no-one ever\n\n\n\n\n\n\ngumph\n\n\n\n\n\n\n\n\n\nNov 4, 2024\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nPub crawl optimiser\n\n\n\n\n\n\ncode\n\n\nteaching\n\n\ngeo\n\n\n\n\n\n\n\n\n\nDec 7, 2016\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nMigration entropy\n\n\n\n\n\n\nmigration\n\n\nmodelling\n\n\nsegregation\n\n\n\n\n\n\n\n\n\nJan 16, 2016\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nUK trade flows\n\n\n\n\n\n\nfirms\n\n\ngeo\n\n\nio\n\n\n\n\n\n\n\n\n\nNov 26, 2014\n\n\nDan Olner\n\n\n\n\n\n\nNo matching items"
+    "text": "Outputs live list\n\n\n\n\n\n\nplanning\n\n\n\n\n\n\n\n\n\nFeb 12, 2025\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nOpen data and code used for ONS subnational data conference\n\n\n\n\n\n\ncode\n\n\nons\n\n\nplanning\n\n\n\n\n\n\n\n\n\nNov 10, 2024\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nHow to automate your way out of Excel hell & other ONS data wrangling stories (business demography edition)\n\n\n\n\n\n\ncode\n\n\nons\n\n\nfirms\n\n\n\n\n\n\n\n\n\nNov 5, 2024\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nWhat this situation needs is another blog, said no-one ever\n\n\n\n\n\n\ngumph\n\n\n\n\n\n\n\n\n\nNov 4, 2024\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nPub crawl optimiser\n\n\n\n\n\n\ncode\n\n\nteaching\n\n\ngeo\n\n\n\n\n\n\n\n\n\nDec 7, 2016\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nMigration entropy\n\n\n\n\n\n\nmigration\n\n\nmodelling\n\n\nsegregation\n\n\n\n\n\n\n\n\n\nJan 16, 2016\n\n\nDan Olner\n\n\n\n\n\n\n\n\n\n\n\n\nUK trade flows\n\n\n\n\n\n\nfirms\n\n\ngeo\n\n\nio\n\n\n\n\n\n\n\n\n\nNov 26, 2014\n\n\nDan Olner\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -16,9 +16,9 @@
   {
     "objectID": "posts/business_demography/index.html",
     "href": "posts/business_demography/index.html",
-    "title": "Outputs live list (currently for Y-PERN)",
+    "title": "Outputs live list",
     "section": "",
-    "text": "A live list of stuff I’ve made in my policy fellow role, working with Y-PERN, University of Sheffield Management School and SYMCA.\nI’ll add to this same post as new stuff appears.\nI’ll also use this to note where I think a piece of work might go next, what’s missing, what else it connects with."
+    "text": "A live list of stuff I’ve made in my policy fellow role, working with Y-PERN, University of Sheffield Management School and SYMCA.\nThe majority of this work is being carried out openly on my github repo, mainly in RegionalEconomicTools and ukcompare. I’m writing about it on my tech and non-tech blogs.\nI’ll add to this same post as new stuff appears.\nI’ll also use this to note where I think a piece of work might go next, what’s missing, what else it connects with."
   },
   {
     "objectID": "about.html",
@@ -114,9 +114,9 @@
   {
     "objectID": "posts/business_demography/index.html#whats-this-page",
     "href": "posts/business_demography/index.html#whats-this-page",
-    "title": "Outputs live list (currently for Y-PERN)",
+    "title": "Outputs live list",
     "section": "",
-    "text": "A live list of stuff I’ve made in my policy fellow role, working with Y-PERN, University of Sheffield Management School and SYMCA.\nI’ll add to this same post as new stuff appears.\nI’ll also use this to note where I think a piece of work might go next, what’s missing, what else it connects with."
+    "text": "A live list of stuff I’ve made in my policy fellow role, working with Y-PERN, University of Sheffield Management School and SYMCA.\nThe majority of this work is being carried out openly on my github repo, mainly in RegionalEconomicTools and ukcompare. I’m writing about it on my tech and non-tech blogs.\nI’ll add to this same post as new stuff appears.\nI’ll also use this to note where I think a piece of work might go next, what’s missing, what else it connects with."
   },
   {
     "objectID": "posts/business_demography/index.html#highlighted-outputs",
@@ -142,9 +142,9 @@
   {
     "objectID": "posts/business_demography/index.html#outputs",
     "href": "posts/business_demography/index.html#outputs",
-    "title": "Outputs live list (currently for Y-PERN)",
+    "title": "Outputs live list",
     "section": "Outputs",
-    "text": "Outputs\nRegEconTools website. All of this work comes under the broad heading of “Open regional economic data and tools”; this website is where I’m collating as much of it as I can. Here’s the website repo.\n\nOutputs on the RegEconTools website currently:\n\nResource: Linked regional GVA and job count data, including more accurate BRES job counts1.\nExplainer / R guide: location quotients and proportion plots for UK regional secotrs: processing and mapping (using the above data).\nExplainer / R guide: analysing regional GVA gaps (using the above data). Breaking down by ITL2, ITL3, core cities and mayoral authorities.\nExplainer / R guide: comparing different GVA productivity measures using Beatty & Fothergill’s range of metrics.\n\n\n\nOther outputs:\n\n\n\n\n\nThings to improve / work on"
+    "text": "Outputs\nRegEconTools website. All of this work comes under the broad heading of “Open regional economic data and tools”; this website is where I’m collating as much of it as I can. Here’s the website repo.\n\nOn the RegEconTools website currently:\n\nResource: Linked regional GVA and job count data, including more accurate BRES job counts1.\nExplainer / R guide: location quotients and proportion plots for UK regional secotrs: processing and mapping (using the above data).\nExplainer / R guide: analysing regional GVA gaps (using the above data). Breaking down by ITL2, ITL3, core cities and mayoral authorities.\nExplainer / R guide: comparing different GVA productivity measures using Beatty & Fothergill’s range of metrics.\n\n\n\nOther outputs:\n\nSouth Yorkshire ‘Plan for Good Growth’ sector analysis summary document (PDF) hosted by SYMCA. This highlights some key sector ideas that went into informing the Plan (a small part of a large team’s work, including Metro Dynamics). (2024)\nReport on business dynamism in South Yorkshire using ONS data that links geographies across time (the original dataset breaks that link by honouring every local authority boundary change; this finds common boundaries to produce a consistent time series). (2024)\nLinking the Low Carbon Renewable Energy Economy (LCREE) dataset to GVA: exploring implications for sector analysis, jobs investment and which dials might affect green sector growth. Longer version with more detail; shorter summary version. Both word docs. Underlying quarto doc here; code in the regecontools repo.\nOutput in support of Local Growth Plan GVA gap analysis (2025), (1) interactive plot: five GVA measures for South Yorkshire expressed as percent of UK average, 2012 to 2022; (2) interactive plot: industry mix ‘if thens’ for South Yorkshire - “if GVA per job were UK average in all sectors, what would SY GVA be?” vs “if industry mix of jobs was same as UK average (holding SY sector GVA the same)…”; (3) interactive plot: Arts Council spend in Core Cities over time, percent of UK average; (4) interactive plot: Completed dwellings per resident for Core Cities over time, per 1000 residents (actual + rank), % of GB average. (Data and code for all these is in the ukcompare repo.)\nCompanies House open data dashboard for South Yorkshire (work in progress, aiming to make Companies Hhouse open-but-opaque data much more easy to access).\n“Data action for local growth: what do we want to build?” Presentation to ONS subnational conference, Leeds November 2024. All the details and slides in this post.\n\nPresentations supporting the SY Plan for Good Growth:\n\nSlide deck for report to SYMCA on initial sector analysis findings highlighting structural change over time. (September 2023).\nSlide deck for presentation to SYMCA plus local authorities of Barnsely, Doncaster, Rotherham & Sheffield: sector growth, significance, productivity, gva vs jobs.\nSlide desk for SYMCA / Y-PERN joint meeting on growth and skills including SICSOC analysis showing which job skill level / sector combinations are significantly stronger or weaker.\n\nCode for these is mostly in the ukcompare repo, including quarto/rmarkdown slides."
   },
   {
     "objectID": "posts/business_demography/index.html#smaller-things",
@@ -156,15 +156,22 @@
   {
     "objectID": "posts/business_demography/index.html#bits-and-bobs",
     "href": "posts/business_demography/index.html#bits-and-bobs",
-    "title": "Outputs live list (currently for Y-PERN)",
+    "title": "Outputs live list",
     "section": "Bits and bobs",
-    "text": "Bits and bobs"
+    "text": "Bits and bobs\n\nJob count sunburst interactive showing how SIC codes nest in South Yorkshire. Size of slice is number of jobs.\nWrite-up of first joint Y-PERN / SYMCA policy forum on the Y-PERN blog.\nUPEN showcase: Regional Academic Policy Engagement in England (Y-PERN) - working with South Yorkshire Combined Mayoral Authority. Slide deck here.\nSheffield R Users’ Group presentation: “Making Economic Data Accessible”. Slide deck here."
   },
   {
     "objectID": "posts/business_demography/index.html#footnotes",
     "href": "posts/business_demography/index.html#footnotes",
-    "title": "Outputs live list (currently for Y-PERN)",
+    "title": "Outputs live list",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nSee the link for why I think it’s possible to get more accurate job data from BRES directly.↩︎"
+    "text": "Footnotes\n\n\nSee the data page for why I think it’s possible to get more accurate job data from BRES directly.↩︎"
+  },
+  {
+    "objectID": "posts/business_demography/index.html#things-to-work-on",
+    "href": "posts/business_demography/index.html#things-to-work-on",
+    "title": "Outputs live list",
+    "section": "Things to work on",
+    "text": "Things to work on\n…"
   }
 ]
