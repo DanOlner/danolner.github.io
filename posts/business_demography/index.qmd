@@ -20,7 +20,7 @@ source('../../functions/misc_functions.R')
 
 ## What's this page?
 
-* A live list of stuff I've made in my policy fellow role, working with [Y-PERN](https://y-pern.org.uk/), University of Sheffield [Management School](https://www.sheffield.ac.uk/management) and [SYMCA](https://www.southyorkshire-ca.gov.uk/).
+* A live list of stuff I've produced on in my policy fellow role, working with [Y-PERN](https://y-pern.org.uk/), University of Sheffield [Management School](https://www.sheffield.ac.uk/management) and [SYMCA](https://www.southyorkshire-ca.gov.uk/).
 * The majority of this work is being carried out openly on [my github repo](https://github.com/DanOlner), mainly in [RegionalEconomicTools](https://github.com/DanOlner/RegionalEconomicTools) and [ukcompare](https://github.com/DanOlner/ukcompare). I'm writing about it on my [tech](https://danolner.github.io/) and [non-tech](https://www.danolner.net/) blogs.
 * I'll add to this same post as new stuff appears.
 * I'll also use this to note where I think a piece of work might go next, what's missing, what else it connects with.
@@ -29,7 +29,7 @@ source('../../functions/misc_functions.R')
 
 ## Outputs
 
-[RegEconTools website](https://danolner.github.io/RegionalEconomicTools/). All of this work comes under the broad heading of "Open regional economic data and tools"; this website is where I'm collating as much of it as I can. [Here's the website repo](https://github.com/DanOlner/RegionalEconomicTools).
+[RegEconTools website](https://danolner.github.io/RegionalEconomicTools/). All of this work comes under the broad heading of "Open regional economic data and tools"; this website is where I'm collating as much of this work as I can. [Here's the website repo](https://github.com/DanOlner/RegionalEconomicTools).
 
 ### On the RegEconTools website currently:
 
@@ -40,7 +40,7 @@ source('../../functions/misc_functions.R')
 
 ### Other outputs:
 
-* **South Yorkshire 'Plan for Good Growth' [sector analysis summary](https://www.southyorkshire-ca.gov.uk/getmedia/75e687c5-a6b5-40c1-ad0c-73344f64f084/SYMCA_Plan-for-Good-Growth_analysis.pdf)** document (PDF) hosted by [SYMCA](https://www.southyorkshire-ca.gov.uk/plan-for-good-growth). This highlights some key sector ideas that went into informing the Plan (a small part of a large team's work, including [Metro Dynamics](https://www.southyorkshire-ca.gov.uk/getattachment/0fde98ad-f890-4b5a-8e80-0c02972ba37f/South-Yorkshire-Plan-for-Growth-Economic-Analysis.pdf)). (2024)
+* **South Yorkshire 'Plan for Good Growth' [sector analysis summary](https://www.southyorkshire-ca.gov.uk/getmedia/75e687c5-a6b5-40c1-ad0c-73344f64f084/SYMCA_Plan-for-Good-Growth_analysis.pdf)** document (PDF) hosted by [SYMCA](https://www.southyorkshire-ca.gov.uk/plan-for-good-growth). This highlights some key sector ideas that went into informing the Plan (a small part of a large team's work, including [Metro Dynamics](https://www.southyorkshire-ca.gov.uk/getattachment/0fde98ad-f890-4b5a-8e80-0c02972ba37f/South-Yorkshire-Plan-for-Growth-Economic-Analysis.pdf)). **More detail in the slide decks below**. (2024)
 * **[Report on business dynamism in South Yorkshire](https://danolner.github.io/FirmAnalysis/ONS_business_demography.html)** using ONS data that links geographies across time (the original dataset breaks that link by honouring every local authority boundary change; this finds common boundaries to produce a consistent time series). (2024)
 * **Linking the Low Carbon Renewable Energy Economy (LCREE) dataset to GVA**: exploring implications for sector analysis, jobs investment and which dials might affect green sector growth. [Longer version](https://github.com/DanOlner/danolner.github.io/blob/master/posts/outputs_livelist/SectorGrowthInvestment_July2024.docx) with more detail; [shorter summary version](https://github.com/DanOlner/danolner.github.io/blob/master/posts/outputs_livelist/SectorGrowthInvestment_2024v2.docx). Both word docs. Underlying quarto doc [here](https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/quarto_docs/SectorGrowthInvestment_July2024.qmd); code in the [regecontools repo](https://github.com/DanOlner/RegionalEconomicTools/tree/gh-pages/prepcode).
 * **Output in support of Local Growth Plan GVA gap analysis (2025),** (1) [interactive plot](https://danolner.github.io/ukcompare/plotly/GVA_measures_percentofUKaverage_excluding_LondonOutliers.html): five GVA measures for South Yorkshire expressed as percent of UK average, 2012 to 2022; (2) [interactive plot](https://danolner.github.io/ukcompare/plotly/adjustforindustrymix_sidebyside.html): industry mix 'if thens' for South Yorkshire - "if GVA per job were UK average in all sectors, what would SY GVA be?" vs "if industry mix of jobs was same as UK average (holding SY sector GVA the same)..."; (3) [interactive plot](https://danolner.github.io/ukcompare/plotly/artscouncil_totalspend_percentofEnglishAv.html): Arts Council spend in Core Cities over time, percent of UK average; (4) [interactive plot](https://danolner.github.io/ukcompare/plotly/completed_dwellings_per_resident_corecities_3yrmovingav.html): Completed dwellings per resident for Core Cities over time, per 1000 residents (actual + rank), % of GB average. (Data and code for all these is in the [ukcompare repo](https://github.com/DanOlner/ukcompare/tree/master/explore_code).)
@@ -58,10 +58,10 @@ Code for these is mostly in the [ukcompare repo](https://github.com/DanOlner/ukc
 
 ## Bits and bobs
 
-* **[Job count sunburst interactive](https://danolner.github.io/FirmAnalysis/outputs/FAME_SouthYorkshire_sunburst_employeestenplus.html)** showing how SIC codes nest in South Yorkshire. Size of slice is number of jobs.
 * **Write-up of first joint Y-PERN / SYMCA policy forum** [on the Y-PERN blog](https://y-pern.org.uk/blog/new-forum-aims-to-strengthen-glue-between-south-yorkshire-policymakers-academics-and-others/).
 * **UPEN showcase: Regional Academic Policy Engagement in England (Y-PERN) - working with South Yorkshire Combined Mayoral Authority**. [Slide deck here](https://www.dropbox.com/scl/fi/wy6in1x55qb462o2ts1uh/UPEN_DanOlner_13_3_24_v4.pptx?rlkey=4xsixhn53si13g0hv7ihrk5oo&dl=1).
 * **Sheffield R Users' Group presentation: "Making Economic Data Accessible"**. [Slide deck here](https://www.dropbox.com/scl/fi/gq9fyz0wjcn2wfgbk13xl/Shiny_R_UsersGroup_Nov2023_DanOlner.pptx?rlkey=xc0j00jj2ne73ju66nr01ic73&dl=1). 
+* **[Job count sunburst interactive](https://danolner.github.io/FirmAnalysis/outputs/FAME_SouthYorkshire_sunburst_employeestenplus.html)** showing how SIC codes nest in South Yorkshire. Size of slice is number of jobs.
 
 ## Things to work on
 
