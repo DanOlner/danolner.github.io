@@ -1,52 +1,66 @@
 ---
-title: "How to automate your way out of Excel hell & other ONS data wrangling stories (business demography edition)"
+title: "Outputs live list (currently for Y-PERN)"
 author: "Dan Olner"
-date: "2024-11-05"
-categories: [code, ons, firms]
+date: "2025-02-12"
+categories: [planning]
+execute:
+  echo: false
+  warning: false
+  error: false
 ---
 
-I've [been analysing](https://danolner.github.io/FirmAnalysis/ONS_business_demography.html) the latest [ONS business demography](https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable) data (that ONS pull from the [IDBR](https://www.ons.gov.uk/aboutus/whatwedo/paidservices/interdepartmentalbusinessregisteridbr)). It contains a tonne of great data on business births, deaths, numbers, 'high growth' firms, survival rates, down to local authority level (though sadly sector breakdowns only at national level).
+```{r}
+library(tidyverse)
+library(knitr)
+source('../../functions/misc_functions.R')
 
-* My working report from that is [here](https://danolner.github.io/FirmAnalysis/ONS_business_demography.html) - hoping to add more
-* Prep code is [here](https://github.com/DanOlner/FirmAnalysis/blob/master/ONS_business_demography.R)
-* Quarto code for the report is [here](https://github.com/DanOlner/FirmAnalysis/blob/master/docs/QUARTO_ONS_businessdemography.qmd)
-
-![](excel_hell2.png)
-
-Getting data out of Excel documents can be a bit extremely horrible [noting, to be clear, that Excel docs like this are super useful for many people, but just nasty for those of us who want to get the data into something like R or Python, so...]. In this case, what we've got is this:
-
-* For each type of data (firm births, deaths, active count, high growth count etc) there are **four sheets** covering different time periods, with two spanning two years and two with a single year. Why? That's unclear until you check the geographies - the local authorities (LAs) used **don't match** across sheets. Why? Because the **boundaries changed**, so there's a **different sheet each year they've changed.**
-
-So if we want consistent data across all time periods, we've got a couple of things to do: 
-
-1. Get the data out of each set of four sheets into one; 
-2. Harmonise the geographies so datapoints are consistent.
-
-Luckily, the LA changes have all been to combine into larger units over time (usually unitary authorities) - so all earlier LAs fit neatly into later boundaries. Phew. This means **values from earlier LAs can be summed to the larger/later ones** - backcasting 2022 boundaries through all previous data.
-
-Some anonymous angel/angels [made this Wikipedia page](https://en.wikipedia.org/wiki/2019%E2%80%932023_structural_changes_to_local_government_in_England) clearly laying out when and what local authorities combined into larger unitary ones in recent years. Using that, we can piece together the changes to get to [this function](https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L181) that does the harmonising. It groups previous LAs - that only needs to backcast 2021/2022 names once, no faffing around with each separate sheet - and then summarises counts for those new groups, for previous years' data.
-
-Prior to that, though, we need to pull the sheets into R. There are a _lot_ of sheets - doing this manually would be baaad... 
-
-* The [readxl package](https://readxl.tidyverse.org/) to the rescue! Part of the tidyverse, it can be used to automate extracting data from any sheet and set of cells in an Excel document. I do that in the function [here](https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L223), specifically for pulling out the correct cells from the ONS demography Excel. That's used in the code here.
+```
 
 
 
+## What's this page?
+
+* A live list of stuff I've made in my policy fellow role, working with [Y-PERN](https://y-pern.org.uk/), University of Sheffield [Management School](https://www.sheffield.ac.uk/management) and [SYMCA](https://www.southyorkshire-ca.gov.uk/).
+* I'll add to this same post as new stuff appears.
+* I'll also use this to note where I think a piece of work might go next, what's missing, what else it connects with.
+
+
+
+## Outputs
+
+[RegEconTools website](https://danolner.github.io/RegionalEconomicTools/). All of this work comes under the broad heading of "Open regional economic data and tools"; this website is where I'm collating as much of it as I can. [Here's the website repo](https://github.com/DanOlner/RegionalEconomicTools).
+
+### On the RegEconTools website currently:
+
+* Resource: Linked [regional GVA and job count data](https://danolner.github.io/RegionalEconomicTools/regionalgva_n_bres.html), including more accurate BRES job counts[^1].
+* Explainer / R guide: [location quotients and proportion plots](https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html) for UK regional secotrs: processing and mapping (using the above data).
+* Explainer / R guide: [analysing regional GVA gaps](https://danolner.github.io/RegionalEconomicTools/gdp_gaps.html) (using the above data). Breaking down by ITL2, ITL3, core cities and mayoral authorities.
+* Explainer / R guide: [comparing different GVA productivity measures](https://danolner.github.io/RegionalEconomicTools/beattyfothergill.html) using Beatty & Fothergill's range of metrics.
+
+### Other outputs:
+
+* South Yorkshire 'Plan for Good Growth' [sector analysis summary](https://www.southyorkshire-ca.gov.uk/getmedia/75e687c5-a6b5-40c1-ad0c-73344f64f084/SYMCA_Plan-for-Good-Growth_analysis.pdf) document (PDF) hosted by [SYMCA](https://www.southyorkshire-ca.gov.uk/plan-for-good-growth). This highlights some key sector ideas that went into informing the Plan (a small part of a large team's work, including [Metro Dynamics](https://www.southyorkshire-ca.gov.uk/getattachment/0fde98ad-f890-4b5a-8e80-0c02972ba37f/South-Yorkshire-Plan-for-Growth-Economic-Analysis.pdf)). (2024)
+
+
+Key presentations supporting the SY Plan for Good Growth:
+
+* [Slide deck](https://www.dropbox.com/scl/fi/f74gqprlphir1pwa4mbg6/SectorGrowthUpdate_DanOlner_21_9_23.pptx?rlkey=h9ohe203qqgclqbhvcof1ufmg&dl=0) for report to SYMCA on initial sector analysis findings, highlighting structural change over time. (September 2023).
+* 
+ 
+
+
+### Things to improve / work on
 
 
 
 
 
+## Bits and bobs
 
 
 
 
+[^1]: See the link for why I think it's possible to get more accurate job data from BRES directly.
 
 
-
-
-
-
-
-(Image stolen from [here](https://michelbaudin.com/2016/08/02/excel-hell-an-insiders-report-chad-smith-linkedin-pulse/)).
-
+![](---.png)

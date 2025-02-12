@@ -2,8 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/ons_subnational_data_conf/index.html",
       "/posts/business_demography/index.html",
+      "/posts/ons_subnational_data_conf/index.html",
+      "/posts/outputs_livelist/index.html",
       "/posts/welcome/index.html",
       "/posts/pubcrawloptimiser/index.html",
       "/posts/migration_entropy/index.html",

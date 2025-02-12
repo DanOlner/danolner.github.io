@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dan Olner">
-<meta name="dcterms.date" content="2024-11-05">
+<meta name="dcterms.date" content="2025-02-12">
 
-<title>Dan Olner’s Data Dispatch - How to automate your way out of Excel hell &amp; other ONS data wrangling stories (business demography edition)</title>
+<title>Outputs live list (currently for Y-PERN) – Dan Olner’s Data Dispatch</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -124,11 +124,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">How to automate your way out of Excel hell &amp; other ONS data wrangling stories (business demography edition)</h1>
+      <h1 class="title">Outputs live list (currently for Y-PERN)</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">code</div>
-                <div class="quarto-category">ons</div>
-                <div class="quarto-category">firms</div>
+                <div class="quarto-category">planning</div>
               </div>
                   </div>
   </div>
@@ -146,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 5, 2024</p>
+        <p class="date">February 12, 2025</p>
       </div>
     </div>
     
@@ -165,33 +163,50 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>I’ve <a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">been analysing</a> the latest <a href="https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable">ONS business demography</a> data (that ONS pull from the <a href="https://www.ons.gov.uk/aboutus/whatwedo/paidservices/interdepartmentalbusinessregisteridbr">IDBR</a>). It contains a tonne of great data on business births, deaths, numbers, ‘high growth’ firms, survival rates, down to local authority level (though sadly sector breakdowns only at national level).</p>
+<section id="whats-this-page" class="level2">
+<h2 class="anchored" data-anchor-id="whats-this-page">What’s this page?</h2>
 <ul>
-<li>My working report from that is <a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">here</a> - hoping to add more</li>
-<li>Prep code is <a href="https://github.com/DanOlner/FirmAnalysis/blob/master/ONS_business_demography.R">here</a></li>
-<li>Quarto code for the report is <a href="https://github.com/DanOlner/FirmAnalysis/blob/master/docs/QUARTO_ONS_businessdemography.qmd">here</a></li>
+<li>A live list of stuff I’ve made in my policy fellow role, working with <a href="https://y-pern.org.uk/">Y-PERN</a>, University of Sheffield <a href="https://www.sheffield.ac.uk/management">Management School</a> and <a href="https://www.southyorkshire-ca.gov.uk/">SYMCA</a>.</li>
+<li>I’ll add to this same post as new stuff appears.</li>
+<li>I’ll also use this to note where I think a piece of work might go next, what’s missing, what else it connects with.</li>
 </ul>
-<p><img src="excel_hell2.png" class="img-fluid"></p>
-<p>Getting data out of Excel documents can be a bit extremely horrible [noting, to be clear, that Excel docs like this are super useful for many people, but just nasty for those of us who want to get the data into something like R or Python, so…]. In this case, what we’ve got is this:</p>
+</section>
+<section id="outputs" class="level2">
+<h2 class="anchored" data-anchor-id="outputs">Outputs</h2>
+<p><a href="https://danolner.github.io/RegionalEconomicTools/">RegEconTools website</a>. All of this work comes under the broad heading of “Open regional economic data and tools”; this website is where I’m collating as much of it as I can. <a href="https://github.com/DanOlner/RegionalEconomicTools">Here’s the website repo</a>.</p>
+<section id="outputs-on-the-regecontools-website-currently" class="level3">
+<h3 class="anchored" data-anchor-id="outputs-on-the-regecontools-website-currently">Outputs on the RegEconTools website currently:</h3>
 <ul>
-<li>For each type of data (firm births, deaths, active count, high growth count etc) there are <strong>four sheets</strong> covering different time periods, with two spanning two years and two with a single year. Why? That’s unclear until you check the geographies - the local authorities (LAs) used <strong>don’t match</strong> across sheets. Why? Because the <strong>boundaries changed</strong>, so there’s a <strong>different sheet each year they’ve changed.</strong></li>
+<li>Resource: Linked <a href="https://danolner.github.io/RegionalEconomicTools/regionalgva_n_bres.html">regional GVA and job count data</a>, including more accurate BRES job counts<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
+<li>Explainer / R guide: <a href="https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html">location quotients and proportion plots</a> for UK regional secotrs: processing and mapping (using the above data).</li>
+<li>Explainer / R guide: <a href="https://danolner.github.io/RegionalEconomicTools/gdp_gaps.html">analysing regional GVA gaps</a> (using the above data). Breaking down by ITL2, ITL3, core cities and mayoral authorities.</li>
+<li>Explainer / R guide: <a href="https://danolner.github.io/RegionalEconomicTools/beattyfothergill.html">comparing different GVA productivity measures</a> using Beatty &amp; Fothergill’s range of metrics.</li>
 </ul>
-<p>So if we want consistent data across all time periods, we’ve got a couple of things to do:</p>
-<ol type="1">
-<li>Get the data out of each set of four sheets into one;</li>
-<li>Harmonise the geographies so datapoints are consistent.</li>
+</section>
+<section id="other-outputs" class="level3">
+<h3 class="anchored" data-anchor-id="other-outputs">Other outputs:</h3>
+<ul>
+<li></li>
+</ul>
+</section>
+<section id="things-to-improve-work-on" class="level3">
+<h3 class="anchored" data-anchor-id="things-to-improve-work-on">Things to improve / work on</h3>
+</section>
+</section>
+<section id="bits-and-bobs" class="level2">
+<h2 class="anchored" data-anchor-id="bits-and-bobs">Bits and bobs</h2>
+<p><img src="---.png" class="img-fluid"></p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>See the link for why I think it’s possible to get more accurate job data from BRES directly.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-<p>Luckily, the LA changes have all been to combine into larger units over time (usually unitary authorities) - so all earlier LAs fit neatly into later boundaries. Phew. This means <strong>values from earlier LAs can be summed to the larger/later ones</strong> - backcasting 2022 boundaries through all previous data.</p>
-<p>Some anonymous angel/angels <a href="https://en.wikipedia.org/wiki/2019%E2%80%932023_structural_changes_to_local_government_in_England">made this Wikipedia page</a> clearly laying out when and what local authorities combined into larger unitary ones in recent years. Using that, we can piece together the changes to get to <a href="https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L181">this function</a> that does the harmonising. It groups previous LAs - that only needs to backcast 2021/2022 names once, no faffing around with each separate sheet - and then summarises counts for those new groups, for previous years’ data.</p>
-<p>Prior to that, though, we need to pull the sheets into R. There are a <em>lot</em> of sheets - doing this manually would be baaad…</p>
-<ul>
-<li>The <a href="https://readxl.tidyverse.org/">readxl package</a> to the rescue! Part of the tidyverse, it can be used to automate extracting data from any sheet and set of cells in an Excel document. I do that in the function <a href="https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L223">here</a>, specifically for pulling out the correct cells from the ONS demography Excel. That’s used in the code here.</li>
-</ul>
-<p>(Image stolen from <a href="https://michelbaudin.com/2016/08/02/excel-hell-an-insiders-report-chad-smith-linkedin-pulse/">here</a>).</p>
-
-
-
-</main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -227,18 +242,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -270,7 +274,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -278,7 +304,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
