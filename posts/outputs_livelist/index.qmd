@@ -27,7 +27,7 @@ source('../../functions/misc_functions.R')
 
 
 
-## Outputs
+## Outputs:
 
 [RegEconTools website](https://danolner.github.io/RegionalEconomicTools/). All of this work comes under the broad heading of "Open regional economic data and tools"; this website is where I'm collating as much of this work as I can. [Here's the website repo](https://github.com/DanOlner/RegionalEconomicTools).
 

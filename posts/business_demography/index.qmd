@@ -11,9 +11,9 @@ I've [been analysing](https://danolner.github.io/FirmAnalysis/ONS_business_demog
 * Prep code is [here](https://github.com/DanOlner/FirmAnalysis/blob/master/ONS_business_demography.R)
 * Quarto code for the report is [here](https://github.com/DanOlner/FirmAnalysis/blob/master/docs/QUARTO_ONS_businessdemography.qmd)
 
-![](excel_hell2.png)
+![](excel_hell2.png) 
 
-Getting data out of Excel documents can be a bit extremely horrible [noting, to be clear, that Excel docs like this are super useful for many people, but just nasty for those of us who want to get the data into something like R or Python, so...]. In this case, what we've got is this:
+Getting data out of Excel documents can be a bit extremely horrible [noting, to be clear, that Excel docs like this are super useful for many people, but just nasty for those of us who want to get the data into something like R or Python, so...]. In this case, what we've got is this -->
 
 * For each type of data (firm births, deaths, active count, high growth count etc) there are **four sheets** covering different time periods, with two spanning two years and two with a single year. Why? That's unclear until you check the geographies - the local authorities (LAs) used **don't match** across sheets. Why? Because the **boundaries changed**, so there's a **different sheet each year they've changed.**
 
