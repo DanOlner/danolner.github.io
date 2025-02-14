@@ -34,8 +34,8 @@ source('../../functions/misc_functions.R')
 ### On the RegEconTools website currently:
 
 * **Resource**: Linked [regional GVA and job count data](https://danolner.github.io/RegionalEconomicTools/regionalgva_n_bres.html), including more accurate BRES job counts[^1].
-* **Explainer / R guide**: [location quotients and proportion plots](https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html) for UK regional secotrs: processing and mapping (using the above data).
-* **Explainer / R guide**: [analysing regional GVA gaps](https://danolner.github.io/RegionalEconomicTools/gdp_gaps.html) (using the above data). Breaking down by ITL2, ITL3, core cities and mayoral authorities.
+* **Explainer / R guide**: [location quotients and proportion plots](https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html) for UK regional sectors: processing and mapping (using the above data).
+* **Explainer / R guide**: [analysing regional GVA gaps](https://danolner.github.io/RegionalEconomicTools/gdp_gaps.html) (using the above data). Breaking down by ITL2, ITL3, core cities and mayoral authorities. (Used, for example, to estimate the GVA productivity gap between South Yorkshire and the UK for the [Plan for Good Growth](https://www.southyorkshire-ca.gov.uk/plan-for-good-growth).)
 * **Explainer / R guide**: [comparing different GVA productivity measures](https://danolner.github.io/RegionalEconomicTools/beattyfothergill.html) using Beatty & Fothergill's range of metrics.
 
 ### Other outputs:
@@ -47,17 +47,20 @@ source('../../functions/misc_functions.R')
 * **[Companies House open data dashboard](https://danolner.shinyapps.io/SY_companieshouse/)** for South Yorkshire (work in progress, aiming to make Companies Hhouse open-but-opaque data much more easy to access).
 * **"Data action for local growth: what do we want to build?"** Presentation to ONS subnational conference, Leeds November 2024. All the details and slides [in this post](https://danolner.github.io/posts/ons_subnational_data_conf/).
 
+
+
 Presentations supporting the SY Plan for Good Growth:
 
 * **[Slide deck](https://www.dropbox.com/scl/fi/f74gqprlphir1pwa4mbg6/SectorGrowthUpdate_DanOlner_21_9_23.pptx?rlkey=h9ohe203qqgclqbhvcof1ufmg&dl=1) for report to SYMCA on initial sector analysis findings** highlighting structural change over time. (September 2023).
 * **[Slide deck](https://www.dropbox.com/scl/fi/s9nzo85e0a7e8ufxiupd1/SYMCA_growth_DanOlner_13_12_23_ORIG.pptx?rlkey=f2o2n8sfh6fgw41r2h0zuwtk7&dl=1) for presentation to SYMCA plus local authorities of Barnsely, Doncaster, Rotherham & Sheffield:** sector growth, significance, productivity, gva vs jobs.
-* **[Slide deck](https://www.dropbox.com/scl/fi/8c79ndb8d2txxmw8umfl7/gva_jobsgrowth_datastory_ppt_v3_DOedit.pptx?rlkey=glld5twtqms6xiba94d2rc3m4&dl=1) for SYMCA / Y-PERN joint meeting on growth and skills** including SICSOC analysis showing which job skill level / sector combinations are significantly stronger or weaker.
+* **[Slide deck](https://www.dropbox.com/scl/fi/8c79ndb8d2txxmw8umfl7/gva_jobsgrowth_datastory_ppt_v3_DOedit.pptx?rlkey=glld5twtqms6xiba94d2rc3m4&dl=1) for SYMCA / Y-PERN joint meeting on growth and skills** including SICSOC analysis showing which job skill level / sector combinations are significantly stronger or weaker between places.
  
 Code for these is mostly in the [ukcompare repo](https://github.com/DanOlner/ukcompare/tree/master/explore_code), including [quarto/rmarkdown slides](https://github.com/DanOlner/ukcompare/tree/master/rmarkdown).
 
 
 ## Bits and bobs
 
+* **Bootstrap estimates of the link between earnings and skills for South Yorkshire** using the Annual Survey of Hours and Earnings and Census qualification data. Estimate plot [here](https://github.com/DanOlner/ukcompare/blob/master/docs/skills_v_quals_SY.png), code [here](https://github.com/DanOlner/ukcompare/blob/master/explore_code/earnings_explore.R). Used in the South Yorkshire Skills Strategy to give a central estimate: "If 10% of the population in South Yorkshire with Level 3 earned wages equivalent to those at Level 4 or above in South Yorkshire, total earnings could increase by an average of £200m." (p.14)
 * **Write-up of first joint Y-PERN / SYMCA policy forum** [on the Y-PERN blog](https://y-pern.org.uk/blog/new-forum-aims-to-strengthen-glue-between-south-yorkshire-policymakers-academics-and-others/).
 * **UPEN showcase: Regional Academic Policy Engagement in England (Y-PERN) - working with South Yorkshire Combined Mayoral Authority**. [Slide deck here](https://www.dropbox.com/scl/fi/wy6in1x55qb462o2ts1uh/UPEN_DanOlner_13_3_24_v4.pptx?rlkey=4xsixhn53si13g0hv7ihrk5oo&dl=1).
 * **Sheffield R Users' Group presentation: "Making Economic Data Accessible"**. [Slide deck here](https://www.dropbox.com/scl/fi/gq9fyz0wjcn2wfgbk13xl/Shiny_R_UsersGroup_Nov2023_DanOlner.pptx?rlkey=xc0j00jj2ne73ju66nr01ic73&dl=1). 
