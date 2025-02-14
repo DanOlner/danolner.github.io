@@ -64,7 +64,7 @@ Code for these is mostly in the [ukcompare repo](https://github.com/DanOlner/ukc
 * **Write-up of first joint Y-PERN / SYMCA policy forum** [on the Y-PERN blog](https://y-pern.org.uk/blog/new-forum-aims-to-strengthen-glue-between-south-yorkshire-policymakers-academics-and-others/).
 * **UPEN showcase: Regional Academic Policy Engagement in England (Y-PERN) - working with South Yorkshire Combined Mayoral Authority**. [Slide deck here](https://www.dropbox.com/scl/fi/wy6in1x55qb462o2ts1uh/UPEN_DanOlner_13_3_24_v4.pptx?rlkey=4xsixhn53si13g0hv7ihrk5oo&dl=1).
 * **Sheffield R Users' Group presentation: "Making Economic Data Accessible"**. [Slide deck here](https://www.dropbox.com/scl/fi/gq9fyz0wjcn2wfgbk13xl/Shiny_R_UsersGroup_Nov2023_DanOlner.pptx?rlkey=xc0j00jj2ne73ju66nr01ic73&dl=1). 
-* **[Job count sunburst interactive](https://danolner.github.io/FirmAnalysis/outputs/FAME_SouthYorkshire_sunburst_employeestenplus.html)** showing how SIC codes nest in South Yorkshire. Size of slice is number of jobs.
+* **[Job count sunburst interactive](https://danolner.github.io/FirmAnalysis/outputs/FAME_SouthYorkshire_sunburst_employeestenplus.html)** showing how SIC codes nest in South Yorkshire. Size of slice is number of jobs. Code [here](https://github.com/DanOlner/FirmAnalysis/blob/bcf06e46849eb7e08501c596955a247e5dadbe00/Fame_processing.R#L598).
 
 ## Things to work on
 
