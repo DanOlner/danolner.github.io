@@ -23,8 +23,6 @@ source('../../functions/misc_functions.R')
 * A live list of stuff I've produced on in my policy fellow role, working with [Y-PERN](https://y-pern.org.uk/), University of Sheffield [Management School](https://www.sheffield.ac.uk/management) and [SYMCA](https://www.southyorkshire-ca.gov.uk/).
 * The majority of this work is being carried out openly on [my github repo](https://github.com/DanOlner), mainly in [RegionalEconomicTools](https://github.com/DanOlner/RegionalEconomicTools) and [ukcompare](https://github.com/DanOlner/ukcompare). I'm writing about it on my [tech](https://danolner.github.io/) and [non-tech](https://www.danolner.net/) blogs.
 * I'll add to this same post as new stuff appears.
-* I'll also use this to note where I think a piece of work might go next, what's missing, what else it connects with.
-
 
 
 ## Outputs:
@@ -66,9 +64,6 @@ Code for these is mostly in the [ukcompare repo](https://github.com/DanOlner/ukc
 * **Sheffield R Users' Group presentation: "Making Economic Data Accessible"**. [Slide deck here](https://www.dropbox.com/scl/fi/gq9fyz0wjcn2wfgbk13xl/Shiny_R_UsersGroup_Nov2023_DanOlner.pptx?rlkey=xc0j00jj2ne73ju66nr01ic73&dl=1). 
 * **[Job count sunburst interactive](https://danolner.github.io/FirmAnalysis/outputs/FAME_SouthYorkshire_sunburst_employeestenplus.html)** showing how SIC codes nest in South Yorkshire. Size of slice is number of jobs. Code [here](https://github.com/DanOlner/FirmAnalysis/blob/bcf06e46849eb7e08501c596955a247e5dadbe00/Fame_processing.R#L598).
 
-## Things to work on
-
-...
 
 
 
@@ -76,4 +71,4 @@ Code for these is mostly in the [ukcompare repo](https://github.com/DanOlner/ukc
 [^1]: See [the data page](https://danolner.github.io/RegionalEconomicTools/regionalgva_n_bres.html) for why I think it's possible to get more accurate job data from BRES directly.
 
 
-![](---.png)
+![](cogs.jpg)
