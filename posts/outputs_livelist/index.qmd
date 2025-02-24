@@ -32,7 +32,8 @@ source('../../functions/misc_functions.R')
 ### On the RegEconTools website currently:
 
 * **Resource**: Linked [regional GVA and job count data](https://danolner.github.io/RegionalEconomicTools/regionalgva_n_bres.html), including more accurate BRES job counts[^1].
-* **Explainer / R guide**: [location quotients and proportion plots](https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html) for UK regional sectors: processing and mapping (using the above data).
+* **Explainer / R guide:**: [intro examples](https://danolner.github.io/RegionalEconomicTools/intro_gvajobsdata_in_R.html) for using the regional GVA / job count data (data in the link above).
+* **Explainer / R guide**: [location quotients and proportion plots](https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html) for UK regional sectors: processing and mapping (also using the above data).
 * **Explainer / R guide**: [analysing regional GVA gaps](https://danolner.github.io/RegionalEconomicTools/gdp_gaps.html) (using the above data). Breaking down by ITL2, ITL3, core cities and mayoral authorities. (Used, for example, to estimate the GVA productivity gap between South Yorkshire and the UK for the [Plan for Good Growth](https://www.southyorkshire-ca.gov.uk/plan-for-good-growth).)
 * **Explainer / R guide**: [comparing different GVA productivity measures](https://danolner.github.io/RegionalEconomicTools/beattyfothergill.html) using Beatty & Fothergill's range of metrics.
 
