@@ -1,0 +1,22 @@
+---
+title: "Data Stewards' Network meeting on workflows"
+author: "Dan Olner"
+date: "2025-3-27"
+categories: [ons, data]
+---
+
+I presented at a Sheffield University [Data Stewards' Network](https://www.sheffield.ac.uk/library/research-data-management/data-steward-network) event, talking about the pipelines I've been building for [ONS economic data](https://danolner.github.io/RegionalEconomicTools/) and Companies House data ([slides online here](https://docs.google.com/presentation/d/1-54H28E3b9yLJNDSRFPQPYUtxuYVsZ3GAun1-AYVwf0/edit?usp=sharing)). As well as evangelising about the wonders of Quarto + R for ease-of-pipeline-making (e.g. downloading / extracting all ONS data, harmonising/combining then auto-updating webpages to serve it), I talked about how open data and tools can help support analytic capacity growth in regional/local government, helping us move a bit closer to a shared sense of ground truth.
+
+The slides have some linked interactive pages and reports - a quick list of those here:
+
+* [Great Britain interactive hexmap](https://danolner.github.io/companieshouseopen/maps/companieshouse_modal_SICsection_byemployeecount_minfiftyplus_hex5000.html) of Companies House data I've been working to make accessible as well as open (currently 'open but opaque'). Each 5km-across-hex shows the **modal sector (most common there by job count in most recent accounts)** and only showing hexes with a min of 50 employees. Patterns to look out for: the **manufacturing doughnut** drawing a circle from Sheffield through Birmingham and Manchester; the **Southern sci-tech areas**, also quite heavily present in Manchester. Also note where there are **not** a min of 50 employees - an interesting picture of the economic landscape. This was a first test to demonstrate how rich this dataset is if one can access the whole national picture (not just whatever count limits private versions of this data impose e.g. FAME). A lot of work yet to do though...
+* [Higher resolution hexmap](https://danolner.github.io/companieshouseopen/maps/companieshouse_yorkshire_modal_SICsection_byemployeecount_mintenplus_hex1000m.html) just for Yorkshire - 1km-across hex, with minimum ten employees per hex.
+* [South Yorkshire's four local authorities](https://danolner.github.io/companieshouseopen/plots/employment_percentchange_fromlastaccounts_SICsections_v_corecities_SBDRoverlaid.html) job percent change since last accounts, compared to 'core cities', using the last year's Companies House data (hover for place name).
+* [Companies House South Yorkshire shiny dashboard](https://www.google.com/url?q=https://danolner.shinyapps.io/SY_companieshouse/&sa=D&source=editors&ust=1743085593492834&usg=AOvVaw2kAqN89zhAKNQKXzQIrCvH) 1st draft. Click on firms for more details, view sector and change to 'percent change from last year'.
+* [Quarto online report example](https://danolner.github.io/FirmAnalysis/ONS_business_demography.html) looking at business demography in South Yorkshire (note the nice hover-for-plot feature built in, surprise to me when it compiled!)
+* [Intro to using](https://danolner.github.io/RegionalEconomicTools/intro_gvajobsdata_in_R.html) linked ONS output and jobs data in R (with link to rest of pipeline)
+* Early draft [shiny dashboard](https://danolner.shinyapps.io/EconDataDashboard/) for location quotient plots and SICSOC comparison plots (that show relative job skill levels for the chosen ITL2 zone) - see the tabs.
+
+I also mentioned the amazing [Leeds Research Collaboration Framework](https://lssi.leeds.ac.uk/news/leeds-city-council-and-university-of-leeds-research-framework/) and Centre for Cities' [LA Evidential report](https://www.centreforcities.org/publication/la-evidential/).
+
+![](doughnut_hex.png)

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dan Olner">
-<meta name="dcterms.date" content="2025-02-12">
+<meta name="dcterms.date" content="2025-03-27">
 
-<title>Outputs live list – Dan Olner’s Data Dispatch</title>
+<title>Data Stewards’ Network meeting on workflows – Dan Olner's Data Dispatch</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,9 +124,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Outputs live list</h1>
+      <h1 class="title">Data Stewards’ Network meeting on workflows</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">planning</div>
+                <div class="quarto-category">ons</div>
+                <div class="quarto-category">data</div>
               </div>
                   </div>
   </div>
@@ -144,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 12, 2025</p>
+        <p class="date">March 27, 2025</p>
       </div>
     </div>
     
@@ -163,69 +164,23 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="whats-this-page" class="level2">
-<h2 class="anchored" data-anchor-id="whats-this-page">What’s this page?</h2>
+<p>I presented at a Sheffield University <a href="https://www.sheffield.ac.uk/library/research-data-management/data-steward-network">Data Stewards’ Network</a> event, talking about the pipelines I’ve been building for <a href="https://danolner.github.io/RegionalEconomicTools/">ONS economic data</a> and Companies House data (<a href="https://docs.google.com/presentation/d/1-54H28E3b9yLJNDSRFPQPYUtxuYVsZ3GAun1-AYVwf0/edit?usp=sharing">slides online here</a>). As well as evangelising about the wonders of Quarto + R for ease-of-pipeline-making (e.g.&nbsp;downloading / extracting all ONS data, harmonising/combining then auto-updating webpages to serve it), I talked about how open data and tools can help support analytic capacity growth in regional/local government, helping us move a bit closer to a shared sense of ground truth.</p>
+<p>The slides have some linked interactive pages and reports - a quick list of those here:</p>
 <ul>
-<li>A live list of stuff I’ve produced on in my policy fellow role, working with <a href="https://y-pern.org.uk/">Y-PERN</a>, University of Sheffield <a href="https://www.sheffield.ac.uk/management">Management School</a> and <a href="https://www.southyorkshire-ca.gov.uk/">SYMCA</a>.</li>
-<li>The majority of this work is being carried out openly on <a href="https://github.com/DanOlner">my github repo</a>, mainly in <a href="https://github.com/DanOlner/RegionalEconomicTools">RegionalEconomicTools</a> and <a href="https://github.com/DanOlner/ukcompare">ukcompare</a>. I’m writing about it on my <a href="https://danolner.github.io/">tech</a> and <a href="https://www.danolner.net/">non-tech</a> blogs.</li>
-<li>I’ll add to this same post as new stuff appears.</li>
+<li><a href="https://danolner.github.io/companieshouseopen/maps/companieshouse_modal_SICsection_byemployeecount_minfiftyplus_hex5000.html">Great Britain interactive hexmap</a> of Companies House data I’ve been working to make accessible as well as open (currently ‘open but opaque’). Each 5km-across-hex shows the <strong>modal sector (most common there by job count in most recent accounts)</strong> and only showing hexes with a min of 50 employees. Patterns to look out for: the <strong>manufacturing doughnut</strong> drawing a circle from Sheffield through Birmingham and Manchester; the <strong>Southern sci-tech areas</strong>, also quite heavily present in Manchester. Also note where there are <strong>not</strong> a min of 50 employees - an interesting picture of the economic landscape. This was a first test to demonstrate how rich this dataset is if one can access the whole national picture (not just whatever count limits private versions of this data impose e.g.&nbsp;FAME). A lot of work yet to do though…</li>
+<li><a href="https://danolner.github.io/companieshouseopen/maps/companieshouse_yorkshire_modal_SICsection_byemployeecount_mintenplus_hex1000m.html">Higher resolution hexmap</a> just for Yorkshire - 1km-across hex, with minimum ten employees per hex.</li>
+<li><a href="https://danolner.github.io/companieshouseopen/plots/employment_percentchange_fromlastaccounts_SICsections_v_corecities_SBDRoverlaid.html">South Yorkshire’s four local authorities</a> job percent change since last accounts, compared to ‘core cities’, using the last year’s Companies House data (hover for place name).</li>
+<li><a href="https://www.google.com/url?q=https://danolner.shinyapps.io/SY_companieshouse/&amp;sa=D&amp;source=editors&amp;ust=1743085593492834&amp;usg=AOvVaw2kAqN89zhAKNQKXzQIrCvH">Companies House South Yorkshire shiny dashboard</a> 1st draft. Click on firms for more details, view sector and change to ‘percent change from last year’.</li>
+<li><a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">Quarto online report example</a> looking at business demography in South Yorkshire (note the nice hover-for-plot feature built in, surprise to me when it compiled!)</li>
+<li><a href="https://danolner.github.io/RegionalEconomicTools/intro_gvajobsdata_in_R.html">Intro to using</a> linked ONS output and jobs data in R (with link to rest of pipeline)</li>
+<li>Early draft <a href="https://danolner.shinyapps.io/EconDataDashboard/">shiny dashboard</a> for location quotient plots and SICSOC comparison plots (that show relative job skill levels for the chosen ITL2 zone) - see the tabs.</li>
 </ul>
-</section>
-<section id="outputs" class="level2">
-<h2 class="anchored" data-anchor-id="outputs">Outputs:</h2>
-<p><a href="https://danolner.github.io/RegionalEconomicTools/">RegEconTools website</a>. All of this work comes under the broad heading of “Open regional economic data and tools”; this website is where I’m collating as much of this work as I can. <a href="https://github.com/DanOlner/RegionalEconomicTools">Here’s the website repo</a>.</p>
-<section id="on-the-regecontools-website-currently" class="level3">
-<h3 class="anchored" data-anchor-id="on-the-regecontools-website-currently">On the RegEconTools website currently:</h3>
-<ul>
-<li><strong>Resource</strong>: Linked <a href="https://danolner.github.io/RegionalEconomicTools/regionalgva_n_bres.html">regional GVA and job count data</a>, including more accurate BRES job counts<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
-<li><strong>Explainer / R guide:</strong>: <a href="https://danolner.github.io/RegionalEconomicTools/intro_gvajobsdata_in_R.html">intro examples</a> for using the regional GVA / job count data (data in the link above).</li>
-<li><strong>Explainer / R guide</strong>: <a href="https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html">location quotients and proportion plots</a> for UK regional sectors: processing and mapping (also using the above data).</li>
-<li><strong>Explainer / R guide</strong>: <a href="https://danolner.github.io/RegionalEconomicTools/gdp_gaps.html">analysing regional GVA gaps</a> (using the above data). Breaking down by ITL2, ITL3, core cities and mayoral authorities. (Used, for example, to estimate the GVA productivity gap between South Yorkshire and the UK for the <a href="https://www.southyorkshire-ca.gov.uk/plan-for-good-growth">Plan for Good Growth</a>.)</li>
-<li><strong>Explainer / R guide</strong>: <a href="https://danolner.github.io/RegionalEconomicTools/beattyfothergill.html">comparing different GVA productivity measures</a> using Beatty &amp; Fothergill’s range of metrics.</li>
-</ul>
-</section>
-<section id="other-outputs" class="level3">
-<h3 class="anchored" data-anchor-id="other-outputs">Other outputs:</h3>
-<ul>
-<li><strong>South Yorkshire ‘<a href="https://www.southyorkshire-ca.gov.uk/plan-for-good-growth">Plan</a> for Good Growth’ <a href="https://www.southyorkshire-ca.gov.uk/getmedia/75e687c5-a6b5-40c1-ad0c-73344f64f084/SYMCA_Plan-for-Good-Growth_analysis.pdf">sector analysis summary</a></strong> document (PDF) hosted by <a href="https://www.southyorkshire-ca.gov.uk/plan-for-good-growth">SYMCA</a>. This highlights some key sector ideas that went into informing the Plan (a small part of a large team’s work, including <a href="https://www.southyorkshire-ca.gov.uk/getattachment/0fde98ad-f890-4b5a-8e80-0c02972ba37f/South-Yorkshire-Plan-for-Growth-Economic-Analysis.pdf">Metro Dynamics</a>). <strong>More detail in the slide decks below</strong>. (2024)</li>
-<li><strong><a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">Report on business dynamism in South Yorkshire</a></strong> using ONS data that links geographies across time (the original dataset breaks that link by honouring every local authority boundary change; this finds common boundaries to produce a consistent time series). (2024)</li>
-<li><strong>Linking the <a href="https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/finalestimates/2022">Low Carbon Renewable Energy Economy</a> (LCREE) dataset to GVA</strong>: exploring implications for sector analysis, jobs investment and which dials might affect green sector growth. <a href="https://github.com/DanOlner/danolner.github.io/blob/master/posts/outputs_livelist/SectorGrowthInvestment_July2024.docx">Longer version</a> with more detail; <a href="https://github.com/DanOlner/danolner.github.io/blob/master/posts/outputs_livelist/SectorGrowthInvestment_2024v2.docx">shorter summary version</a>. Both word docs. Underlying quarto doc <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/quarto_docs/SectorGrowthInvestment_July2024.qmd">here</a>; code in the <a href="https://github.com/DanOlner/RegionalEconomicTools/tree/gh-pages/prepcode">regecontools repo</a>.</li>
-<li><strong>Output in support of Local Growth Plan GVA gap analysis (2025),</strong> (1) <a href="https://danolner.github.io/ukcompare/plotly/GVA_measures_percentofUKaverage_excluding_LondonOutliers.html">interactive plot</a>: five GVA measures for South Yorkshire expressed as percent of UK average, 2012 to 2022; (2) <a href="https://danolner.github.io/ukcompare/plotly/adjustforindustrymix_sidebyside.html">interactive plot</a>: industry mix ‘if thens’ for South Yorkshire - “if GVA per job were UK average in all sectors, what would SY GVA be?” vs “if industry mix of jobs was same as UK average (holding SY sector GVA the same)…”; (3) <a href="https://danolner.github.io/ukcompare/plotly/artscouncil_totalspend_percentofEnglishAv.html">interactive plot</a>: Arts Council spend in Core Cities over time, percent of UK average; (4) <a href="https://danolner.github.io/ukcompare/plotly/completed_dwellings_per_resident_corecities_3yrmovingav.html">interactive plot</a>: Completed dwellings per resident for Core Cities over time, per 1000 residents (actual + rank), % of GB average. (Data and code for all these is in the <a href="https://github.com/DanOlner/ukcompare/tree/master/explore_code">ukcompare repo</a>.)</li>
-<li><strong><a href="https://danolner.shinyapps.io/SY_companieshouse/">Companies House open data dashboard</a></strong> for South Yorkshire (work in progress, aiming to make Companies Hhouse open-but-opaque data much more easy to access).</li>
-<li><strong>“Data action for local growth: what do we want to build?”</strong> Presentation to ONS subnational conference, Leeds November 2024. All the details and slides <a href="https://danolner.github.io/posts/ons_subnational_data_conf/">in this post</a>.</li>
-<li><strong><a href="https://danolner.github.io/MiscWebPages/tmap/childcare_accessibility_WYCA.html">Leeds childcare accessibility map</a></strong>, in support of work done by Thomas Haines-Doran for WYCA. See <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/educationandchildcare/articles/childcareaccessibilitybyneighbourhood/latest">here from ONS</a> for more detail about the accessibility values.</li>
-</ul>
-<p>Presentations supporting the SY Plan for Good Growth:</p>
-<ul>
-<li><strong><a href="https://www.dropbox.com/scl/fi/f74gqprlphir1pwa4mbg6/SectorGrowthUpdate_DanOlner_21_9_23.pptx?rlkey=h9ohe203qqgclqbhvcof1ufmg&amp;dl=1">Slide deck</a> for report to SYMCA on initial sector analysis findings</strong> highlighting structural change over time. (September 2023).</li>
-<li><strong><a href="https://www.dropbox.com/scl/fi/s9nzo85e0a7e8ufxiupd1/SYMCA_growth_DanOlner_13_12_23_ORIG.pptx?rlkey=f2o2n8sfh6fgw41r2h0zuwtk7&amp;dl=1">Slide deck</a> for presentation to SYMCA plus local authorities of Barnsely, Doncaster, Rotherham &amp; Sheffield:</strong> sector growth, significance, productivity, gva vs jobs.</li>
-<li><strong><a href="https://www.dropbox.com/scl/fi/8c79ndb8d2txxmw8umfl7/gva_jobsgrowth_datastory_ppt_v3_DOedit.pptx?rlkey=glld5twtqms6xiba94d2rc3m4&amp;dl=1">Slide deck</a> for SYMCA / Y-PERN joint meeting on growth and skills</strong> including SICSOC analysis showing which job skill level / sector combinations are significantly stronger or weaker between places.</li>
-</ul>
-<p>Code for these is mostly in the <a href="https://github.com/DanOlner/ukcompare/tree/master/explore_code">ukcompare repo</a>, including <a href="https://github.com/DanOlner/ukcompare/tree/master/rmarkdown">quarto/rmarkdown slides</a>.</p>
-</section>
-</section>
-<section id="bits-and-bobs" class="level2">
-<h2 class="anchored" data-anchor-id="bits-and-bobs">Bits and bobs</h2>
-<ul>
-<li><strong>Bootstrap estimates of the link between earnings and skills for South Yorkshire</strong> using the Annual Survey of Hours and Earnings and Census qualification data. Estimate plot <a href="https://github.com/DanOlner/ukcompare/blob/master/docs/skills_v_quals_SY.png">here</a>, code <a href="https://github.com/DanOlner/ukcompare/blob/master/explore_code/earnings_explore.R">here</a>. Used in the South Yorkshire Skills Strategy to give a central estimate: “If 10% of the population in South Yorkshire with Level 3 earned wages equivalent to those at Level 4 or above in South Yorkshire, total earnings could increase by an average of £200m.” (p.14)</li>
-<li><strong>Write-up of first joint Y-PERN / SYMCA policy forum</strong> <a href="https://y-pern.org.uk/blog/new-forum-aims-to-strengthen-glue-between-south-yorkshire-policymakers-academics-and-others/">on the Y-PERN blog</a>.</li>
-<li><strong>UPEN showcase: Regional Academic Policy Engagement in England (Y-PERN) - working with South Yorkshire Combined Mayoral Authority</strong>. <a href="https://www.dropbox.com/scl/fi/wy6in1x55qb462o2ts1uh/UPEN_DanOlner_13_3_24_v4.pptx?rlkey=4xsixhn53si13g0hv7ihrk5oo&amp;dl=1">Slide deck here</a>.</li>
-<li><strong>Sheffield R Users’ Group presentation: “Making Economic Data Accessible”</strong>. <a href="https://www.dropbox.com/scl/fi/gq9fyz0wjcn2wfgbk13xl/Shiny_R_UsersGroup_Nov2023_DanOlner.pptx?rlkey=xc0j00jj2ne73ju66nr01ic73&amp;dl=1">Slide deck here</a>.</li>
-<li><strong><a href="../../posts/data_stewards_event/index.html">Sheffield Uni Data Stewards Event</a></strong> - presentation on using R to build pipelines for ONS and Companies House data, including links to various maps and plots.</li>
-<li><strong><a href="https://danolner.github.io/FirmAnalysis/outputs/FAME_SouthYorkshire_sunburst_employeestenplus.html">Job count sunburst interactive</a></strong> showing how SIC codes nest in South Yorkshire. Size of slice is number of jobs. Code <a href="https://github.com/DanOlner/FirmAnalysis/blob/bcf06e46849eb7e08501c596955a247e5dadbe00/Fame_processing.R#L598">here</a>.</li>
-</ul>
-<p><img src="cogs.jpg" class="img-fluid"></p>
+<p>I also mentioned the amazing <a href="https://lssi.leeds.ac.uk/news/leeds-city-council-and-university-of-leeds-research-framework/">Leeds Research Collaboration Framework</a> and Centre for Cities’ <a href="https://www.centreforcities.org/publication/la-evidential/">LA Evidential report</a>.</p>
+<p><img src="doughnut_hex.png" class="img-fluid"></p>
 
 
-</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>See <a href="https://danolner.github.io/RegionalEconomicTools/regionalgva_n_bres.html">the data page</a> for why I think it’s possible to get more accurate job data from BRES directly.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
