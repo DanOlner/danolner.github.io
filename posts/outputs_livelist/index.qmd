@@ -44,12 +44,25 @@ source('../../functions/misc_functions.R')
 * **Linking the [Low Carbon Renewable Energy Economy](https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/finalestimates/2022) (LCREE) dataset to GVA**: exploring implications for sector analysis, jobs investment and which dials might affect green sector growth. [Longer version](https://github.com/DanOlner/danolner.github.io/blob/master/posts/outputs_livelist/SectorGrowthInvestment_July2024.docx) with more detail; [shorter summary version](https://github.com/DanOlner/danolner.github.io/blob/master/posts/outputs_livelist/SectorGrowthInvestment_2024v2.docx). Both word docs. Underlying quarto doc [here](https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/quarto_docs/SectorGrowthInvestment_July2024.qmd); code in the [regecontools repo](https://github.com/DanOlner/RegionalEconomicTools/tree/gh-pages/prepcode).
 * **Output in support of Local Growth Plan GVA gap analysis (2025),** (1) [interactive plot](https://danolner.github.io/ukcompare/plotly/GVA_measures_percentofUKaverage_excluding_LondonOutliers.html): five GVA measures for South Yorkshire expressed as percent of UK average, 2012 to 2022; (2) [interactive plot](https://danolner.github.io/ukcompare/plotly/adjustforindustrymix_sidebyside.html): industry mix 'if thens' for South Yorkshire - "if GVA per job were UK average in all sectors, what would SY GVA be?" vs "if industry mix of jobs was same as UK average (holding SY sector GVA the same)..."; (3) [interactive plot](https://danolner.github.io/ukcompare/plotly/artscouncil_totalspend_percentofEnglishAv.html): Arts Council spend in Core Cities over time, percent of UK average; (4) [interactive plot](https://danolner.github.io/ukcompare/plotly/completed_dwellings_per_resident_corecities_3yrmovingav.html): Completed dwellings per resident for Core Cities over time, per 1000 residents (actual + rank), % of GB average. (Data and code for all these is in the [ukcompare repo](https://github.com/DanOlner/ukcompare/tree/master/explore_code).)
 * **[Companies House open data dashboard](https://danolner.shinyapps.io/SY_companieshouse/)** for South Yorkshire (work in progress, aiming to make Companies Hhouse open-but-opaque data much more easy to access).
-* **"Data action for local growth: what do we want to build?"** Presentation to ONS subnational conference, Leeds November 2024. All the details and slides [in this post](https://danolner.github.io/posts/ons_subnational_data_conf/).
 * **[Leeds childcare accessibility map](https://danolner.github.io/MiscWebPages/tmap/childcare_accessibility_WYCA.html)**, in support of work done by Thomas Haines-Doran for WYCA. See [here from ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/educationandchildcare/articles/childcareaccessibilitybyneighbourhood/latest) for more detail about the accessibility values.
 
+## Presentations / events
+
+* **South Yorkshire’s past, present and future: what does the data say?**: presentation for the 1st SPERI seminar in a series about South Yorkshire's political economy and history. Write-up on the Y-PERN blog [here](https://y-pern.org.uk/political-economical-history-of-south-yorkshire-seminars/). 3.3.25.
+* **"Data action for local growth: what do we want to build?"** Presentation to ONS subnational conference, Leeds. All the details and slides [in this post](https://danolner.github.io/posts/ons_subnational_data_conf/). 14.11.24
+* **Y-PERN / SYMCA policy forum 1: GDP and beyond** [on the Y-PERN blog](https://y-pern.org.uk/blog/new-forum-aims-to-strengthen-glue-between-south-yorkshire-policymakers-academics-and-others/). 4.6.24
+* **Y-PERN / SYMCA policy forum 2: 'High-Skilled Growth - The Importance of Universities in Driving Yorkshire’s Economy'** [Word doc writeup](https://www.dropbox.com/scl/fi/asgbty3cd6e8vvnu5k2ov/SYMCA-Y-PERN-forum-2.docx?rlkey=fcmjexpwx5t3n74dbpfrwccz5&dl=1). 24.10.24
+* **UPEN showcase: Regional Academic Policy Engagement in England (Y-PERN) - working with South Yorkshire Combined Mayoral Authority**. [Slide deck here](https://www.dropbox.com/scl/fi/wy6in1x55qb462o2ts1uh/UPEN_DanOlner_13_3_24_v4.pptx?rlkey=4xsixhn53si13g0hv7ihrk5oo&dl=1). 2023
 
 
-Presentations supporting the SY Plan for Good Growth:
+## Techie talks
+
+* **Sheffield R Users' Group presentation: "Making Economic Data Accessible"**. [Slide deck here](https://www.dropbox.com/scl/fi/gq9fyz0wjcn2wfgbk13xl/Shiny_R_UsersGroup_Nov2023_DanOlner.pptx?rlkey=xc0j00jj2ne73ju66nr01ic73&dl=1). 
+* **[Sheffield Uni Data Stewards Event](../../posts/data_stewards_event/index.html)** - presentation on using R to build pipelines for ONS and Companies House data, including links to various maps and plots.
+
+
+
+## Presentations supporting the SY Plan for Good Growth:
 
 * **[Slide deck](https://www.dropbox.com/scl/fi/f74gqprlphir1pwa4mbg6/SectorGrowthUpdate_DanOlner_21_9_23.pptx?rlkey=h9ohe203qqgclqbhvcof1ufmg&dl=1) for report to SYMCA on initial sector analysis findings** highlighting structural change over time. (September 2023).
 * **[Slide deck](https://www.dropbox.com/scl/fi/s9nzo85e0a7e8ufxiupd1/SYMCA_growth_DanOlner_13_12_23_ORIG.pptx?rlkey=f2o2n8sfh6fgw41r2h0zuwtk7&dl=1) for presentation to SYMCA plus local authorities of Barnsely, Doncaster, Rotherham & Sheffield:** sector growth, significance, productivity, gva vs jobs.
@@ -61,13 +74,7 @@ Code for these is mostly in the [ukcompare repo](https://github.com/DanOlner/ukc
 ## Bits and bobs
 
 * **Bootstrap estimates of the link between earnings and skills for South Yorkshire** using the Annual Survey of Hours and Earnings and Census qualification data. Estimate plot [here](https://github.com/DanOlner/ukcompare/blob/master/docs/skills_v_quals_SY.png), code [here](https://github.com/DanOlner/ukcompare/blob/master/explore_code/earnings_explore.R). Used in the South Yorkshire Skills Strategy to give a central estimate: "If 10% of the population in South Yorkshire with Level 3 earned wages equivalent to those at Level 4 or above in South Yorkshire, total earnings could increase by an average of £200m." (p.14)
-* **Write-up of first joint Y-PERN / SYMCA policy forum** [on the Y-PERN blog](https://y-pern.org.uk/blog/new-forum-aims-to-strengthen-glue-between-south-yorkshire-policymakers-academics-and-others/).
-* **UPEN showcase: Regional Academic Policy Engagement in England (Y-PERN) - working with South Yorkshire Combined Mayoral Authority**. [Slide deck here](https://www.dropbox.com/scl/fi/wy6in1x55qb462o2ts1uh/UPEN_DanOlner_13_3_24_v4.pptx?rlkey=4xsixhn53si13g0hv7ihrk5oo&dl=1).
-* **Sheffield R Users' Group presentation: "Making Economic Data Accessible"**. [Slide deck here](https://www.dropbox.com/scl/fi/gq9fyz0wjcn2wfgbk13xl/Shiny_R_UsersGroup_Nov2023_DanOlner.pptx?rlkey=xc0j00jj2ne73ju66nr01ic73&dl=1). 
-* **[Sheffield Uni Data Stewards Event](../../posts/data_stewards_event/index.html)** - presentation on using R to build pipelines for ONS and Companies House data, including links to various maps and plots.
 * **[Job count sunburst interactive](https://danolner.github.io/FirmAnalysis/outputs/FAME_SouthYorkshire_sunburst_employeestenplus.html)** showing how SIC codes nest in South Yorkshire. Size of slice is number of jobs. Code [here](https://github.com/DanOlner/FirmAnalysis/blob/bcf06e46849eb7e08501c596955a247e5dadbe00/Fame_processing.R#L598).
-
-
 
 
 
