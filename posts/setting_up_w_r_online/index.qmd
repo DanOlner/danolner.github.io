@@ -11,12 +11,12 @@ I'm running an "R + regional economic data" taster session in June. It won't be 
 
 To do this, you'll need to do **one** of the following:
 
-1. **Use RStudio in your browser with a [posit.cloud account](https://posit.cloud)**. The **free version** is limited (very small memory, for instance) but **it's a very quick and easy option to have a play with R, if you don't have it installed already** and will be fine for the taster session. **The next section below talks through setting up in posit.cloud.**
+1. **Use RStudio in your browser with a [posit.cloud account](https://posit.cloud)**. The **free version** is limited (very small memory, for instance) but **it's a very quick and easy option to have a play with R** and will be fine for the taster session. **The next section below talks through setting up in posit.cloud.**
 
-2. **Use R and RStudio on your own computer** If you have a machine where you're able to install your own software [then go here](https://cran.rstudio.com/) to download/install the right version of R for your operating system, and [here to download/install RStudio](https://posit.co/download/rstudio-desktop/) (again, pick the correct one for your OS). (Or if a work machine, ask IT, but note the bullet point at the bottom - firewall issues may stop play if your systems aren't set up for R already!)
+2. **Use R and RStudio on your own computer**. If you have a machine where you're able to install your own software [then go here](https://cran.rstudio.com/) to download/install the right version of R for your operating system, and [here to download/install RStudio](https://posit.co/download/rstudio-desktop/) (again, pick the correct one for your OS). (Though see bullet point 2 below if using a work machine.)
 
 * The next chunk will talk through **setting up a posit.cloud project.**
-* The chunk after that talks through the setup for this project, and will **be nearly the same** whether you're using RStudio online or on your machine (with just one tweak, explained in the breakout box).
+* The chunk after that talks through getting started with an RStudio project, and will **be nearly the same** whether you're using RStudio online or on your machine (with just one tweak, explained in the breakout box).
 
 Any questions/issues, let me know at d dot older at sheffield dot ac dot uk or [message me on LinkedIn](https://www.linkedin.com/in/danolner/) and I'll try to answer.
 
