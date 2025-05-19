@@ -16,7 +16,9 @@ To do this, you'll need to do **one** of the following:
 2. **Use R and RStudio on your own computer** If you have a machine where you're able to install your own software [then go here](https://cran.rstudio.com/) to download/install the right version of R for your operating system, and [here to download/install RStudio](https://posit.co/download/rstudio-desktop/) (again, pick the correct one for your OS). (Or if a work machine, ask IT, but note the bullet point at the bottom - firewall issues may stop play if your systems aren't set up for R already!)
 
 * The next chunk will talk through **setting up a posit.cloud project.**
-* The chunk after that talks through the setup for this project, and will **be nearly the same** whether you're using RStudio online or on your machine. (With just one tweak I'll explain below.)
+* The chunk after that talks through the setup for this project, and will **be nearly the same** whether you're using RStudio online or on your machine (with just one tweak, explained in the breakout box).
+
+Any questions/issues, let me know at d dot older at sheffield dot ac dot uk or [message me on LinkedIn](https://www.linkedin.com/in/danolner/) and I'll try to answer.
 
 ## If using RStudio online: set up posit.cloud account and create your RStudio project
 
@@ -105,7 +107,7 @@ library(tidyverse)
 ```
 
 
-**That's it for now!** That'll be enough to be set up for the session. Any questions/issues, let me know at d dot older at sheffield dot ac dot uk.
+**That's it for now!** That'll be enough to be set up for the session. Any questions/issues, let me know at d dot older at sheffield dot ac dot uk or [message me on LinkedIn](https://www.linkedin.com/in/danolner/).
 
 
 [^1]: You can treat the terms 'package' and 'library' as interchangeble in R, but if you want to know the reason: if packages are like books, libraries are where the books are stored - we use the same name as the package to load a library. One of many examples of R being unnecessarily confusing with its language!
