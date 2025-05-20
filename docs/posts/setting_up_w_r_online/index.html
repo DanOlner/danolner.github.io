@@ -9,7 +9,7 @@
 <meta name="author" content="Dan Olner">
 <meta name="dcterms.date" content="2025-05-16">
 
-<title>Getting started with using R and RStudio (in the cloud or on your own machine) – Dan Olner’s Data Dispatch</title>
+<title>Getting started with using R and RStudio (in the cloud or on your own computer) – Dan Olner’s Data Dispatch</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -158,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Getting started with using R and RStudio (in the cloud or on your own machine)</h1>
+      <h1 class="title">Getting started with using R and RStudio (in the cloud or on your own computer)</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">training</div>
                 <div class="quarto-category">code</div>
@@ -200,11 +200,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="using-r-and-rstudio-1-on-your-own-computer-or-2-posit.cloud-in-the-browser" class="level2">
 <h2 class="anchored" data-anchor-id="using-r-and-rstudio-1-on-your-own-computer-or-2-posit.cloud-in-the-browser">Using R and RStudio: (1) on your own computer or (2) posit.cloud in the browser</h2>
-<p>I’m running an “R + regional economic data” taster session in June. It won’t be necessary to use R during the session to follow along - <strong>but if you want to have a go at running the code I’ll be talking through and don’t yet have R/RStudio, here’s how to get quickly set up</strong>, either online or on your own computer<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>I’m running an “R + regional economic data” taster session in June. It won’t be necessary to use R during the session to follow along - <strong>but if you want to have a go at running the code I’ll be talking through and don’t yet have R/RStudio, here’s how to get quickly set up</strong>, either online through a browser, or with R and RStudio installed on your own computer<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>To do this, you’ll need to do <strong>one</strong> of the following:</p>
 <ol type="1">
 <li><p><strong>Use RStudio in your browser with a <a href="https://posit.cloud">posit.cloud account</a></strong>. The <strong>free version</strong> is limited (very small memory, for instance) but <strong>it’s a very quick and easy option to have a play with R</strong> and will be fine for the taster session. <strong>The next section below talks through setting up in posit.cloud.</strong></p></li>
-<li><p><strong>Use R and RStudio on your own computer</strong>. If you have a machine where you’re able to install your own software <a href="https://cran.rstudio.com/">then go here</a> to download/install the right version of R for your operating system, and <a href="https://posit.co/download/rstudio-desktop/">here to download/install RStudio</a> (again, pick the correct one for your OS). (Though see bullet point 2 below if using a work machine.)</p></li>
+<li><p><strong>Install R and RStudio on your own computer</strong>. If you have a machine where you’re able to install your own software <a href="https://cran.rstudio.com/">then go here</a> to download/install the right version of R for your operating system, and <a href="https://posit.co/download/rstudio-desktop/">here to download/install RStudio</a> (again, pick the correct one for your OS). (Though see bullet point 2 below if using a work machine.)</p></li>
 </ol>
 <ul>
 <li>The next chunk will talk through <strong>setting up a posit.cloud project.</strong></li>
@@ -212,18 +212,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Any questions/issues, let me know at d dot older at sheffield dot ac dot uk or <a href="https://www.linkedin.com/in/danolner/">message me on LinkedIn</a> and I’ll try to answer.</p>
 </section>
-<section id="if-using-rstudio-online-set-up-posit.cloud-account-and-create-your-rstudio-project" class="level2">
-<h2 class="anchored" data-anchor-id="if-using-rstudio-online-set-up-posit.cloud-account-and-create-your-rstudio-project">If using RStudio online: set up posit.cloud account and create your RStudio project</h2>
+<section id="if-using-rstudio-online-set-up-a-posit.cloud-account-and-create-your-rstudio-project" class="level2">
+<h2 class="anchored" data-anchor-id="if-using-rstudio-online-set-up-a-posit.cloud-account-and-create-your-rstudio-project">If using RStudio online: set up a posit.cloud account and create your RStudio project</h2>
 <p>Here’s the steps to get up and running through a browser using posit.cloud.</p>
 <ul>
 <li><a href="https://login.posit.cloud/login">Create an account at posit.cloud</a> using the ‘sign up’ box, and then log in. That’ll take you to your online workspace.</li>
 <li>Click the <strong>new project</strong> button, top right</li>
-<li>Select ‘new project from template’ and then “Data Analysis in R with the tidyverse” (if not already selected). This comes pre-installed with the tidyverse package, which we’ll be using. Select then click OK down at the bottom. <strong>This will open your RStudio project where we’ll do the coding.</strong></li>
+<li>Select ‘<strong>new project from template</strong>’ (as in the pic below) and then “Data Analysis in R with the tidyverse” (if not already selected). This template comes pre-installed with the tidyverse package, which we’ll be using. Select then click OK down at the bottom. <strong>This will open your RStudio project where we’ll do the coding.</strong></li>
 </ul>
+<p><img src="newproject.png" class="img-fluid"></p>
 </section>
 <section id="make-a-new-r-script-and-add-a-library" class="level2">
 <h2 class="anchored" data-anchor-id="make-a-new-r-script-and-add-a-library">Make a new R script and add a library</h2>
-<p>Now you should <strong>either be in RStudio online through posit.cloud</strong> or <strong>you’ve opened RStudio on your own machine.</strong> From here…</p>
+<p>Now you should <strong>either be in RStudio online through posit.cloud</strong> or <strong>if using RStudio installed on your own computer, open that now</strong>. From here…</p>
 <ul>
 <li><strong>Create a new R script</strong> by going to ‘file &gt; new file &gt; new R script’ (or using the <strong>CTRL+SHIFT+N</strong> shortcut). A new script will appear, currently just called <em>‘Untitled1’</em> until it’s saved for the first time.</li>
 <li><strong>At this point, it should look something like this:</strong></li>
@@ -286,12 +287,12 @@ NOTE: IF USING RSTUDIO ON YOUR OWN COMPUTER…
 <h2 class="anchored" data-anchor-id="running-code-in-an-r-script-loading-the-tidyverse-library">Running code in an R script / loading the tidyverse library</h2>
 <p>All code will run in the console - what we do with scripts is just send our written code to the console. We do this in a couple of ways:</p>
 <ol type="1">
-<li>In your R script, if no code text is highlighted/selected, RStudio will <strong>Run the code line by line</strong> (or chunk by chunk, but we’ll come to that).</li>
-<li>If a block of text is highlighed, the whole block will run. So e.g.&nbsp;if you select-all in a script and then run it, the entire script will run.</li>
+<li>In your R script, if no code text is highlighted/selected, RStudio will <strong>Run the code line by line</strong> (or chunk by chunk - we’ll cover that in the taster session).</li>
+<li>If a block of text is highlighted, the whole block will run. So e.g.&nbsp;if you select-all in a script and then run it, the entire script will run.</li>
 </ol>
 <p>Let’s do #1: <strong>Run the code line by line</strong>.</p>
 <ul>
-<li><strong>To test this, we’ll load the tidyverse library with the code we just pasted in</strong>: put the cursor at the end of the <code>libary(tidyverse)</code> line in the script (if it’s not there already), either with the mouse or keyboard. (Keyboard navigation is mostly the same as any other text editor like Word, but <a href="https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE">here’s a full shortcut list</a> if useful.)</li>
+<li><strong>To test this, we’ll load the tidyverse library with the code we just pasted in</strong> (which is just one line of code at the moment!) Put the cursor at the end of the <code>libary(tidyverse)</code> line in the script (if it’s not there already), either with the mouse or keyboard. (Keyboard navigation is mostly the same as any other text editor like Word, but <a href="https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE">here’s a full shortcut list</a> if useful.)</li>
 <li>Once there, either use the ‘run’ button, top right of the script window, or (much easier if you’re doing this repeatedly) <strong>press CTRL+ENTER to run it.</strong></li>
 </ul>
 <p>You should see the code get sent to the console, and a message like the one below confirming that R is ‘Attaching core tidyverse packages’. <strong>The tidyverse library is now loaded</strong>.</p>
