@@ -5,7 +5,7 @@ date: "2025-05-16"
 categories: [training,code]
 ---
 
-## Using R and RStudio: (1) on your own computer or (2) posit.cloud in the browser
+## Using R and RStudio: (1) posit.cloud in the browser, or (2) running on your own computer 
 
 I'm running an "R + regional economic data" taster session in June. It won't be necessary to use R during the session to follow along - **but if you want to have a go at running the code I'll be talking through and don't yet have R/RStudio, here's how to get quickly set up**, either online through a browser, or with R and RStudio installed on your own computer[^2].
 
