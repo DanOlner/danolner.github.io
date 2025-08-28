@@ -1,0 +1,1784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Dan Olner&#39;s Data Dispatch</title>
+<link>https://danolner.github.io/</link>
+<atom:link href="https://danolner.github.io/index.xml" rel="self" type="application/rss+xml"/>
+<description>Dan Olner&#39;s Data Dispatch</description>
+<generator>quarto-1.7.33</generator>
+<lastBuildDate>Thu, 15 May 2025 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Getting started with using R and RStudio (in the cloud or on your own computer)</title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/setting_up_w_r_online/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="using-r-and-rstudio-1-posit.cloud-in-the-browser-or-2-running-on-your-own-computer" class="level2">
+<h2 class="anchored" data-anchor-id="using-r-and-rstudio-1-posit.cloud-in-the-browser-or-2-running-on-your-own-computer">Using R and RStudio: (1) posit.cloud in the browser, or (2) running on your own computer</h2>
+<p>I’m running an “R + regional economic data” taster session in June. It won’t be necessary to use R during the session to follow along - <strong>but if you want to have a go at running the code I’ll be talking through and don’t yet have R/RStudio, here’s how to get quickly set up</strong>, either online through a browser, or with R and RStudio installed on your own computer<sup>1</sup>.</p>
+<p>To do this, you’ll need to do <strong>one</strong> of the following:</p>
+<ol type="1">
+<li><p><strong>Use RStudio in your browser with a <a href="https://posit.cloud">posit.cloud account</a></strong>. The <strong>free version</strong> is limited (very small memory, for instance) but <strong>it’s a very quick and easy option to have a play with R</strong> and will be fine for the taster session. <strong>The next section below talks through setting up in posit.cloud.</strong></p></li>
+<li><p><strong>Install R and RStudio on your own computer</strong>. If you have a machine where you’re able to install your own software <a href="https://cran.rstudio.com/">then go here</a> to download/install the right version of R for your operating system, and <a href="https://posit.co/download/rstudio-desktop/">here to download/install RStudio</a> (again, pick the correct one for your OS). (Though see bullet point 2 below if using a work machine.)</p></li>
+</ol>
+<ul>
+<li>The next chunk will talk through <strong>setting up a posit.cloud project.</strong></li>
+<li>The chunk after that talks through getting started with an RStudio project, and will <strong>be nearly the same</strong> whether you’re using RStudio online or on your machine (with just one tweak, explained in the breakout box).</li>
+</ul>
+<p>Any questions/issues, let me know at d dot older at sheffield dot ac dot uk or <a href="https://www.linkedin.com/in/danolner/">message me on LinkedIn</a> and I’ll try to answer.</p>
+</section>
+<section id="if-using-rstudio-online-set-up-a-posit.cloud-account-and-create-your-rstudio-project" class="level2">
+<h2 class="anchored" data-anchor-id="if-using-rstudio-online-set-up-a-posit.cloud-account-and-create-your-rstudio-project">If using RStudio online: set up a posit.cloud account and create your RStudio project</h2>
+<p>Here’s the steps to get up and running through a browser using posit.cloud.</p>
+<ul>
+<li><a href="https://login.posit.cloud/login">Create an account at posit.cloud</a> using the ‘sign up’ box, and then log in. That’ll take you to your online workspace.</li>
+<li>Click the <strong>new project</strong> button, top right</li>
+<li>Select ‘<strong>new project from template</strong>’ (as in the pic below) and then “Data Analysis in R with the tidyverse” (if not already selected). This template comes pre-installed with the tidyverse package, which we’ll be using. Select then click OK down at the bottom. <strong>This will open your RStudio project where we’ll do the coding.</strong></li>
+</ul>
+<p><img src="https://danolner.github.io/posts/setting_up_w_r_online/newproject.png" class="img-fluid"></p>
+</section>
+<section id="make-a-new-r-script-and-add-a-library" class="level2">
+<h2 class="anchored" data-anchor-id="make-a-new-r-script-and-add-a-library">Make a new R script and add a library</h2>
+<p>Now you should <strong>either be in RStudio online through posit.cloud</strong> or <strong>if using RStudio installed on your own computer, open that now</strong>. From here…</p>
+<ul>
+<li><strong>Create a new R script</strong> by going to ‘file &gt; new file &gt; new R script’ (or using the <strong>CTRL+SHIFT+N</strong> shortcut). A new script will appear, currently just called <em>‘Untitled1’</em> until it’s saved for the first time.</li>
+<li><strong>At this point, it should look something like this:</strong></li>
+</ul>
+<p><img src="https://danolner.github.io/posts/setting_up_w_r_online/rstudio_online.png" class="img-fluid"></p>
+<p>Let’s stop for a moment and look at the separate windows in RStudio.</p>
+<ul>
+<li><strong>Bottom left is the console</strong>. Commands run here. You can test it by clicking in the console and trying a random command or two like those below (press enter to run a command in the console).</li>
+</ul>
+<p>(Note that all code blocks in this post have a <strong>little ‘copy to clipboard’ icon in the top right</strong> when you hover, if you want to just copy the code for pasting into RStudio).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>Or e.g.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">49</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7</code></pre>
+</div>
+</div>
+<ul>
+<li>Bottom right of the RStudio window has various tabs, including local <strong>files</strong> (all kept inside your project folder so everything is self contained) and a list of available <strong>packages</strong><sup>2</sup>.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+NOTE: IF USING RSTUDIO ON YOUR OWN COMPUTER…
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We will be using the <strong>tidyverse package/library</strong> in the session. If you’re using posit.cloud, this package comes pre-installed in the template we selected. However, <strong>if you’re using RStudio on your own machine, you will need to install the tidyverse package yourself</strong> before we load it as a library.</p>
+<p>To do this, just <strong>run the following code in the console</strong> (the same place we just did our ‘2+2’ test, in the bottom left panel in RStudio.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'tidyverse'</span>)</span></code></pre></div>
+</div>
+<p><strong>You should get a confirmatory message once the package has installed successfully</strong> (though it may take a minute or two).</p>
+</div>
+</div>
+<p>Now, whether in posit.cloud or on your own computer, you should have the tidyverse package available.</p>
+<p><strong>It now needs to be loaded as a library</strong> before we can use it:</p>
+<ul>
+<li><strong>Put the following text at the top of the newly opened R script in the top left panel.</strong></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<p>When you’ve put that in, <strong>the script title will go red</strong>, showing it can now be saved (it should look something like the image below).</p>
+<p><img src="https://danolner.github.io/posts/setting_up_w_r_online/script1.png" class="img-fluid"></p>
+<ul>
+<li><strong>Save the script</strong> either with the CTRL + S shortcut, or file &gt; save. Give it whatever name you like, but note that it <strong>saves into your self-contained project folder.</strong></li>
+</ul>
+</section>
+<section id="running-code-in-an-r-script-loading-the-tidyverse-library" class="level2">
+<h2 class="anchored" data-anchor-id="running-code-in-an-r-script-loading-the-tidyverse-library">Running code in an R script / loading the tidyverse library</h2>
+<p>All code will run in the console - what we do with scripts is just send our written code to the console. We do this in a couple of ways:</p>
+<ol type="1">
+<li>In your R script, if no code text is highlighted/selected, RStudio will <strong>Run the code line by line</strong> (or chunk by chunk - we’ll cover that in the taster session).</li>
+<li>If a block of text is highlighted, the whole block will run. So e.g.&nbsp;if you select-all in a script and then run it, the entire script will run.</li>
+</ol>
+<p>Let’s do #1: <strong>Run the code line by line</strong>.</p>
+<ul>
+<li><strong>To test this, we’ll load the tidyverse library with the code we just pasted in</strong> (which is just one line of code at the moment!) Put the cursor at the end of the <code>libary(tidyverse)</code> line in the script (if it’s not there already), either with the mouse or keyboard. (Keyboard navigation is mostly the same as any other text editor like Word, but <a href="https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE">here’s a full shortcut list</a> if useful.)</li>
+<li>Once there, either use the ‘run’ button, top right of the script window, or (much easier if you’re doing this repeatedly) <strong>press CTRL+ENTER to run it.</strong></li>
+</ul>
+<p>You should see the code get sent to the console, and a message like the one below confirming that R is ‘Attaching core tidyverse packages’. <strong>The tidyverse library is now loaded</strong>.</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ purrr::%||%()   masks base::%||%()
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p><strong>That’s it for now!</strong> That’ll be enough to be set up for the session. Any questions/issues, let me know at d dot older at sheffield dot ac dot uk or <a href="https://www.linkedin.com/in/danolner/">message me on LinkedIn</a>.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Installing R can be tricky on work machines if your organisation isn’t familiar with it. R needs to access the internet to install libraries, for instance, and this can sometimes hit firewall issues. If you end up having this problem, I suggest trying the online posit.cloud route for now.↩︎</p></li>
+<li id="fn2"><p>You can treat the terms ‘package’ and ‘library’ as interchangeble in R, but if you want to know the reason: if packages are like books, libraries are where the books are stored - we use the same name as the package to load a library. One of many examples of R being unnecessarily confusing with its language!↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>training</category>
+  <category>code</category>
+  <guid>https://danolner.github.io/posts/setting_up_w_r_online/</guid>
+  <pubDate>Thu, 15 May 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Data Stewards’ Network meeting on workflows</title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/data_stewards_event/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I presented at a Sheffield University <a href="https://www.sheffield.ac.uk/library/research-data-management/data-steward-network">Data Stewards’ Network</a> event, talking about the pipelines I’ve been building for <a href="https://danolner.github.io/RegionalEconomicTools/">ONS economic data</a> and Companies House data (<a href="https://docs.google.com/presentation/d/1-54H28E3b9yLJNDSRFPQPYUtxuYVsZ3GAun1-AYVwf0/edit?usp=sharing">slides online here</a>). As well as evangelising about the wonders of Quarto + R for ease-of-pipeline-making (e.g.&nbsp;downloading / extracting all ONS data, harmonising/combining then auto-updating webpages to serve it), I talked about how open data and tools can help support analytic capacity growth in regional/local government, helping us move a bit closer to a shared sense of ground truth.</p>
+<p>Also presenting were the excellent folks from UoS’ <a href="https://urbanflows.ac.uk/">Urban Flows Observatory</a>, talking about all the fun they’ve had getting an entire citywide sensor network up and running and making that accessible through <a href="https://sheffield-portal.urbanflows.ac.uk/uflobin/ufportal/">their portal</a>.</p>
+<p>The slides have some linked interactive pages and reports - a quick list of those here:</p>
+<ul>
+<li><a href="https://danolner.github.io/companieshouseopen/maps/companieshouse_modal_SICsection_byemployeecount_minfiftyplus_hex5000.html">Great Britain interactive hexmap</a> of Companies House data I’ve been working to make accessible as well as open (currently ‘open but opaque’). Each 5km-across-hex shows the <strong>modal sector (most common there by job count in most recent accounts)</strong> and only showing hexes with a min of 50 employees. <strong>Hover over the map</strong> for a pop up of the sector there - trying to just use the key here is tricky, far too many categories / bad map! Patterns to look out for: the <strong>manufacturing doughnut</strong> drawing a circle from Sheffield through Birmingham and Manchester; the <strong>Southern sci-tech areas</strong>, also quite heavily present in Manchester. Also note where there are <strong>not</strong> a min of 50 employees - an interesting picture of the economic landscape. This was a first test to demonstrate how rich this dataset is if one can access the whole national picture (not just whatever count limits private versions of this data impose e.g.&nbsp;FAME). A lot of work yet to do though…</li>
+<li><a href="https://danolner.github.io/companieshouseopen/maps/companieshouse_yorkshire_modal_SICsection_byemployeecount_mintenplus_hex1000m.html">Higher resolution hexmap</a> just for Yorkshire - 1km-across hex, with minimum ten employees per hex.</li>
+<li><a href="https://danolner.github.io/companieshouseopen/plots/employment_percentchange_fromlastaccounts_SICsections_v_corecities_SBDRoverlaid.html">South Yorkshire’s four local authorities</a> job percent change since last accounts, compared to ‘core cities’, using the last year’s Companies House data (hover for place name).</li>
+<li><a href="https://www.google.com/url?q=https://danolner.shinyapps.io/SY_companieshouse/&amp;sa=D&amp;source=editors&amp;ust=1743085593492834&amp;usg=AOvVaw2kAqN89zhAKNQKXzQIrCvH">Companies House South Yorkshire shiny dashboard</a> 1st draft. Click on firms for more details, view sector and change to ‘percent change from last year’.</li>
+<li><a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">Quarto online report example</a> looking at business demography in South Yorkshire (note the nice hover-for-plot feature built in, surprise to me when it compiled!)</li>
+<li><a href="https://danolner.github.io/RegionalEconomicTools/intro_gvajobsdata_in_R.html">Intro to using</a> linked ONS output and jobs data in R (with link to rest of pipeline)</li>
+<li>Early draft <a href="https://danolner.shinyapps.io/EconDataDashboard/">shiny dashboard</a> for location quotient plots and SICSOC comparison plots (that show relative job skill levels for the chosen ITL2 zone) - see the tabs.</li>
+</ul>
+<p>I also mentioned the amazing <a href="https://lssi.leeds.ac.uk/news/leeds-city-council-and-university-of-leeds-research-framework/">Leeds Research Collaboration Framework</a> and Centre for Cities’ <a href="https://www.centreforcities.org/publication/la-evidential/">LA Evidential report</a>.</p>
+<p><img src="https://danolner.github.io/posts/data_stewards_event/doughnut_hex.png" class="img-fluid"></p>
+
+
+
+ ]]></description>
+  <category>ons</category>
+  <category>data</category>
+  <guid>https://danolner.github.io/posts/data_stewards_event/</guid>
+  <pubDate>Thu, 27 Mar 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Outputs live list</title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/outputs_livelist/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="whats-this-page" class="level2">
+<h2 class="anchored" data-anchor-id="whats-this-page">What’s this page?</h2>
+<ul>
+<li>A live list of stuff I’ve produced on in my policy fellow role, working with <a href="https://y-pern.org.uk/">Y-PERN</a>, University of Sheffield <a href="https://www.sheffield.ac.uk/management">Management School</a> and <a href="https://www.southyorkshire-ca.gov.uk/">SYMCA</a>.</li>
+<li>The majority of this work is being carried out openly on <a href="https://github.com/DanOlner">my github repo</a>, mainly in <a href="https://github.com/DanOlner/RegionalEconomicTools">RegionalEconomicTools</a> and <a href="https://github.com/DanOlner/ukcompare">ukcompare</a>. I’m writing about it on my <a href="https://danolner.github.io/">tech</a> and <a href="https://www.danolner.net/">non-tech</a> blogs.</li>
+<li>I’ll add to this same post as new stuff appears.</li>
+</ul>
+</section>
+<section id="outputs" class="level2">
+<h2 class="anchored" data-anchor-id="outputs">Outputs:</h2>
+<p><a href="https://danolner.github.io/RegionalEconomicTools/">RegEconTools website</a>. All of this work comes under the broad heading of “Open regional economic data and tools”; this website is where I’m collating as much of this work as I can. <a href="https://github.com/DanOlner/RegionalEconomicTools">Here’s the website repo</a>.</p>
+<section id="on-the-regecontools-website-currently" class="level3">
+<h3 class="anchored" data-anchor-id="on-the-regecontools-website-currently">On the RegEconTools website currently:</h3>
+<ul>
+<li><strong>Resource</strong>: Linked <a href="https://danolner.github.io/RegionalEconomicTools/regionalgva_n_bres.html">regional GVA and job count data</a>, including more accurate BRES job counts<sup>1</sup>.</li>
+<li><strong>Explainer / R guide:</strong>: <a href="https://danolner.github.io/RegionalEconomicTools/intro_gvajobsdata_in_R.html">intro examples</a> for using the regional GVA / job count data (data in the link above).</li>
+<li><strong>Explainer / R guide</strong>: <a href="https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html">location quotients and proportion plots</a> for UK regional sectors: processing and mapping (also using the above data).</li>
+<li><strong>Explainer / R guide</strong>: <a href="https://danolner.github.io/RegionalEconomicTools/gdp_gaps.html">analysing regional GVA gaps</a> (using the above data). Breaking down by ITL2, ITL3, core cities and mayoral authorities. (Used, for example, to estimate the GVA productivity gap between South Yorkshire and the UK for the <a href="https://www.southyorkshire-ca.gov.uk/plan-for-good-growth">Plan for Good Growth</a>.)</li>
+<li><strong>Explainer / R guide</strong>: <a href="https://danolner.github.io/RegionalEconomicTools/beattyfothergill.html">comparing different GVA productivity measures</a> using Beatty &amp; Fothergill’s range of metrics.</li>
+</ul>
+</section>
+<section id="other-outputs" class="level3">
+<h3 class="anchored" data-anchor-id="other-outputs">Other outputs:</h3>
+<ul>
+<li><strong>South Yorkshire ‘<a href="https://www.southyorkshire-ca.gov.uk/plan-for-good-growth">Plan</a> for Good Growth’ <a href="https://www.southyorkshire-ca.gov.uk/getmedia/75e687c5-a6b5-40c1-ad0c-73344f64f084/SYMCA_Plan-for-Good-Growth_analysis.pdf">sector analysis summary</a></strong> document (PDF) hosted by <a href="https://www.southyorkshire-ca.gov.uk/plan-for-good-growth">SYMCA</a>. This highlights some key sector ideas that went into informing the Plan (a small part of a large team’s work, including <a href="https://www.southyorkshire-ca.gov.uk/getattachment/0fde98ad-f890-4b5a-8e80-0c02972ba37f/South-Yorkshire-Plan-for-Growth-Economic-Analysis.pdf">Metro Dynamics</a>). <strong>More detail in the slide decks below</strong>. (2024)</li>
+<li><strong><a href="https://github.com/DanOlner/companieshouseopen">Companies House Open</a></strong> project. From the github ‘about’ blurb: “UK Companies House data is already ‘open’ but it’s opaque and a <a href="https://dictionary.cambridge.org/dictionary/english/pita">PITA</a> to wrangle. This repo takes care of a bunch of the PITA and makes this amazingly rich dataset more openly accessible.” While it has its weaknesses, it’s an amazing, granular dataset. Outputs from this so far include:
+<ul>
+<li><strong><a href="https://danolner.shinyapps.io/SY_companieshouse/">Companies House open data dashboard</a></strong> for South Yorkshire (work in progress, aiming to make Companies Hhouse open-but-opaque data much more easy to access).</li>
+<li><strong>“Most common sector per hex modal maps</strong> for GB, giving a quick view of the economic structure of the country. Examples: <a href="https://danolner.github.io/companieshouseopen/maps/companieshouse_modal_SICsection_byemployeecount_min10plus_hex1000m_wLADs.html">1000m hexmap with overlaid ITL2 zones and local authorities</a>, 10+ employees per firm min; <a href="https://danolner.github.io/companieshouseopen/maps/companieshouse_modal_SICsection_byemployeecount_minfiftyplus_hex5000.html">same but 5000m and min 50 employees</a> per firm - easier to see broad economic structure and north-south difference (note all the PST bands around London).</li>
+<li>Example of Companies House data use in broader economic analysis: <a href="https://danolner.github.io/RegionalEconomicTools/quarto_docs/LeedsBradford_overview_May2025.html">comparing Bradford and Leeds</a>, using CH (alongside ONS data) to dig deeper into most recent economic changes.</li>
+</ul></li>
+<li><strong><a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">Report on business dynamism in South Yorkshire</a></strong> using ONS data that links geographies across time (the original dataset breaks that link by honouring every local authority boundary change; this finds common boundaries to produce a consistent time series). (2024)</li>
+<li><strong>Linking the <a href="https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/finalestimates/2022">Low Carbon Renewable Energy Economy</a> (LCREE) dataset to GVA</strong>: exploring implications for sector analysis, jobs investment and which dials might affect green sector growth. <a href="https://github.com/DanOlner/danolner.github.io/blob/master/posts/outputs_livelist/SectorGrowthInvestment_July2024.docx">Longer version</a> with more detail; <a href="https://github.com/DanOlner/danolner.github.io/blob/master/posts/outputs_livelist/SectorGrowthInvestment_2024v2.docx">shorter summary version</a>. Both word docs. Underlying quarto doc <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/quarto_docs/SectorGrowthInvestment_July2024.qmd">here</a>; code in the <a href="https://github.com/DanOlner/RegionalEconomicTools/tree/gh-pages/prepcode">regecontools repo</a>.</li>
+<li><strong>Output in support of Local Growth Plan GVA gap analysis (2025),</strong> (1) <a href="https://danolner.github.io/ukcompare/plotly/GVA_measures_percentofUKaverage_excluding_LondonOutliers.html">interactive plot</a>: five GVA measures for South Yorkshire expressed as percent of UK average, 2012 to 2022; (2) <a href="https://danolner.github.io/ukcompare/plotly/adjustforindustrymix_sidebyside.html">interactive plot</a>: industry mix ‘if thens’ for South Yorkshire - “if GVA per job were UK average in all sectors, what would SY GVA be?” vs “if industry mix of jobs was same as UK average (holding SY sector GVA the same)…”; (3) <a href="https://danolner.github.io/ukcompare/plotly/artscouncil_totalspend_percentofEnglishAv.html">interactive plot</a>: Arts Council spend in Core Cities over time, percent of UK average; (4) <a href="https://danolner.github.io/ukcompare/plotly/completed_dwellings_per_resident_corecities_3yrmovingav.html">interactive plot</a>: Completed dwellings per resident for Core Cities over time, per 1000 residents (actual + rank), % of GB average. (Data and code for all these is in the <a href="https://github.com/DanOlner/ukcompare/tree/master/explore_code">ukcompare repo</a>.)</li>
+<li><strong><a href="https://danolner.github.io/MiscWebPages/tmap/childcare_accessibility_WYCA.html">Leeds childcare accessibility map</a></strong>, in support of work done by Thomas Haines-Doran for WYCA. See <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/educationandchildcare/articles/childcareaccessibilitybyneighbourhood/latest">here from ONS</a> for more detail about the accessibility values.</li>
+</ul>
+</section>
+</section>
+<section id="presentations-events" class="level2">
+<h2 class="anchored" data-anchor-id="presentations-events">Presentations / events</h2>
+<ul>
+<li><strong>South Yorkshire’s past, present and future: what does the data say?</strong>: presentation for the 1st SPERI seminar in a series about South Yorkshire’s political economy and history. Write-up on the Y-PERN blog <a href="https://y-pern.org.uk/political-economical-history-of-south-yorkshire-seminars/">here</a>. 3.3.25.</li>
+<li><strong>“Data action for local growth: what do we want to build?”</strong> Presentation to ONS subnational conference, Leeds. All the details and slides <a href="https://danolner.github.io/posts/ons_subnational_data_conf/">in this post</a>. 14.11.24</li>
+<li><strong>Y-PERN / SYMCA policy forum 1: GDP and beyond</strong> <a href="https://y-pern.org.uk/blog/new-forum-aims-to-strengthen-glue-between-south-yorkshire-policymakers-academics-and-others/">on the Y-PERN blog</a>. 4.6.24</li>
+<li><strong>Y-PERN / SYMCA policy forum 2: ‘High-Skilled Growth - The Importance of Universities in Driving Yorkshire’s Economy’</strong> <a href="https://www.dropbox.com/scl/fi/asgbty3cd6e8vvnu5k2ov/SYMCA-Y-PERN-forum-2.docx?rlkey=fcmjexpwx5t3n74dbpfrwccz5&amp;dl=1">Word doc writeup</a>. 24.10.24</li>
+<li><strong>UPEN showcase: Regional Academic Policy Engagement in England (Y-PERN) - working with South Yorkshire Combined Mayoral Authority</strong>. <a href="https://www.dropbox.com/scl/fi/wy6in1x55qb462o2ts1uh/UPEN_DanOlner_13_3_24_v4.pptx?rlkey=4xsixhn53si13g0hv7ihrk5oo&amp;dl=1">Slide deck here</a>. 2023</li>
+</ul>
+</section>
+<section id="techie-talks" class="level2">
+<h2 class="anchored" data-anchor-id="techie-talks">Techie talks</h2>
+<ul>
+<li><strong>Sheffield R Users’ Group presentation: “Making Economic Data Accessible”</strong>. <a href="https://www.dropbox.com/scl/fi/gq9fyz0wjcn2wfgbk13xl/Shiny_R_UsersGroup_Nov2023_DanOlner.pptx?rlkey=xc0j00jj2ne73ju66nr01ic73&amp;dl=1">Slide deck here</a>.</li>
+<li><strong><a href="../../posts/data_stewards_event/index.html">Sheffield Uni Data Stewards Event</a></strong> - presentation on using R to build pipelines for ONS and Companies House data, including links to various maps and plots.</li>
+<li><strong>ONS Local Presents: “Using R for regional economic analysis - taster session”</strong>. The lovely people at ONS Local gave me a chance to do a whistlestop tour of using R for regional data analysis. Session outline here (including link to getting set up with R either online or on own machine). <a href="https://www.eventbrite.co.uk/e/ons-local-workshop-using-r-for-regional-economic-analysis-taster-session-tickets-1372930745819?aff=ebdsoporgprofile">Course outline here</a>. <a href="https://danolner.github.io/RegionalEconomicTools/R_regecon_taster_2025_revealjs.html#/title-slide">Online slides here</a>. Both have links to ways to use R online and get the data. A recording of the session is <a href="https://vimeo.com/user99857619/review/1103090076/32e50123d2">here</a>.</li>
+</ul>
+</section>
+<section id="presentations-supporting-the-sy-plan-for-good-growth" class="level2">
+<h2 class="anchored" data-anchor-id="presentations-supporting-the-sy-plan-for-good-growth">Presentations supporting the SY Plan for Good Growth:</h2>
+<ul>
+<li><strong><a href="https://www.dropbox.com/scl/fi/f74gqprlphir1pwa4mbg6/SectorGrowthUpdate_DanOlner_21_9_23.pptx?rlkey=h9ohe203qqgclqbhvcof1ufmg&amp;dl=1">Slide deck</a> for report to SYMCA on initial sector analysis findings</strong> highlighting structural change over time. (September 2023).</li>
+<li><strong><a href="https://www.dropbox.com/scl/fi/s9nzo85e0a7e8ufxiupd1/SYMCA_growth_DanOlner_13_12_23_ORIG.pptx?rlkey=f2o2n8sfh6fgw41r2h0zuwtk7&amp;dl=1">Slide deck</a> for presentation to SYMCA plus local authorities of Barnsely, Doncaster, Rotherham &amp; Sheffield:</strong> sector growth, significance, productivity, gva vs jobs.</li>
+<li><strong><a href="https://www.dropbox.com/scl/fi/8c79ndb8d2txxmw8umfl7/gva_jobsgrowth_datastory_ppt_v3_DOedit.pptx?rlkey=glld5twtqms6xiba94d2rc3m4&amp;dl=1">Slide deck</a> for SYMCA / Y-PERN joint meeting on growth and skills</strong> including SICSOC analysis showing which job skill level / sector combinations are significantly stronger or weaker between places.</li>
+</ul>
+<p>Code for these is mostly in the <a href="https://github.com/DanOlner/ukcompare/tree/master/explore_code">ukcompare repo</a>, including <a href="https://github.com/DanOlner/ukcompare/tree/master/rmarkdown">quarto/rmarkdown slides</a>.</p>
+</section>
+<section id="bits-and-bobs" class="level2">
+<h2 class="anchored" data-anchor-id="bits-and-bobs">Bits and bobs</h2>
+<ul>
+<li><strong>Bootstrap estimates of the link between earnings and skills for South Yorkshire</strong> using the Annual Survey of Hours and Earnings and Census qualification data. Estimate plot <a href="https://github.com/DanOlner/ukcompare/blob/master/docs/skills_v_quals_SY.png">here</a>, code <a href="https://github.com/DanOlner/ukcompare/blob/master/explore_code/earnings_explore.R">here</a>. Used in the South Yorkshire Skills Strategy to give a central estimate: “If 10% of the population in South Yorkshire with Level 3 earned wages equivalent to those at Level 4 or above in South Yorkshire, total earnings could increase by an average of £200m.” (p.14)</li>
+<li><strong><a href="https://danolner.github.io/FirmAnalysis/outputs/FAME_SouthYorkshire_sunburst_employeestenplus.html">Job count sunburst interactive</a></strong> showing how SIC codes nest in South Yorkshire. Size of slice is number of jobs. Code <a href="https://github.com/DanOlner/FirmAnalysis/blob/bcf06e46849eb7e08501c596955a247e5dadbe00/Fame_processing.R#L598">here</a>.</li>
+</ul>
+<p><img src="https://danolner.github.io/posts/outputs_livelist/cogs.jpg" class="img-fluid"></p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>See <a href="https://danolner.github.io/RegionalEconomicTools/regionalgva_n_bres.html">the data page</a> for why I think it’s possible to get more accurate job data from BRES directly.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>planning</category>
+  <guid>https://danolner.github.io/posts/outputs_livelist/</guid>
+  <pubDate>Wed, 12 Feb 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/companies_house_geog/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>code</category>
+  <category>firms</category>
+  <category>geo</category>
+  <guid>https://danolner.github.io/posts/companies_house_geog/</guid>
+  <pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Open data and code used for ONS subnational data conference</title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/ons_subnational_data_conf/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Off the back of presenting at the <a href="https://www.eventbrite.co.uk/e/subnational-data-conference-supporting-local-decision-making-tickets-1042576082127">ONS subnational data conference</a>, this post collects the open data / code I used in <a href="https://www.dropbox.com/scl/fi/6sgk49k3bf9cw0u40hkdb/PDF_DanOlner_ONS_subnational_14_11_24_FINAL.pdf?rlkey=9dmk50bh0z03vrfcnu0l8hjgo&amp;dl=1">the slides</a>, as well as a few extra bits mentioned in there.</p>
+<p>The presentation talks about the <strong>huge value and power of ONS data</strong> for the UK: how it can help us understand where we’ve come from and where we are now – and so help us work out we want to go.</p>
+<p>There’s a mix here of <strong>step by step data walkthroughs</strong> and <strong>raw code</strong>: I want to work on getting more of this into a form that’s as useable as possible, ideally through testing what actually <em>is</em> useful and iterating.</p>
+<p>I’ll add in <strong>some to-do notes</strong> on things that need updating / changing / improving and change this page as those get done.</p>
+<section id="data-and-code-used" class="level2">
+<h2 class="anchored" data-anchor-id="data-and-code-used">Data and code used</h2>
+<ul>
+<li><strong>For the 1971-81 ‘scarring’ work</strong> (used in <a href="https://eprints.whiterose.ac.uk/218201/1/Steel%20City_fv%20_oct2023_aug2024%20English%20version.pdf">‘Steel City: Deindustrialisation and Peripheralisation in Sheffield’</a> with Jay Emery and Gwilym Pryce):
+<ul>
+<li><a href="https://github.com/DanOlner/HarmonisedCountryOfBirthDatasets">Harmonised Census data 1971 to 2011</a>: country of birth and employment variables harmonised along with consistent geography. Full explanation in the readme there talks through how to get the data for country of birth (and further down the page there’s a link to the employment data). <strong>POSSIBLE TO-DO: HARMONISE WITH 2021 (and 1961???)</strong></li>
+<li>That data is used in <a href="https://github.com/DanOlner/dataStitching/blob/master/SheffieldScarring_Writeup1_Apr2022.Rmd">this RMarkdown output</a> that produces the plots used (from <a href="https://github.com/DanOlner/dataStitching">this repo</a> with general data stitching code). The data for the RMarkdown output, using the harmonised datasets, is processed in <a href="https://github.com/DanOlner/dataStitching/blob/master/unemploymentChanges_scarring.R">this R Script</a>.</li>
+</ul></li>
+<li><strong>For the sector proportion plots</strong>, and other code on processing ONS regional GVA data for location quotients, mapping and other bits, see <a href="https://danolner.github.io/RegionalEconomicTools/sector_locationquotients_and_proportions.html">this code and data stepthrough</a> on the <a href="https://danolner.github.io/RegionalEconomicTools">regecontools site</a>.</li>
+<li><strong>The productivity “GVA vs JOBS percent change” plots and map</strong> don’t have a good walkthrough yet - the code (including code to update to latest BRES and regional GVA data) is <a href="https://github.com/DanOlner/ukcompare/blob/3a455b7212fb0a0763cd99f3a8535ebe35300df2/explore_code/GVA_region_by_sector_explore.R#L6734">here in the repo for the first tranche of sector analysis work</a> done for SYMCA, and is fairly readable and self-contained there. That BRES data is automatically extracted using the super-useful NOMISR package in <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/BRES_API_download.R">this script</a> and processed in <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/BRES_process.R">this script</a> (where it’s linked to the <a href="https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/finalestimates/2022">LCREE dataset</a>, along with GVA data - work done in <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/Analysis_of_lcree_jobs_gva_linkeddata.R">this script</a> and then collated for a report in <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/quarto_docs/SectorGrowthInvestment_July2024.qmd">this Quarto doc</a>). <strong>TO-DO: MAKE WALKTHROUGH FOR PROD PLOTS</strong></li>
+<li>The <strong>GVA per hour plot</strong> is part of <a href="https://danolner.github.io/RegionalEconomicTools/gdp_gaps.html">this walkthrough on the regecontools page</a> looking more broadly at some GVA per capita / per hour worked.</li>
+<li>The <strong>Beatty / Fothergill rank change plot</strong> is <a href="https://danolner.github.io/RegionalEconomicTools/beattyfothergill.html">from this</a> fuller breakdown of their data, with code walkthrough, on the <a href="https://danolner.github.io/RegionalEconomicTools/">regecontools</a> site.</li>
+</ul>
+</section>
+<section id="other-links" class="level2">
+<h2 class="anchored" data-anchor-id="other-links">Other links</h2>
+<ul>
+<li>The <a href="https://y-pern.org.uk/">Y-PERN website</a>.</li>
+<li><a href="https://www.southyorkshire-ca.gov.uk/plan-for-good-growth">SYMCA Plan for Good Growth</a> page, which includes the <a href="https://www.southyorkshire-ca.gov.uk/getattachment/0fde98ad-f890-4b5a-8e80-0c02972ba37f/South-Yorkshire-Plan-for-Growth-Economic-Analysis.pdf">M-D economic analysis</a> and my own sectoral <a href="https://www.southyorkshire-ca.gov.uk/getmedia/75e687c5-a6b5-40c1-ad0c-73344f64f084/SYMCA_Plan-for-Good-Growth_analysis.pdf">3-pager summary</a>.</li>
+<li><a href="https://www.danolner.net/2019/02/sheffields-first-data-for-good-hack-day">Write up / blog post</a> of the 2019 Sheffield Data for Good hack day.</li>
+<li><a href="https://civicdatacooperative.com/">Liverpool City Region Civic Data Coop</a></li>
+<li><a href="https://nowthenmagazine.com/articles/why-defining-sheffield-neighbourhoods-could-be-the-first-step-towards-transformative-change-in-the-city-mapping-participatory-democracy">Story</a> on Sheffield Neighbourhood Mapping project (<a href="https://felt.com/map/Sheffield-Neighbourhoods-Basemap-Layer-v1-1-mzP9BFSMHQsibMbkaH9AzOQA?loc=53.4021,-1.5212,11.55z">link</a> to current map version).</li>
+<li>Centre for Cities <a href="https://www.centreforcities.org/publication/la-evidential/">LA Evidential report</a>.</li>
+</ul>
+</section>
+<section id="references-from-the-presentation" class="level2">
+<h2 class="anchored" data-anchor-id="references-from-the-presentation">References from the presentation:</h2>
+<ul>
+<li>Rice / Venables: “The persistent consequences of adverse shocks: how the 1970s shaped UK regional inequality” <a href="https://academic.oup.com/oxrep/article-abstract/37/1/132/6211742">here</a></li>
+<li>Sarah Willams, <a href="https://mitpress.mit.edu/9780262545310/data-action/">Data Action</a>: Using Data for Public Good.</li>
+<li>Martin A. Schwartz, “The Importance of Stupidity in Scientific Research.” <a href="https://journals.biologists.com/jcs/article/121/11/1771/30038/The-importance-of-stupidity-in-scientific-research">Journal of Cell Science 121</a>.</li>
+<li>Peter Tennant on <a href="https://bsky.app/profile/pwgtennant.bsky.social/post/3l7psm2xmkl2h">Bluesky talking about</a> how we grow and why we need an open mind and be willing to be wrong.</li>
+</ul>
+</section>
+<section id="bits-i-didnt-manage-to-cram-in-the-slides" class="level2">
+<h2 class="anchored" data-anchor-id="bits-i-didnt-manage-to-cram-in-the-slides">Bits I didn’t manage to cram in the slides</h2>
+<ul>
+<li><a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">Analysis of ONS business demography data</a> that links local authorities across the dataset, including business ‘efficiency’ (balance of births and deaths) showing something shifted in more recent years in the south. (I write about automating your way out of an Excel data hole for this project <a href="https://danolner.github.io/posts/business_demography/.">here</a></li>
+<li>The incredible Dutch secure data service data used in our Rotterdam project - paper <a href="https://journals.sagepub.com/doi/full/10.1177/23998083231173696">here</a>, supplementary material with a map <a href="https://journals.sagepub.com/doi/suppl/10.1177/23998083231173696/suppl_file/sj-pdf-1-epb-10.1177_23998083231173696.pdf">here</a>. Individual-level data! 100m^2, track over time! Link to other survey data! Secure, trustworthy, easy to use!</li>
+<li>Northern Irish Census data - summarised down to 100m^2. Allows you to e.g.&nbsp;<a href="https://danolner.github.io/r_training/belfast_catholicproportion.html">see Belfast like this</a> (interactive map).</li>
+</ul>
+<p><img src="https://danolner.github.io/posts/ons_subnational_data_conf/shock7181.png" class="img-fluid"></p>
+
+
+</section>
+
+ ]]></description>
+  <category>code</category>
+  <category>ons</category>
+  <category>planning</category>
+  <guid>https://danolner.github.io/posts/ons_subnational_data_conf/</guid>
+  <pubDate>Sun, 10 Nov 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>How to automate your way out of Excel hell &amp; other ONS data wrangling stories (business demography edition)</title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/business_demography/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I’ve <a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">been analysing</a> the latest <a href="https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable">ONS business demography</a> data (that ONS pull from the <a href="https://www.ons.gov.uk/aboutus/whatwedo/paidservices/interdepartmentalbusinessregisteridbr">IDBR</a>). It contains a tonne of great data on business births, deaths, numbers, ‘high growth’ firms, survival rates, down to local authority level (though sadly sector breakdowns only at national level).</p>
+<ul>
+<li>My working report from that is <a href="https://danolner.github.io/FirmAnalysis/ONS_business_demography.html">here</a> - hoping to add more</li>
+<li>Prep code is <a href="https://github.com/DanOlner/FirmAnalysis/blob/master/ONS_business_demography.R">here</a></li>
+<li>Quarto code for the report is <a href="https://github.com/DanOlner/FirmAnalysis/blob/master/docs/QUARTO_ONS_businessdemography.qmd">here</a></li>
+</ul>
+<p><img src="https://danolner.github.io/posts/business_demography/excel_hell2.png" class="img-fluid"></p>
+<p>Getting data out of Excel documents can be a bit extremely horrible [noting, to be clear, that Excel docs like this are super useful for many people, but just nasty for those of us who want to get the data into something like R or Python, so…]. In this case, what we’ve got is this –&gt;</p>
+<ul>
+<li>For each type of data (firm births, deaths, active count, high growth count etc) there are <strong>four sheets</strong> covering different time periods, with two spanning two years and two with a single year. Why? That’s unclear until you check the geographies - the local authorities (LAs) used <strong>don’t match</strong> across sheets. Why? Because the <strong>boundaries changed</strong>, so there’s a <strong>different sheet each year they’ve changed.</strong></li>
+</ul>
+<p>So if we want consistent data across all time periods, we’ve got a couple of things to do:</p>
+<ol type="1">
+<li>Get the data out of each set of four sheets into one;</li>
+<li>Harmonise the geographies so datapoints are consistent.</li>
+</ol>
+<p>Luckily, the LA changes have all been to combine into larger units over time (usually unitary authorities) - so all earlier LAs fit neatly into later boundaries. Phew. This means <strong>values from earlier LAs can be summed to the larger/later ones</strong> - backcasting 2022 boundaries through all previous data.</p>
+<p>Some anonymous angel/angels <a href="https://en.wikipedia.org/wiki/2019%E2%80%932023_structural_changes_to_local_government_in_England">made this Wikipedia page</a> clearly laying out when and what local authorities combined into larger unitary ones in recent years. Using that, we can piece together the changes to get to <a href="https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L181">this function</a> that does the harmonising. It groups previous LAs - that only needs to backcast 2021/2022 names once, no faffing around with each separate sheet - and then summarises counts for those new groups, for previous years’ data.</p>
+<p>Prior to that, though, we need to pull the sheets into R. There are a <em>lot</em> of sheets - doing this manually would be baaad…</p>
+<ul>
+<li>The <a href="https://readxl.tidyverse.org/">readxl package</a> to the rescue! Part of the tidyverse, it can be used to automate extracting data from any sheet and set of cells in an Excel document. I do that in the function <a href="https://github.com/DanOlner/FirmAnalysis/blob/91c0d71bfa86448ff7bccbb2733217750578ac06/functions.R#L223">here</a>, specifically for pulling out the correct cells from the ONS demography Excel. That’s used in the code here.</li>
+</ul>
+<p>(Image stolen from <a href="https://michelbaudin.com/2016/08/02/excel-hell-an-insiders-report-chad-smith-linkedin-pulse/">here</a>).</p>
+
+
+
+ ]]></description>
+  <category>code</category>
+  <category>ons</category>
+  <category>firms</category>
+  <guid>https://danolner.github.io/posts/business_demography/</guid>
+  <pubDate>Tue, 05 Nov 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>What this situation needs is another blog, said no-one ever</title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/welcome/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>“Another blog! Thank the Gods! Blogging is so <em>now</em>, isn’t it?”</p>
+<p>That’s quite enough sarcasm from you. What this lovely website is for:</p>
+<ul>
+<li>Using the ace <a href="https://quarto.org/docs/websites/website-blog.html">Quarto blogging platform</a> for writing up data / techie / code / mapping stuff in a much more straightforward way than using Jekyll (the previous github frontend, now archived <a href="http://danolner.github.io/archived-jekyll-site-danolner.github.io/">here</a>). RStudio just makes it for you! With some tweaks. Github repo for this blog is <a href="https://github.com/DanOlner/danolner.github.io">here</a>.</li>
+<li>A place to explain what I’ve done with R projects - not least explaining them to future me. Future me is very forgetful and needs to have things explained very simply to him</li>
+<li>Get down the techie bits behind work I’m doing to support regional economic data analysis, so I can keep that separate from things like the <a href="https://danolner.github.io/RegionalEconomicTools/">regional economic tools</a> site (also Quarto).</li>
+</ul>
+<p>*<strong>Links to my <a href="https://github.com/DanOlner">github</a> / <a href="https://www.linkedin.com/in/danolner/">linkedin</a> / <a href="https://bsky.app/profile/danolner.bsky.social">bluesky</a> / <a href="https://www.danolner.net/">wordpress site</a> (or use links up above).</strong></p>
+<p>Here is a picture of a kitten on a unicorn, via <a href="https://bsky.app/profile/richardkadrey.bsky.social/post/3la7evuq7kb2x">here</a>. You’re welcome.</p>
+<p><img src="https://danolner.github.io/posts/welcome/kittenonunicorn.jpeg" class="img-fluid"></p>
+
+
+
+ ]]></description>
+  <category>gumph</category>
+  <guid>https://danolner.github.io/posts/welcome/</guid>
+  <pubDate>Mon, 04 Nov 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Pub crawl optimiser</title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/pubcrawloptimiser/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="spatial-r-for-social-good" class="level1">
+<h1>Spatial R for social good!</h1>
+<p>Well maybe. <a href="http://sheffieldr.github.io/">Sheffield R User Group</a> kindly invited me to wiffle at them about an R topic of my choosing. So I chose two. As well as taking the chance to share my pain in coding the analysis for <a href="http://www.climatexchange.org.uk/reducing-emissions/impact-wind-farms-property-prices/">this windfarms project</a>, I thought I’d bounce up and down about how great R’s spatial stuff is for anyone who hasn’t used it. It’s borderline magical.</p>
+<p>So by way of introduction to spatial R, and to honour the R User Group’s <a href="http://www.red-deer-sheffield.co.uk/">venue of choice</a>, I present the <strong><a href="https://github.com/DanOlner/optimalPubCrawl">Pub Crawl Optimiser</a></strong>.</p>
+<p>I’ve covered everything that it does in the code comments, along with links. But just to explain, there were a few things I wanted to get across. (A lot of this is done better and in more depth at my <a href="https://cran.r-project.org/doc/contrib/intro-spatial-rl.pdf">go-to intro to spatial R</a> by Robin Lovelace and James Cheshire.) The following points have matching sections in the <a href="https://github.com/DanOlner/optimalPubCrawl/blob/master/pubCrawlOptimiser.R">pubCrawlOptimiser.R</a> code.</p>
+<ul>
+<li><p><strong>The essentials of spatial datasets</strong>: (in ‘subset pubs’) - how to load or make them from points and polygons, how to use one to easily subset the other using R’s existing dataframe syntax. How to set coordinate reference systems and project something to a different one, so everything’s in the same CRS and will happily work together. (The Travel to Work Area shapefile is included in the project data folder.)</p></li>
+<li><p><strong>Working with JSON and querying services</strong>: a couple of examples of loading and processing JSON data using the <a href="https://cran.r-project.org/web/packages/jsonlite/index.html">jsonlite package</a>, including asking google to tell us the time it takes between pubs - accounting for hilliness. This is <a href="http://mdfs.net/Docs/Sheffield/Hills/">very important in Sheffield</a> if one wants to move optimally between pubs. Pub data is downloaded separately from <a href="http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dpub">OpenStreetMap</a> but we query OSM directly to work out the centroids of pubs supplied as <a href="http://wiki.openstreetmap.org/wiki/Way">ways</a>.</p></li>
+<li><p><strong>A little spatial analysis task</strong> using the <a href="https://cran.r-project.org/web/packages/TSP/index.html">TSP package</a> to find shortest paths between our list of pubs - both for asymmetric matrices with different times depending on direction, and symmetric ones just using distance.</p></li>
+<li><p><strong>Plotting the results</strong> using ggmap to get a live OSM map for Sheffield. Note how easy it is to just drop TSP’s integer output into geom_path’s data to plot the route of the optimal pub crawl.</p></li>
+<li><p>There’s also <a href="https://github.com/DanOlner/optimalPubCrawl/blob/master/realAlePubs_spatialDependence.R">a separate script</a> looking at creating a <strong>spatial weights matrix</strong> to examine spatial dependence. These are easy to create and do very handy jobs with little effort - e.g.&nbsp;if we want to know what the average number of real ale pubs per head of population in neighbouring zones, it’s just the weights matrix multiplied by our vector of zones.</p></li>
+</ul>
+<p>The very first part of code that’s processing pub data downloaded from OSM - couple of things to note:</p>
+<ul>
+<li>Just follow the <a href="http://overpass-turbo.eu/">overpass turbo link</a> via the <a href="http://wiki.openstreetmap.org/wiki/Tag:amenity%3Dpub">pub tag wiki page</a>.</li>
+<li>I remove the relations line ( <em>relation[“amenity”=“pub”]({{bbox}});</em> ) just to keep nodes and ways.</li>
+<li>Once you’ve selected an area and downloaded the raw JSON, the R code runs through it to create a dataframe of pubs, keeping only those with names. It also runs through any that are ways (shapes describing the pub building), finds their points and averages them as a rough approximation of those pubs’ point location. I could have selected a smaller subset of data right here, of course, but wanted to show a typical spatial subsetting task.</li>
+</ul>
+<p>A couple of friends have actually suggested attempting the 29 pub crawl in the code (below, starting at the Red Deer and ending at the Bath Hotel). I am not sure that would be wise.</p>
+<p>So what would you want to see in an essential introduction to spatial R for anyone new to it?</p>
+<p><img src="https://danolner.github.io/posts/pubcrawloptimiser/optimal.png" class="img-fluid"></p>
+
+
+</section>
+
+ ]]></description>
+  <category>code</category>
+  <category>teaching</category>
+  <category>geo</category>
+  <guid>https://danolner.github.io/posts/pubcrawloptimiser/</guid>
+  <pubDate>Wed, 07 Dec 2016 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Migration entropy</title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/migration_entropy/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="preamble" class="level1">
+<h1>Preamble</h1>
+<p>One of the parts of my new job (both <a href="https://www.sheffield.ac.uk/smi">here</a> and <a href="http://ubdc.ac.uk/">here</a>) is a project examining how migration and a host of other spatial-economic and social things interact. This is awesome news for me: the movement of people (and its interaction with the spatial economy) was both essential to the PhD and a mirror to the stuff in <a href="http://www.coveredinbees.org/node/411">GRIT</a>.</p>
+<p>I’ve got a long <strong>long</strong> way to go with the topic - some of the best social science has been done in this area for a long time, I’ve got a lot of catching up to do. So this post is just an initial, probably hugely misinformed, maybe plain dumb, ramble - <strong>and</strong> an excuse to build a little agent-based model in R (not sure I’ll be doing the latter again - back to Java and exporting result to R - but it was fun!)</p>
+<p>My initial hook into this post was hearing the idea of <a href="https://en.wikipedia.org/wiki/White_flight">white flight</a> (or ‘native flight’ too) in some presentations. The focus was specifically about how immigrants external to the UK might be causing this. With an agent-modelling head on, it feels like you could get something that has its characteristics while actually being little more than random movement plus spatial economics. And, especially, that one has to be very careful to separate out the driving economic forces from the people themselves. That might end up meaning exactly the same thing, but…</p>
+<p>To put it another way: I’ve got this, still currently very vague, sense that you could find statistically significant patterns just by arbitrarily labelling one bunch of people as ‘x’ and another ‘y’. Somewhat trivially obviously, you wouldn’t be able to do any quant work if those groups <strong>hadn’t</strong> been labelled differently - but I want to know if you arbitrarily labelled a random sample, perhaps, how would you tell the effects apart?</p>
+<p>A simple thought experiment to illustrate the point. Imagine a variation on <a href="https://en.wikipedia.org/wiki/Maxwell's_demon">Maxwell’s Demon</a>: a box with two halves, joined by a gap that, over time, produces a maximal entropy state, perfectly mixed. Initially all molecules are identical, but the demon has the power to arbitrarily deem 50% of the right-hand box as ‘blue’ and the rest across both boxes ‘red’.</p>
+<p>Suddenly, rather than an entirely boring statistical evenness, the red left are being invaded by blues (coming over ere with their entropy-maximising randomness). One could show this by measuring the percentage of red vs blue in the left box as it rapidly dropped (which I do below, with a few additions to this thought experiment). But nothing has changed apart from the labelling - the same particle motion is taking place.</p>
+<p>It’s a dumb idea but it gets the point across: there’s a labelling effect that could, in theory, mislead if the underlying process involved is not accounted for. Or alternatively, it’s not misleading at all if that designation of different groups is, in itself, a real feature of social life. Which it obviously is in some ways - but it’s still a tricksy idea. (Compare with <a href="https://www.youtube.com/watch?v=1iDxKskmB_k">Akala talking about</a> the, seemingly entirely arbitrary, difference between ‘immigrants’ and ‘ex-pats’.)</p>
+<p>Just to re-iterate, none of this is probably relevant to the work that triggered this thought. This is just me working through my intuition. I’m guessing it’s easy enough to distinguish area effects for places with the same overall characteristics/migration-flows but separate out the effect of differing groups. But let’s just carry on with the thought process anyhoo.</p>
+</section>
+<section id="coupla-lit-bits" class="level1">
+<h1>Coupla lit bits</h1>
+<p>There are a couple of facts from my first head-butt of the literature that jump out. First-up are the basic demographic differences involved. Not only do migrants from outside the UK tend to be much younger, but there’s a difference in <em>internal</em> migration rates between ethnic groups too (though obv, best not to conflate ethnicity and external migration!) This is analysed in <a href="http://onlinelibrary.wiley.com/doi/10.1002/psp.481/abstract">Finney/Simpson 2008</a>. Their key finding is that, once demographics are controlled for, ethnic groups in the UK -</p>
+<blockquote class="blockquote">
+<p>do not have a significantly different migration rate from the White Briton group when group composition is accounted for. [76]</p>
+</blockquote>
+<p>They also mention, in passing, that:</p>
+<blockquote class="blockquote">
+<p>accommodation that is privately rented is occupied by residents that are almost twice as likely to have migrated in the past year than the average resident.[72]</p>
+</blockquote>
+<p>And vice-versa - home-owners are much less likely to move, a finding that’s consistent across all groups. The <a href="http://epn.sagepub.com/content/36/9/1633">Fotheringham <em>et al</em> 2004</a> paper - a stupendous piece of work - looks just at out-migration rates (between 98 ‘family health service areas’) in England and Wales. They’d found -</p>
+<blockquote class="blockquote">
+<p>a strong positive relationship between out-migration rates and the proportion of nonwhite population in an FHSA…</p>
+</blockquote>
+<p>And, mechanism-wise, they saw two possibilities:</p>
+<blockquote class="blockquote">
+<p>The generally positive relationship could be caused by the white population leaving areas of mixed race or by nonwhite populations having higher migration rates.</p>
+</blockquote>
+<p>Finney/Simpson’s work suggests the latter - but that this is due to demographic differences. Also, Among the bzillion dynamics Fotheringham <em>et al</em> analyse, one that jumped out at me was:</p>
+<blockquote class="blockquote">
+<p>Higher out-migration rates are associated with areas of high employment growth, suggesting a high turnover effect operates in such areas. That is, in-migration volumes will be high into such areas because of high employment growth, but recent migrants tend to be highly mobile and out-migration rates are therefore also likely to be high. [1666]</p>
+</blockquote>
+<p>So we’ve got this high churn going on in economically attractive places - which also connects to the housing market, of course. More property-owning pushes an area away from this high-churn. And that could go both ways, couldn’t it? High turnover, from a Putnam perspective, could undermine some of social-capital formation and knock on to house prices. Those areas, if generally younger, might also be more urban, less desirable by older groups looking for family homes.</p>
+<p>Or prices could be pushed up if people are piling in - but you can see equilibrium pressures at work as out-migration rates increase too.</p>
+</section>
+<section id="model-pre-amble" class="level1">
+<h1>Model pre-amble</h1>
+<p>Which segues me nicely into to the following silly little model. I’ve got a very long way to fully mapping out the dynamics involved but, here, I just wanted to get started with something very basic. This post is <strong>also</strong> an attempt to persuade R to do a simple little agent/stochastic model. I’ll wibble a bit at the end about the coding experience…</p>
+<p>So this is a sorta-<a href="https://en.wikipedia.org/wiki/Agent-based_model">ABM</a> with zero-intelligence agents making the simplest probabilistic moves. It looks like this:</p>
+<ul>
+<li><strong>Nine hundred agents</strong> initially split evenly between <strong>three zones</strong>.</li>
+<li>All agents have the same <strong>1 in 100 chance</strong> of deciding to move on every timestep…
+<ul>
+<li>Though that 1 in 100 chance is <strong>weighted slightly</strong> by the population of their current zone. If it’s more than an even proportion of the total population, their chance of wanting to move is increased slightly, and vice versa.</li>
+</ul></li>
+<li>Once an agent decides to move, they have a different function to choose <em>where</em> to move.
+<ul>
+<li>For two-thirds of them, they have no preference - they’ll decide to either stay, or move to one of the other two, with equal probability (but weighted by population).</li>
+<li>One third of the agents, however, will have a preference for two of the zones (or a preference against one of them - same thing). This could be slight or large, depending on their preference set.</li>
+</ul></li>
+</ul>
+<p>A few things to note before getting to the code:</p>
+<ol type="1">
+<li><p>The 1/3 agents are arbitrary - it’s 1 in 3 in each zone initially but it doesn’t matter. This is one aspect of the way the problem is thought about that I’d like to be sure I’m thinking straight on - if one (a) marks out a group of people as a specific sub-group and then (b) examine how that sub-group’s flows affect others’, might the result be an artifact of the labelling itself?</p></li>
+<li><p>I haven’t dug into the original pieces of research in enough depth to make any sweeping statements. So, just to be clear, this piece isn’t in any way meant as a criticism of anyone else’s approach - it’s entirely just me thinking through some of the most trivially basic mechanisms that might be involved.</p></li>
+<li><p>The population-weighted probability of moving I’m using is a way to push zone numbers back to equilibrium. It could stand in for any kind of pressure to move that agents might come under, from house prices to environment. I’m also aware there are plenty of mechanisms, in reality, that can make larger zones <strong>more</strong> attractive, not less, e.g.&nbsp;through Krugmanesque increasing returns feedbacks. The assumption here is that all those forces balance to a net-negative response to higher population.</p></li>
+<li><p>Since I haven’t posted one of these little models for a while, I should point out that, not only do I think this kind of simple model is useful, I believe they can be extremely powerful and criticisms about lack of realism miss the point. See <a href="https://github.com/DanOlner/PhD-thesis-n-code">PhD chapter 3</a>. But then I would say that, I suppose.</p></li>
+</ol>
+<p>Right, that’s a lot of wiffle. On to…</p>
+</section>
+<section id="the-actual-code.-1-set-up." class="level1">
+<h1>The actual code. 1: Set up.</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(plyr)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(reshape2)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(zoo)<span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#For running means</span></span></code></pre></div>
+</div>
+<p>‘Store’ just stores each timestep’s data for outputting once the model’s run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Store of time series data (to match how table gets converted to dataframe for rbinding)</span></span>
+<span id="cb2-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Time is iteration</span></span>
+<span id="cb2-3">store <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">zone =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.integer</span>(), </span>
+<span id="cb2-4">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">agent_type =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.integer</span>(),</span>
+<span id="cb2-5">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">number_of_agents =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.integer</span>(),</span>
+<span id="cb2-6">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">time =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.integer</span>())</span></code></pre></div>
+</div>
+<p>Then set per-zone population, each agent’s base probability of moving and the number of timesteps (though note below, I’ve hard-coded stuff that only works with 300 agents per zone… oops).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#population per zone</span></span>
+<span id="cb3-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#(so they can be evenly distributed to zones to start with)</span></span>
+<span id="cb3-3">n <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300</span></span>
+<span id="cb3-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#probability of an agent wanting to move on each turn</span></span>
+<span id="cb3-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#1 in 100</span></span>
+<span id="cb3-6">p <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.01</span></span>
+<span id="cb3-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#iterations</span></span>
+<span id="cb3-8">ites <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1500</span></span></code></pre></div>
+</div>
+<p>As mentioned, there are two <strong>agent types</strong>: two-thirds of agents don’t care where they move, if they’ve decided to move. The other third have a preference. These two preferences are set by giving each agent type its own vector for selecting a zone to move to.</p>
+<p>This was one easy way of defining how a sub-group can be biased towards two zones: if, as here, their choice vector is 10 / 10 / 1, they only have a 1 in 21 chance of deciding to move to zone 3. (Note the range of other preferences for ‘bias’ in the comments.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#even probability of choosing any zone (including my own)</span></span>
+<span id="cb4-2">even <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>),<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>),<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>))</span>
+<span id="cb4-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#preference for zones one and two</span></span>
+<span id="cb4-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Slight preference</span></span>
+<span id="cb4-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># bias &lt;- c(rep(1,each = 10),rep(2,each = 10),rep(3,each = 8))</span></span>
+<span id="cb4-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Weaker preference</span></span>
+<span id="cb4-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># bias &lt;- c(rep(1,each = 10),rep(2,each = 10),rep(3,each = 3))</span></span>
+<span id="cb4-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Even weaker preference for one zone (thus stronger for other two)</span></span>
+<span id="cb4-9">bias <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>),<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>),<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span>
+<span id="cb4-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Won't ever choose 3 (useful for testing assignment works)</span></span>
+<span id="cb4-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># bias &lt;- c(rep(1,each = 10),rep(2,each = 10)) </span></span></code></pre></div>
+</div>
+<p>Each ‘agent’ is just a row in a dataframe. Each row has an agent’s current zone, whether it’s going to move this turn and a reference to its preference (!). So it’s here that we set 2/3s of agents to ‘don’t care which zone’ (even) and 1/3 to ‘bias’.</p>
+<p>A probability column gets added further below that determines their first decision - ‘shall I move this turn?’ Like most agent models, this is a little bit markov-chainy. I think.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#THE AGENTS:</span></span>
+<span id="cb5-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Keep them all in a single long dataframe</span></span>
+<span id="cb5-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#assign agents to zones initially evenly</span></span>
+<span id="cb5-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#One row per agent</span></span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#'moving' is flag: am I moving this turn?</span></span>
+<span id="cb5-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#'prob': flag for which zone probability to use. </span></span>
+<span id="cb5-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#0 is even; 1 is biased</span></span>
+<span id="cb5-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Set a third of agents to prefer zones 1 and 2.</span></span>
+<span id="cb5-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Distribute them evenly between zones to start with</span></span>
+<span id="cb5-10">agents <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">zone =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> n), </span>
+<span id="cb5-11">                     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">moving =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, </span>
+<span id="cb5-12">                     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>),<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">times =</span> n))<span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#codes 2/3 majority</span></span></code></pre></div>
+</div>
+<p>Just to show exactly what that creates: Zones 1 to 3 each have 300 agents in, and there are 200 who don’t care where they move to (0) and a hundred (1) that will use the ‘bias’ probability.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>zone, agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>prob)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+      0   1
+  1 200 100
+  2 200 100
+  3 200 100</code></pre>
+</div>
+</div>
+<p>Each timestep produces a ‘result’ table that summarises the number and type of agent per zone. Each of these ‘results’ goes into the ‘store’ dataframe for graphing later. But we need an initial ‘result’ to start with, as it’s used to work out how to weight moving probability on the next timestep - but the first timestep needs one too! So this one is just hard-coded to match the agent table above. I should probably work out how not to hard-code this. I’m not going to right now. So!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#WARNING: hard-coding the numbers for this first set of values based on 900 agents in total</span></span>
+<span id="cb8-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#and a 2/3 majority</span></span>
+<span id="cb8-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#So this matches store structure and initial agent state:</span></span>
+<span id="cb8-4">result <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">zone =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">times =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), </span>
+<span id="cb8-5">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">agent_type =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>),</span>
+<span id="cb8-6">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">number_of_agents =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>),<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)),</span>
+<span id="cb8-7">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">time =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span></code></pre></div>
+</div>
+<p>And that’s everything set up. On to -&gt;</p>
+</section>
+<section id="running-the-model" class="level1">
+<h1>2: Running the model…</h1>
+<p>Here’s the model for-loop itself:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">###########</span></span>
+<span id="cb9-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># RUNRUNRUN</span></span>
+<span id="cb9-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>ites) {</span>
+<span id="cb9-4"></span>
+<span id="cb9-5">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#1. Weight probability of moving by population in each zone</span></span>
+<span id="cb9-6">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Find zone population for this timestep</span></span>
+<span id="cb9-7">  zonepop <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aggregate</span>(result<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>number_of_agents, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(result<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>zone),sum)</span>
+<span id="cb9-8">  </span>
+<span id="cb9-9">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Sensible names for following the logic...</span></span>
+<span id="cb9-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(zonepop) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'zone'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'population'</span>)</span>
+<span id="cb9-11">  </span>
+<span id="cb9-12">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Weight probability of moving by population difference from even</span></span>
+<span id="cb9-13">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># zonepop$newprob &lt;- (zonepop$x/(n)) * p</span></span>
+<span id="cb9-14">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#raise to power to make a larger effect (but 1 stays 1)</span></span>
+<span id="cb9-15">  zonepop<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>newprob <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ((zonepop<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>population<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(n))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p</span>
+<span id="cb9-16">  </span>
+<span id="cb9-17">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#drop any previous newprob column from agents</span></span>
+<span id="cb9-18">  agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>newprob <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span></span>
+<span id="cb9-19">  </span>
+<span id="cb9-20">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Merge the probability for each zone into the agents</span></span>
+<span id="cb9-21">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#zonepop columns one and three is just 'zone' (for matching)</span></span>
+<span id="cb9-22">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#and the new probability of moving</span></span>
+<span id="cb9-23">  agents <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">merge</span>(agents, zonepop[,<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'zone'</span>)</span></code></pre></div>
+</div>
+<p>This first section weights each agent’s probability of moving to the size of the zone they’re in. We know the populations are all even on the first step, so the initial ‘result’ above just uses the base probability, but on future steps it’s higher if more crowded, lower if less.</p>
+<p>Note that the probability-calculating line raises the ‘zone population’/‘agent number’ ratio to the power of 4. This makes any deviation from an even population have an increasingly strong effect on agent’s likelihood of deciding to move (or stay, if the population’s lower than even.)</p>
+<p>And then this just returns 1 if I’m deciding to move on this timestep:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#2. Using weighted prob... Am I moving this turn?</span></span>
+<span id="cb10-2">  agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>moving <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbinom</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> , agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>newprob)</span></code></pre></div>
+</div>
+<p>You can see this produces roughly a 1 in 100 chance of each agent moving…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbinom</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> , agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>newprob))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+892   8 </code></pre>
+</div>
+</div>
+<p>But if population is higher in all zones (which it can’t be in the model, but just to illustrate). 10 times the current probability of 0.01 is about 1 in 10 deciding to move:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbinom</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> , <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p,<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents))))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+823  77 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbinom</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> , <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p,<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents))))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+803  97 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbinom</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> , <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p,<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents))))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+813  87 </code></pre>
+</div>
+</div>
+<p>And if lower in all zones, agents are more likely to stay put:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbinom</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> , <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p,<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents))))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+898   2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbinom</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> , <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p,<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents))))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+899   1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbinom</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> , <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p,<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents))))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0 
+900 </code></pre>
+</div>
+</div>
+<p>For those who <strong>are</strong> moving, in this next step, they decide where to go. The fiddly part here are the two selections from the ‘even’ and ‘bias’ vectors that tell agents which zone they’re moving to. To explain it as much for my own later sanity as anything, here’s what’s going on. We’re just selecting a random index from each of them. In the case of ‘even’, 1,2 and 3 have the same chance of being chosen (as can be seen if we whack the number of random selections right up). Whereas ‘bias’ ends up telling about a tenth the number of biased agents to move to #3:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(even[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">floor</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000000</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(even)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))])</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     1      2      3 
+333529 332695 333776 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(bias[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">floor</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000000</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(bias)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))])</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     1      2      3 
+475498 477214  47288 </code></pre>
+</div>
+</div>
+<p>In the zone selection itself, each random selection is the same length as agents of that type. As the comments note, I’m a little amazed this works - I’m not really clear on how that random vector can be created and then, via an ifelse, be assigned to the correct index… oh well, it works!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#3. If moving, where to?</span></span>
+<span id="cb29-2">  agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>zone <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>moving <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#If I decided to move...</span></span>
+<span id="cb29-3">                        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>prob<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Move based on my preference of zone (or no preference)</span></span>
+<span id="cb29-4">                               even[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">floor</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents[agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>prob<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,]), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(even)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))],</span>
+<span id="cb29-5">                               bias[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">floor</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(agents[agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>prob<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(bias)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))]),</span>
+<span id="cb29-6">                        agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>zone</span>
+<span id="cb29-7">  )</span>
+<span id="cb29-8">  </span>
+<span id="cb29-9">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Explanation for the zone selection above, since I'll probably forget.</span></span>
+<span id="cb29-10">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Choose a random position from my (either even or biased/weighted) array of zone choices</span></span>
+<span id="cb29-11">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Passing in a uniform random pick from each of the choice arrays</span></span>
+<span id="cb29-12">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Of the correct length (the nrow subset)</span></span>
+<span id="cb29-13">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#It's still some form of witchcraft though - how does R know to distribute</span></span>
+<span id="cb29-14">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#the result to the correct index via the ifelse???</span></span></code></pre></div>
+</div>
+<p>The result for this timestep is then stuck into the store for output later (also adding in a column to mark the current iteration). Converting a table to a data.frame reshapes it so it’s the right orientation to bind to the ongoing ‘store’ of results:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#GET THE RESULT OF THIS ITERATION AND STORE IT</span></span>
+<span id="cb30-2">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#automatically reshapes, it turns out</span></span>
+<span id="cb30-3">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#so zone is in first column, zone pref type in second</span></span>
+<span id="cb30-4">  result <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.data.frame</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>zone,agents<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>prob))</span>
+<span id="cb30-5">  </span>
+<span id="cb30-6">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Rename those fields to something sensible</span></span>
+<span id="cb30-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(result) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'zone'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'agent_type'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'number_of_agents'</span>)</span>
+<span id="cb30-8">  </span>
+<span id="cb30-9">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#mark what iteration it is</span></span>
+<span id="cb30-10">  result<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>time <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> i</span>
+<span id="cb30-11">  </span>
+<span id="cb30-12">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Then add this step to the end of the data store</span></span>
+<span id="cb30-13">  store <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbind</span>(store, result)</span>
+<span id="cb30-14">  </span>
+<span id="cb30-15"><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">}</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#end for</span></span></code></pre></div>
+</div>
+</section>
+<section id="display-results" class="level1">
+<h1>Display results</h1>
+<p>So that’s the results found. Now to show ’em. First-up, let’s add some extra data for total population per zone on each timestep:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Find "total population in each zone at each iteration"</span></span>
+<span id="cb31-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Will be added as an extra bunch of rows to the output dataframe</span></span>
+<span id="cb31-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#To fit the 'long' format ggplot wants</span></span>
+<span id="cb31-4">totpop_perzone_timestep <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aggregate</span>(store<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>number_of_agents, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(store<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>zone, store<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>time), sum)</span>
+<span id="cb31-5"></span>
+<span id="cb31-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(totpop_perzone_timestep) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"zone"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"time"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"number_of_agents"</span>)</span>
+<span id="cb31-7"></span>
+<span id="cb31-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Make a new column for faceting the data.</span></span>
+<span id="cb31-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#This one will be total population per zone</span></span>
+<span id="cb31-10">totpop_perzone_timestep<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>facet <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'total pop'</span></span>
+<span id="cb31-11"></span>
+<span id="cb31-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Relabel store's two agent types so each can have its own facet</span></span>
+<span id="cb31-13">store<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>facet <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'agent-type: no pref'</span></span>
+<span id="cb31-14">store<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>facet[store<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>agent_type<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'agent-type: bias'</span></span>
+<span id="cb31-15"></span>
+<span id="cb31-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Drop old agent_type column</span></span>
+<span id="cb31-17">store<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>agent_type <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span></span>
+<span id="cb31-18"></span>
+<span id="cb31-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Stick 'em together in a new store</span></span>
+<span id="cb31-20">store2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbind</span>(store,totpop_perzone_timestep)</span></code></pre></div>
+</div>
+<p>Now the data’s ready - just one nice little addition by combining ddply and rollmean from the zoo package to give us a running mean. This can help show the trend over time in a simple way. This sort of thing is really satisfying in R, when it works. One line! So ddply is applying the running mean for the number of agents in each zone/facet sub-group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Running mean...</span></span>
+<span id="cb32-2">smood <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ddply</span>(store2, .(zone,facet), mutate, </span>
+<span id="cb32-3">               <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rollingmean =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rollmean</span>(number_of_agents,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">250</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>)))</span>
+<span id="cb32-4"></span>
+<span id="cb32-5"></span>
+<span id="cb32-6">output <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(smood) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb32-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_line</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> smood, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> time, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> number_of_agents, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">colour =</span> zone), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb32-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_line</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> smood, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> time, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> rollingmean, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">colour =</span> zone)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb32-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">facet_wrap</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>facet)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1">output</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 747 rows containing missing values or values outside the scale range
+(`geom_line()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://danolner.github.io/posts/migration_entropy/index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And there’s the basic result, then:</p>
+<ul>
+<li>The ‘bias’ agents (left-hand plot) move more to zones 1 and 2, as you’d expect.</li>
+<li>The ‘even’ agents in the middle plot, who (all other things being equal) don’t care where they go, end up having a larger number in zone 3 as they respond to the pressure of increasing population. Remember, that pressure is only coming from one-third of the agents.</li>
+<li>Overall, zones 1 and 2 end up with higher total populations because of the minority groups’ preferences.</li>
+</ul>
+<p>I’ve not tested whether/at what point the ‘bias’ agents’ preference function wouldn’t outweigh the population push but, here at least, their large preference for those two zones wins out.</p>
+<p>To look at it from another perspective, the following re-jigs the data so we have the <strong>proportion</strong> of ‘even’ vs ‘bias’ agents in each zone:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Different output for looking at the proportion change of the two groups in each zone</span></span>
+<span id="cb36-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Use the original 'store' for this</span></span>
+<span id="cb36-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Convert wide so that each agent type has its own column</span></span>
+<span id="cb36-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#To make finding proportion  per zone easier</span></span>
+<span id="cb36-5">proportions <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dcast</span>(store, zone<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>time <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> facet, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">value.var =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"number_of_agents"</span>)</span>
+<span id="cb36-6"> </span>
+<span id="cb36-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Proportion of majority as percentage of whole</span></span>
+<span id="cb36-8">proportions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>percent_majority <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> (proportions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">agent-type: no pref</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span></span>
+<span id="cb36-9">                       (proportions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">agent-type: bias</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>proportions<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">agent-type: no pref</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span>))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span></span>
+<span id="cb36-10"></span>
+<span id="cb36-11">output <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(proportions, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> time, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> percent_majority, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">colour =</span> zone)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb36-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_line</span>() </span>
+<span id="cb36-13"></span>
+<span id="cb36-14">output</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://danolner.github.io/posts/migration_entropy/index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Zones 1 and 2 see a lot of ‘even-agent flight’, it seems. Which makes perfect sense given the trivially simple dynamic: it’s nothing more than a response to some equilibrium pressure as one group who prefers a zone (for whatever reason) decides to move there.</p>
+<p>All agents, regardless of type, are affected in the same way by population pressure: their decision <strong>to</strong> move is the same. They only differ in where they prefer to move to. Many of the ‘bias’ group prefer to move somewhere in the same zone or a similar one.</p>
+<p>I’m really labouring the point now, I know, but… the point being, assigning causality here is a little murky. Without the ‘bias’ groups’ preference, the ‘evens’ wouldn’t end up dominating zone 3.</p>
+<p>This is, in a way, just a slightly different take on the Schelling segregation dynamic, except that it’s not about people’s preferences for any particular type of neighbour, but rather <strong>some</strong> people’s preferences for particular places, and what the knock-on effects of that could be.</p>
+</section>
+<section id="random-coding-wibble" class="level1">
+<h1>Random coding wibble</h1>
+<p>So that’s enough ill-informed migration wiffle. On to coding wibble. That was in some ways amazingly easy to set up, and R does some things just beautifully. The tricky part: I went away for a month and then it took me about two hours of staring to figure out how it worked. I fixed that by naming variables sensibly. Phew.</p>
+<p>As far as I was able to figure, there was no way to circumvent the main for-loop and subsequently it’s pretty slow. “As far as I was able to figure” isn’t very much, so perhaps there’s a way of making this more R-native - though I suspect the kind of non-ergodic timestep processes that drive ABM might not be R’s forte. Though though: the slow part is actually the rbinding and table-making, so there may be another way.</p>
+<p>On the plus side, I can write it up like this in RMarkdown… though perhaps Python will let me do that too, if I can get round to trying it. And my first thought on coming back to the model after a break: if this were Java, it would be perhaps make a lot more sense right now, and running faster. OOP and ABM go together: it’s very easy to see what the agents are. Here, pleasing in its brevity but challenging to keep all the working parts in mind.</p>
+<p><img src="https://danolner.github.io/posts/migration_entropy/modelplot.png" class="img-fluid"></p>
+
+
+</section>
+
+ ]]></description>
+  <category>migration</category>
+  <category>modelling</category>
+  <category>segregation</category>
+  <guid>https://danolner.github.io/posts/migration_entropy/</guid>
+  <pubDate>Sat, 16 Jan 2016 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>UK trade flows</title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/uk_intermediate_tradeflows/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<iframe align="right" src="//player.vimeo.com/video/112848155" width="500" height="500" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
+</iframe>
+<p><a href="https://github.com/DanOlner/IO-matrix-viz">This is one of the fun things</a> I coded up in the process of developing <a href="http://www.esrc.ac.uk/my-esrc/grants/ES.K004409.1/read">the last grant I worked on</a>. I’ll explain a bit about it and then share some thoughts on whether it’s any good as a visualisation. There’s a sharper HD version of this video <a href="https://vimeo.com/112848155">here</a> and a dist.zip file <a href="https://github.com/DanOlner/IO-matrix-viz">on the github page</a> if you want a play.</p>
+<p>Your standard <a href="https://en.wikipedia.org/wiki/Input%E2%80%93output_model">input-output table</a> takes a bunch of economic sectors and, in a matrix, gives the amounts of money flowing between each of them. For the UK, we’ve got <a href="http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-379304">‘combined use’ matrices</a> that include imported inputs moving between sectors, as well as <a href="http://www.ons.gov.uk/ons/rel/input-output/input-output-analytical-tables/2010/index.html">domestic use only</a>, excluding imports. (These two work with different types of prices, though, so they’re not directly comparable.)</p>
+<p><a href="https://github.com/DanOlner/IO-matrix-viz/blob/master/data/2012_combinedUseMinusImputedRent.csv">This is the boiled-down version</a> of the data I use, from the first data link above: the 2012 combined use matrix. Github gives you a scroll bar at the bottom to view the whole CSV file. The sector names are only in the first column, but they also apply to each column heading along the top. So, for example, the first number column starting with 2822: this is what ‘agriculture, hunting, related services’ spends on other sectors. So the first value is what agriculture spends on itself (it’s in millions of pounds; the matrix diagonal gives the amounts each sector spends on itself.) This is a tip from <a href="http://www.see.leeds.ac.uk/people/a.owen">Anne Owen</a> that’s always helped me: think of each column as a receipt of what that sector has bought. So summing the receipt gives you that sector’s total consumption. Summing each row gives you its total demand - how much others buy from it.</p>
+<p>The visualisation shows what this matrix looks like if you stick it into a force-based layout and make each money flow a moving circle. The live version is interactive, allowing you to explore sector connections.</p>
+<p>So: any good as a visualisation? Before I’d produced it, I would have said, mmmm - not really. It’s fun to play with but doesn’t really convey information. It does manage to give a quick overview of the relative size of sectors and how much money moves between them, but you can’t ask it any useful quantitative questions. I’ve since learned a lot more about the internal structure of these IO matrices using R - perhaps that’s something I’ll come back to. I have also coded a ‘random walk centrality’ test (that code is in the source files, though it’s turned off at present) - so it’s certainly possible to use the network structure to do some analysis.</p>
+<p>Something unexpected happened with this visualisation, though. It engaged people. Prior to this, I probably wouldn’t have thought that was an important thing but, looking back, having something like this that’s able to draw someone in - that’s turned out to be very useful. One of my colleagues used it in a tutorial and apparently they were really taken by it.</p>
+<p>That kind of initial hook can be enough to make someone want to find out more. That’s been a useful lesson for me. If I were drawing up a criteria list for successful visualisations, this one’s made me think of adding ‘engagement value’ or ‘hook power’ or somesuch. This IO viz has plenty of that. I think it manages to give an impression of the economy as a whole that would otherwise be hard to see. (Though there are reasons to distrust the picture it paints: it tells you construction is by far the biggest sector - it wasn’t until 2013, when ONS took three separate construction sectors and combined them.)</p>
+<p>But another visualisation criteria should, of course, be ‘does it communicate information effectively?’ This doesn’t manage so well. Perhaps the ideal is to maximise communication / information / hookiness. Perhaps there’s a trade-off there too - making something that might initially make a person go ‘wooooo’ will probably mean, after a few minutes, they’ll realise it’s a bit meaningless.</p>
+<p>Even so: prior to this, it would never have occurred to me that hookiness could be useful in itself. For the grant, this viz helped me say: “look, these are the money flows moving in the UK. We want to want to know <strong>where</strong> in the UK they move”.</p>
+<p>This is also a good example of why I still like Java. There’s a lot of work going on there - it would likely run unuseably slow in javascript. This takes us straight back to the ‘wooo/information’ trade-off though. One might argue the computationally intense stuff it’s doing is useless for conveying information - and including it, insisting on a more powerful codebase, is cutting it off from an easily accessible home on the web.</p>
+<p><img src="https://danolner.github.io/posts/uk_intermediate_tradeflows/io.png" class="img-fluid"></p>
+
+
+
+ ]]></description>
+  <category>firms</category>
+  <category>geo</category>
+  <category>io</category>
+  <guid>https://danolner.github.io/posts/uk_intermediate_tradeflows/</guid>
+  <pubDate>Wed, 26 Nov 2014 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

@@ -4,6 +4,8 @@ project:
 
 website:
   title: "Dan Olner's Data Dispatch"
+  site-url: https://danolner.github.io
+  description: "Dan Olner's Data Dispatch"
   navbar:
     right:
       - about.qmd
@@ -15,6 +17,8 @@ website:
         href: https://bsky.app/profile/danolner.bsky.social
       - text: "{{< iconify simple-icons:wordpress >}}"
         href: https://www.danolner.net/
+      - icon: rss
+        href: index.xml
 format:
   html:
     theme: darkly
