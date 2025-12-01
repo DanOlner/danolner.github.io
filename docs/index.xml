@@ -10,29 +10,7 @@
 <atom:link href="https://danolner.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Dan Olner&#39;s Data Dispatch</description>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Tue, 09 Dec 2025 00:00:00 GMT</lastBuildDate>
-<item>
-  <title>Translating Felten et al’s AI exposure index into UK data</title>
-  <dc:creator>Dan Olner</dc:creator>
-  <link>https://danolner.github.io/posts/Felten_UK/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="felten-uk" class="level2">
-<h2 class="anchored" data-anchor-id="felten-uk">Felten UK</h2>
-<p>I always try to have a fully open data/methods pipeline, so it’s possible to replicate what I’ve done (even it’s just -futur-eme doing the replicating). Sometimes, though, you have to go off-piste and do some “actually typing into a spreadsheet manually”. This is one of those cases.</p>
-
-
-</section>
-
- ]]></description>
-  <category>data</category>
-  <guid>https://danolner.github.io/posts/Felten_UK/</guid>
-  <pubDate>Tue, 09 Dec 2025 00:00:00 GMT</pubDate>
-</item>
+<lastBuildDate>Thu, 15 May 2025 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Getting started with using R and RStudio (in the cloud or on your own computer)</title>
   <dc:creator>Dan Olner</dc:creator>
@@ -326,6 +304,17 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
   <category>planning</category>
   <guid>https://danolner.github.io/posts/outputs_livelist/</guid>
   <pubDate>Wed, 12 Feb 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/companies_house_geog/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>code</category>
+  <category>firms</category>
+  <category>geo</category>
+  <guid>https://danolner.github.io/posts/companies_house_geog/</guid>
+  <pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Open data and code used for ONS subnational data conference</title>

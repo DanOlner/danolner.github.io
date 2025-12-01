@@ -2,50 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://danolner.github.io/about.html</loc>
-    <lastmod>2024-11-13T11:42:11.692Z</lastmod>
+    <lastmod>2024-11-13T11:42:11.000Z</lastmod>
   </url>
   <url>
-    <loc>https://danolner.github.io/posts/business_demography/index.html</loc>
-    <lastmod>2025-02-12T20:48:47.042Z</lastmod>
-  </url>
-  <url>
-    <loc>https://danolner.github.io/posts/data_stewards_event/index.html</loc>
-    <lastmod>2025-03-27T14:38:43.185Z</lastmod>
-  </url>
-  <url>
-    <loc>https://danolner.github.io/posts/pubcrawloptimiser/index.html</loc>
-    <lastmod>2024-12-03T14:06:01.464Z</lastmod>
-  </url>
-  <url>
-    <loc>https://danolner.github.io/posts/welcome/index.html</loc>
-    <lastmod>2024-11-13T11:54:09.028Z</lastmod>
-  </url>
-  <url>
-    <loc>https://danolner.github.io/posts/migration_entropy/index.html</loc>
-    <lastmod>2024-12-03T13:50:44.515Z</lastmod>
-  </url>
-  <url>
-    <loc>https://danolner.github.io/posts/outputs_livelist/index.html</loc>
-    <lastmod>2025-07-24T07:49:48.169Z</lastmod>
-  </url>
-  <url>
-    <loc>https://danolner.github.io/posts/uk_intermediate_tradeflows/index.html</loc>
-    <lastmod>2024-12-03T13:28:20.211Z</lastmod>
-  </url>
-  <url>
-    <loc>https://danolner.github.io/posts/ons_subnational_data_conf/index.html</loc>
-    <lastmod>2024-11-13T19:17:37.756Z</lastmod>
+    <loc>https://danolner.github.io/drafts/Felten_UK/index.html</loc>
+    <lastmod>2025-09-12T13:15:00.000Z</lastmod>
   </url>
   <url>
     <loc>https://danolner.github.io/posts/setting_up_w_r_online/index.html</loc>
     <lastmod>2025-12-01T15:38:34.177Z</lastmod>
   </url>
   <url>
-    <loc>https://danolner.github.io/index.html</loc>
-    <lastmod>2025-08-28T15:44:23.000Z</lastmod>
+    <loc>https://danolner.github.io/posts/uk_intermediate_tradeflows/index.html</loc>
+    <lastmod>2024-12-03T13:28:20.000Z</lastmod>
   </url>
   <url>
-    <loc>https://danolner.github.io/posts/Felten_UK/index.html</loc>
-    <lastmod>2025-09-12T13:15:00.000Z</lastmod>
+    <loc>https://danolner.github.io/posts/ons_subnational_data_conf/index.html</loc>
+    <lastmod>2024-11-13T19:17:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://danolner.github.io/posts/business_demography/index.html</loc>
+    <lastmod>2025-02-12T20:44:30.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://danolner.github.io/posts/data_stewards_event/index.html</loc>
+    <lastmod>2025-03-27T14:38:43.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://danolner.github.io/posts/welcome/index.html</loc>
+    <lastmod>2024-11-13T11:54:09.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://danolner.github.io/posts/migration_entropy/index.html</loc>
+    <lastmod>2024-12-03T13:50:44.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://danolner.github.io/posts/outputs_livelist/index.html</loc>
+    <lastmod>2025-07-24T07:49:48.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://danolner.github.io/posts/pubcrawloptimiser/index.html</loc>
+    <lastmod>2024-12-03T14:06:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://danolner.github.io/index.html</loc>
+    <lastmod>2025-08-28T15:44:23.000Z</lastmod>
   </url>
 </urlset>
