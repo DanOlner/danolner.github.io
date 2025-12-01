@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dan Olner">
-<meta name="dcterms.date" content="2025-05-16">
+<meta name="dcterms.date" content="2025-12-09">
 
-<title>Getting started with using R and RStudio (in the cloud or on your own computer) – Dan Olner’s Data Dispatch</title>
+<title>Translating Felten et al’s AI exposure index into UK data – Dan Olner's Data Dispatch</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -165,10 +130,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Getting started with using R and RStudio (in the cloud or on your own computer)</h1>
+      <h1 class="title">Translating Felten et al’s AI exposure index into UK data</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">training</div>
-                <div class="quarto-category">code</div>
+                <div class="quarto-category">data</div>
               </div>
                   </div>
   </div>
@@ -186,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 16, 2025</p>
+        <p class="date">December 9, 2025</p>
       </div>
     </div>
     
@@ -205,139 +169,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="using-r-and-rstudio-1-posit.cloud-in-the-browser-or-2-running-on-your-own-computer" class="level2">
-<h2 class="anchored" data-anchor-id="using-r-and-rstudio-1-posit.cloud-in-the-browser-or-2-running-on-your-own-computer">Using R and RStudio: (1) posit.cloud in the browser, or (2) running on your own computer</h2>
-<p>This little guide gets you set up with R and RStudio - either online with posit.cloud through a browser, or with R and RStudio installed on your own computer<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> - and talks through opening up a first R script and using it. (If anything doesn’t make sense, do let me know at d dot olner and gmail dot com).</p>
-<p>You’ll need to do <strong>one</strong> of the following:</p>
-<ol type="1">
-<li><p><strong>Use RStudio in your browser with a <a href="https://posit.cloud">posit.cloud account</a></strong>. The <strong>free version</strong> is limited (small memory, for instance) but <strong>it’s still a great option for non-intensive task and getting to know R with little effort</strong>. The next section below talks through setting up in posit.cloud.</p></li>
-<li><p><strong>Install R and RStudio on your own computer</strong>. If you have a machine where you’re able to install your own software <a href="https://cran.rstudio.com/">then go here</a> to download/install the right version of R for your operating system, and <a href="https://posit.co/download/rstudio-desktop/">here to download/install RStudio</a> (again, pick the correct one for your OS). (Though see bullet point 2 below if using a work machine.)</p></li>
-</ol>
-<ul>
-<li>The next chunk will talk through <strong>setting up a posit.cloud project.</strong></li>
-<li>The chunk after that talks through getting started with an RStudio project, and will <strong>be nearly the same</strong> whether you’re using RStudio online or on your machine (with just one tweak, explained in the breakout box).</li>
-</ul>
-<p>Any questions/issues, let me know at d dot older at sheffield dot ac dot uk or <a href="https://www.linkedin.com/in/danolner/">message me on LinkedIn</a> and I’ll try to answer.</p>
-</section>
-<section id="if-using-rstudio-online-set-up-a-posit.cloud-account-and-create-your-rstudio-project" class="level2">
-<h2 class="anchored" data-anchor-id="if-using-rstudio-online-set-up-a-posit.cloud-account-and-create-your-rstudio-project">If using RStudio online: set up a posit.cloud account and create your RStudio project</h2>
-<p>Here’s the steps to get up and running through a browser using posit.cloud.</p>
-<ul>
-<li><a href="https://login.posit.cloud/login">Create an account at posit.cloud</a> - follow that link and use the ‘don’t have an account? Sign up’ box. <strong>It’ll ask you to check your email for a verification link</strong>, so do that before proceeding.</li>
-</ul>
-<!-- -->
-<ul>
-<li><p>Once verified, go back to the posit.cloud tab and log in. You should see a message: “You are logged into Posit. Please select your destination”. Choose ‘Posit Cloud’ (<strong>not Posit Connect Cloud</strong>).&nbsp;<strong>That’ll take you to your online workspace.</strong></p></li>
-<li><p>Click the&nbsp;<strong>new project</strong>&nbsp;button, top right</p></li>
-<li><p>Depending on what you want to do, either:</p>
-<ul>
-<li><p>If you want the Tidyverse ready to go (but it’s a slightly older R version): select ‘<strong>new project from template</strong>’ (as in the pic below) and then “Data Analysis in R with the tidyverse” (if not already selected). This template comes pre-installed with the tidyverse package, which we’ll be using. Select then click OK down at the bottom. <strong>This will open your RStudio project where we’ll do the coding. NOTE: if I’m posting examples using posit cloud, I’ll let you know if the older R version is a problem. Mostly it’s fine.</strong></p></li>
-<li><p>Otherwise, just select ‘new RStudio project’ for an entirely blank instance of R where you’ll need to install all libraries (but it’s the latest R version).</p></li>
-</ul></li>
-</ul>
-<p><img src="newproject.png" class="img-fluid"></p>
-</section>
-<section id="make-a-new-r-script-and-add-a-library" class="level2">
-<h2 class="anchored" data-anchor-id="make-a-new-r-script-and-add-a-library">Make a new R script and add a library</h2>
-<p>Now you should <strong>either be in RStudio online through posit.cloud</strong> or <strong>if using RStudio installed on your own computer, open that now</strong>. From here…</p>
-<ul>
-<li><strong>Create a new R script</strong> by going to ‘file &gt; new file &gt; new R script’ (or using the <strong>CTRL+SHIFT+N</strong> shortcut). A new script will appear, currently just called <em>‘Untitled1’</em> until it’s saved for the first time.</li>
-<li><strong>At this point, it should look something like this:</strong></li>
-</ul>
-<p><img src="rstudio_online.png" class="img-fluid"></p>
-<p>Let’s stop for a moment and look at the separate windows in RStudio.</p>
-<ul>
-<li><strong>Bottom left is the console</strong>. Commands run here. You can test it by clicking in the console and trying a random command or two like those below (press enter to run a command in the console).</li>
-</ul>
-<p>(Note that all code blocks in this post have a <strong>little ‘copy to clipboard’ icon in the top right</strong> when you hover, if you want to just copy the code for pasting into RStudio).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-</div>
-<p>Or e.g.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">49</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
-</div>
-</div>
-<ul>
-<li>Bottom right of the RStudio window has various tabs, including local <strong>files</strong> (all kept inside your project folder so everything is self contained) and a list of available <strong>packages</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-NOTE: IF USING RSTUDIO ON YOUR OWN COMPUTER…
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you’re using posit.cloud, this package comes pre-installed in the template we selected. However, <strong>if you’re using RStudio on your own machine, you will need to install the tidyverse package yourself</strong> if you want to use it (you probably will).</p>
-<p>To do this, just <strong>run the following code in the console</strong> (the same place we just did our ‘2+2’ test, in the bottom left panel in RStudio.)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'tidyverse'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>You should get a confirmatory message once the package has installed successfully</strong> (though it may take a minute or two).</p>
-</div>
-</div>
-<p>Now, whether in posit.cloud or on your own computer, you should have the tidyverse package available.</p>
-<p><strong>It now needs to be loaded as a library</strong> before we can use it:</p>
-<ul>
-<li><strong>Put the following text at the top of the newly opened R script in the top left panel.</strong></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>When you’ve put that in, <strong>the script title will go red</strong>, showing it can now be saved (it should look something like the image below).</p>
-<p><img src="script1.png" class="img-fluid"></p>
-<ul>
-<li><strong>Save the script</strong> either with the CTRL + S shortcut, or file &gt; save. Give it whatever name you like, but note that it <strong>saves into your self-contained project folder.</strong></li>
-</ul>
-</section>
-<section id="running-code-in-an-r-script-loading-the-tidyverse-library" class="level2">
-<h2 class="anchored" data-anchor-id="running-code-in-an-r-script-loading-the-tidyverse-library">Running code in an R script / loading the tidyverse library</h2>
-<p>All code will run in the console - what we do with scripts is just send our written code to the console. We do this in a couple of ways:</p>
-<ol type="1">
-<li>In your R script, if no code text is highlighted/selected, RStudio will <strong>Run the code line by line</strong> (or chunk by chunk - we’ll cover that in the taster session).</li>
-<li>If a block of text is highlighted, the whole block will run. So e.g.&nbsp;if you select-all in a script and then run it, the entire script will run.</li>
-</ol>
-<p>Let’s do #1: <strong>Run the code line by line</strong>.</p>
-<ul>
-<li><strong>To test this, we’ll load the tidyverse library with the code we just pasted in</strong> (which is just one line of code at the moment!) Put the cursor at the end of the <code>libary(tidyverse)</code> line in the script (if it’s not there already), either with the mouse or keyboard. (Keyboard navigation is mostly the same as any other text editor like Word, but <a href="https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE">here’s a full shortcut list</a> if useful.)</li>
-<li>Once there, either use the ‘run’ button, top right of the script window, or (much easier if you’re doing this repeatedly) <strong>press CTRL+ENTER to run it.</strong></li>
-</ul>
-<p>You should see the code get sent to the console, and a message like the one below confirming that R is ‘Attaching core tidyverse packages’. <strong>The tidyverse library is now loaded</strong>.</p>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.1     ✔ stringr   1.5.2
-✔ ggplot2   4.0.0     ✔ tibble    3.3.0
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.1.0     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-</div>
-<p><strong>That’s it!</strong> Any questions/issues, let me know at d dot olner at gmail dot com or <a href="https://www.linkedin.com/in/danolner/">message me on LinkedIn</a>.</p>
+<section id="felten-uk" class="level2">
+<h2 class="anchored" data-anchor-id="felten-uk">Felten UK</h2>
+<p>I always try to have a fully open data/methods pipeline, so it’s possible to replicate what I’ve done (even it’s just -futur-eme doing the replicating). Sometimes, though, you have to go off-piste and do some “actually typing into a spreadsheet manually”. This is one of those cases.</p>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Installing R can be tricky on work machines if your organisation isn’t familiar with it. R needs to access the internet to install libraries, for instance, and this can sometimes hit firewall issues. If you end up having this problem, I suggest trying the online posit.cloud route for now.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>You can treat the terms ‘package’ and ‘library’ as interchangeble in R, but if you want to know the reason: if packages are like books, libraries are where the books are stored - we use the same name as the package to load a library. One of many examples of R being unnecessarily confusing with its language!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

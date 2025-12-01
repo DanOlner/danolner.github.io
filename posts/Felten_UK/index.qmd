@@ -1,0 +1,23 @@
+---
+title: "Translating Felten et al's AI exposure index into UK data"
+author: "Dan Olner"
+date: "2025-12-09"
+categories: [data]
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+```{r}
+# library(tidyverse)
+# library(knitr)
+# source('../../functions/misc_functions.R')
+
+```
+
+
+## Felten UK
+
+I always try to have a fully open data/methods pipeline, so it's possible to replicate what I've done (even it's just -futur-eme doing the replicating). Sometimes, though, you have to go off-piste and do some "actually typing into a spreadsheet manually". This is one of those cases.
+

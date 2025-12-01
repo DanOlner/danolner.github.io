@@ -5,18 +5,20 @@ date: "2025-05-16"
 categories: [training,code]
 ---
 
-## Using R and RStudio: (1) posit.cloud in the browser, or (2) running on your own computer 
+## Using R and RStudio: (1) posit.cloud in the browser, or (2) running on your own computer
 
-I'm running an "R + regional economic data" taster session in June. It won't be necessary to use R during the session to follow along - **but if you want to have a go at running the code I'll be talking through and don't yet have R/RStudio, here's how to get quickly set up**, either online through a browser, or with R and RStudio installed on your own computer[^2].
+This little guide gets you set up with R and RStudio - either online with posit.cloud through a browser, or with R and RStudio installed on your own computer[^1] - and talks through opening up a first R script and using it. (If anything doesn't make sense, do let me know at d dot olner and gmail dot com).
 
-To do this, you'll need to do **one** of the following:
+[^1]: Installing R can be tricky on work machines if your organisation isn't familiar with it. R needs to access the internet to install libraries, for instance, and this can sometimes hit firewall issues. If you end up having this problem, I suggest trying the online posit.cloud route for now.
 
-1. **Use RStudio in your browser with a [posit.cloud account](https://posit.cloud)**. The **free version** is limited (very small memory, for instance) but **it's a very quick and easy option to have a play with R** and will be fine for the taster session. **The next section below talks through setting up in posit.cloud.**
+You'll need to do **one** of the following:
 
-2. **Install R and RStudio on your own computer**. If you have a machine where you're able to install your own software [then go here](https://cran.rstudio.com/) to download/install the right version of R for your operating system, and [here to download/install RStudio](https://posit.co/download/rstudio-desktop/) (again, pick the correct one for your OS). (Though see bullet point 2 below if using a work machine.)
+1.  **Use RStudio in your browser with a [posit.cloud account](https://posit.cloud)**. The **free version** is limited (small memory, for instance) but **it's still a great option for non-intensive task and getting to know R with little effort**. The next section below talks through setting up in posit.cloud.
 
-* The next chunk will talk through **setting up a posit.cloud project.**
-* The chunk after that talks through getting started with an RStudio project, and will **be nearly the same** whether you're using RStudio online or on your machine (with just one tweak, explained in the breakout box).
+2.  **Install R and RStudio on your own computer**. If you have a machine where you're able to install your own software [then go here](https://cran.rstudio.com/) to download/install the right version of R for your operating system, and [here to download/install RStudio](https://posit.co/download/rstudio-desktop/) (again, pick the correct one for your OS). (Though see bullet point 2 below if using a work machine.)
+
+-   The next chunk will talk through **setting up a posit.cloud project.**
+-   The chunk after that talks through getting started with an RStudio project, and will **be nearly the same** whether you're using RStudio online or on your machine (with just one tweak, explained in the breakout box).
 
 Any questions/issues, let me know at d dot older at sheffield dot ac dot uk or [message me on LinkedIn](https://www.linkedin.com/in/danolner/) and I'll try to answer.
 
@@ -24,9 +26,19 @@ Any questions/issues, let me know at d dot older at sheffield dot ac dot uk or [
 
 Here's the steps to get up and running through a browser using posit.cloud.
 
-* [Create an account at posit.cloud](https://login.posit.cloud/login) using the 'sign up' box, and then log in. That'll take you to your online workspace.
-* Click the **new project** button, top right
-* Select '**new project from template**' (as in the pic below) and then "Data Analysis in R with the tidyverse" (if not already selected). This template comes pre-installed with the tidyverse package, which we'll be using. Select then click OK down at the bottom. **This will open your RStudio project where we'll do the coding.** 
+-   [Create an account at posit.cloud](https://login.posit.cloud/login) - follow that link and use the ‘don’t have an account? Sign up’ box. **It’ll ask you to check your email for a verification link**, so do that before proceeding.
+
+<!-- -->
+
+-   Once verified, go back to the posit.cloud tab and log in. You should see a message: “You are logged into Posit. Please select your destination”. Choose ‘Posit Cloud’ (**not Posit Connect Cloud**). **That’ll take you to your online workspace.**
+
+-   Click the **new project** button, top right
+
+-   Depending on what you want to do, either:
+
+    -   If you want the Tidyverse ready to go (but it's a slightly older R version): select '**new project from template**' (as in the pic below) and then "Data Analysis in R with the tidyverse" (if not already selected). This template comes pre-installed with the tidyverse package, which we'll be using. Select then click OK down at the bottom. **This will open your RStudio project where we'll do the coding. NOTE: if I'm posting examples using posit cloud, I'll let you know if the older R version is a problem. Mostly it's fine.**
+
+    -   Otherwise, just select 'new RStudio project' for an entirely blank instance of R where you'll need to install all libraries (but it's the latest R version).
 
 ![](newproject.png)
 
@@ -34,14 +46,14 @@ Here's the steps to get up and running through a browser using posit.cloud.
 
 Now you should **either be in RStudio online through posit.cloud** or **if using RStudio installed on your own computer, open that now**. From here...
 
-* **Create a new R script** by going to 'file > new file > new R script' (or using the **CTRL+SHIFT+N** shortcut). A new script will appear, currently just called *'Untitled1'* until it's saved for the first time. 
-* **At this point, it should look something like this:**
+-   **Create a new R script** by going to 'file \> new file \> new R script' (or using the **CTRL+SHIFT+N** shortcut). A new script will appear, currently just called *'Untitled1'* until it's saved for the first time.
+-   **At this point, it should look something like this:**
 
 ![](rstudio_online.png)
 
 Let's stop for a moment and look at the separate windows in RStudio.
 
-* **Bottom left is the console**. Commands run here. You can test it by clicking in the console and trying a random command or two like those below (press enter to run a command in the console).
+-   **Bottom left is the console**. Commands run here. You can test it by clicking in the console and trying a random command or two like those below (press enter to run a command in the console).
 
 (Note that all code blocks in this post have a **little 'copy to clipboard' icon in the top right** when you hover, if you want to just copy the code for pasting into RStudio).
 
@@ -55,12 +67,14 @@ Or e.g.
 sqrt(49)
 ```
 
-* Bottom right of the RStudio window has various tabs, including local **files** (all kept inside your project folder so everything is self contained) and a list of available **packages**[^1].
+-   Bottom right of the RStudio window has various tabs, including local **files** (all kept inside your project folder so everything is self contained) and a list of available **packages**[^2].
 
-::: {.callout-note}
+[^2]: You can treat the terms 'package' and 'library' as interchangeble in R, but if you want to know the reason: if packages are like books, libraries are where the books are stored - we use the same name as the package to load a library. One of many examples of R being unnecessarily confusing with its language!
+
+::: callout-note
 ## NOTE: IF USING RSTUDIO ON YOUR OWN COMPUTER...
 
-We will be using the **tidyverse package/library** in the session. If you're using posit.cloud, this package comes pre-installed in the template we selected. However, **if you're using RStudio on your own machine, you will need to install the tidyverse package yourself** before we load it as a library. 
+If you're using posit.cloud, this package comes pre-installed in the template we selected. However, **if you're using RStudio on your own machine, you will need to install the tidyverse package yourself** if you want to use it (you probably will).
 
 To do this, just **run the following code in the console** (the same place we just did our '2+2' test, in the bottom left panel in RStudio.)
 
@@ -69,14 +83,13 @@ install.packages('tidyverse')
 ```
 
 **You should get a confirmatory message once the package has installed successfully** (though it may take a minute or two).
-
 :::
 
 Now, whether in posit.cloud or on your own computer, you should have the tidyverse package available.
 
 **It now needs to be loaded as a library** before we can use it:
 
-* **Put the following text at the top of the newly opened R script in the top left panel.** 
+-   **Put the following text at the top of the newly opened R script in the top left panel.**
 
 ```{r eval = F}
 library(tidyverse)
@@ -86,21 +99,19 @@ When you've put that in, **the script title will go red**, showing it can now be
 
 ![](script1.png)
 
-* **Save the script** either with the CTRL + S shortcut, or file > save. Give it whatever name you like, but note that it **saves into your self-contained project folder.**
-
-
+-   **Save the script** either with the CTRL + S shortcut, or file \> save. Give it whatever name you like, but note that it **saves into your self-contained project folder.**
 
 ## Running code in an R script / loading the tidyverse library
 
 All code will run in the console - what we do with scripts is just send our written code to the console. We do this in a couple of ways:
 
-1. In your R script, if no code text is highlighted/selected, RStudio will **Run the code line by line** (or chunk by chunk - we'll cover that in the taster session).
-2. If a block of text is highlighted, the whole block will run. So e.g. if you select-all in a script and then run it, the entire script will run.
+1.  In your R script, if no code text is highlighted/selected, RStudio will **Run the code line by line** (or chunk by chunk - we'll cover that in the taster session).
+2.  If a block of text is highlighted, the whole block will run. So e.g. if you select-all in a script and then run it, the entire script will run.
 
 Let's do #1: **Run the code line by line**.
 
-* **To test this, we'll load the tidyverse library with the code we just pasted in** (which is just one line of code at the moment!) Put the cursor at the end of the `libary(tidyverse)` line in the script (if it's not there already), either with the mouse or keyboard. (Keyboard navigation is mostly the same as any other text editor like Word, but [here's a full shortcut list](https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE) if useful.)
-* Once there, either use the 'run' button, top right of the script window, or (much easier if you're doing this repeatedly) **press CTRL+ENTER to run it.**
+-   **To test this, we'll load the tidyverse library with the code we just pasted in** (which is just one line of code at the moment!) Put the cursor at the end of the `libary(tidyverse)` line in the script (if it's not there already), either with the mouse or keyboard. (Keyboard navigation is mostly the same as any other text editor like Word, but [here's a full shortcut list](https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE) if useful.)
+-   Once there, either use the 'run' button, top right of the script window, or (much easier if you're doing this repeatedly) **press CTRL+ENTER to run it.**
 
 You should see the code get sent to the console, and a message like the one below confirming that R is 'Attaching core tidyverse packages'. **The tidyverse library is now loaded**.
 
@@ -108,10 +119,4 @@ You should see the code get sent to the console, and a message like the one belo
 library(tidyverse)
 ```
 
-
-**That's it for now!** That'll be enough to be set up for the session. Any questions/issues, let me know at d dot older at sheffield dot ac dot uk or [message me on LinkedIn](https://www.linkedin.com/in/danolner/).
-
-
-[^1]: You can treat the terms 'package' and 'library' as interchangeble in R, but if you want to know the reason: if packages are like books, libraries are where the books are stored - we use the same name as the package to load a library. One of many examples of R being unnecessarily confusing with its language!
-
-[^2]: Installing R can be tricky on work machines if your organisation isn't familiar with it. R needs to access the internet to install libraries, for instance, and this can sometimes hit firewall issues. If you end up having this problem, I suggest trying the online posit.cloud route for now.
+**That's it!** Any questions/issues, let me know at d dot olner at gmail dot com or [message me on LinkedIn](https://www.linkedin.com/in/danolner/).

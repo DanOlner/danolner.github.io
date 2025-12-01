@@ -1,0 +1,15 @@
+{
+  "hash": "5bc7f0beba5bc8c6b5b2ef8ccd2afa2a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Translating Felten et al's AI exposure index into UK data\"\nauthor: \"Dan Olner\"\ndate: \"2025-12-09\"\ncategories: [data]\nexecute:\n  echo: false\n  warning: false\n  error: false\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n## Felten UK\n\nI always try to have a fully open data/methods pipeline, so it's possible to replicate what I've done (even it's just -futur-eme doing the replicating). Sometimes, though, you have to go off-piste and do some \"actually typing into a spreadsheet manually\". This is one of those cases.\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
