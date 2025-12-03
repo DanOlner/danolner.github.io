@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dan Olner">
+<meta name="dcterms.date" content="2025-12-03">
+
+<title>GVA + job blocks: a code example with intro to R online – Dan Olner’s Data Dispatch</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c09f7992e7ad36c4a4c784d127ab2153.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Dan Olner’s Data Dispatch</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/DanOlner"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/danolner/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/danolner.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="simple-icons:bluesky" aria-label="Icon bluesky from simple-icons Iconify.design set." title="Icon bluesky from simple-icons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.danolner.net/"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="simple-icons:wordpress" aria-label="Icon wordpress from simple-icons Iconify.design set." title="Icon wordpress from simple-icons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">GVA + job blocks: a code example with intro to R online</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">training</div>
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">ons</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Dan Olner </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 3, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>In <a href="https://danolner.github.io/RegionalEconomicTools/setupRonline_n_getstarted_revealjs.html" target="_blank">these online slides</a>, I’ve combined a step-by-step introduction to using R and RStudio online with an interesting way to look at regional productivity data.</p>
+<p>The final output <a href="https://danolner.github.io/RegionalEconomicTools/setupRonline_n_getstarted_revealjs.html#/6/10" target="_blank">looks like this</a> for the four ITL3 zones in West Yorkshire. What you’re looking at:</p>
+<ul>
+<li><p>The area of each rectangle is the <strong>total output of that sector in GVA</strong> (relative to each place - the jobcount axis varies across each sub-plot). If two blocks are the same size in different places, they make up the same <strong>proportion of GVA</strong> in both, even if their pound value differs.</p></li>
+<li><p>Sectors are stacked up in order of productivity (here defined as GVA per full-time job).</p></li>
+<li><p>Each rectangle is made up of full-time job count on the vertical and GVA per job on the horizontal. The GVA per job axis is fixed, so each place is directly comparable.</p></li>
+<li><p>We can see, for example, how finance’s total output comes from very high productivity more than large job numbers.</p></li>
+<li><p>And also (in Wakefield) that there are a very large number of jobs in warehousing, but their average output is at the lower end.</p></li>
+</ul>
+<p>It’s all in a <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/selfcontained_rscripts/jobgva_cumulativeplot.R" target="_blank">self-contained R script</a> that you can just drop into RStudio via <a href="https://posit.cloud" target="_blank">posit.cloud</a>’s tidyverse template (see <a href="https://danolner.github.io/RegionalEconomicTools/setupRonline_n_getstarted_revealjs.html#/3/1" target="_blank">this slide</a>) and run as is. Here’s how to <a href="https://danolner.github.io/RegionalEconomicTools/setupRonline_n_getstarted_revealjs.html#/grabbing-some-code-from-github-a-gva-x-jobs-blocks-example">get it from Github</a> and run it line by line. (You can of course also run it in R on your <a href="https://danolner.github.io/posts/setting_up_w_r_online/" target="_blank">own machine</a> - you’ll need Tidyverse installed).</p>
+<p>Those slides explain each step – here, I want to yabbit about two other things:</p>
+<ol type="1">
+<li>The idea I’m trying to test with these slides: a way of making R and data like this more useable and reproducible and accessible.</li>
+<li>A few notes on the theory and data sources, and the prior wrangling stages.</li>
+</ol>
+<section id="the-idea" class="level2">
+<h2 class="anchored" data-anchor-id="the-idea">The idea</h2>
+<p>This is an experiment. I’m testing ways to make the on-ramp for data analysis using R as easy as possible. Using R through posit.cloud in the browser immediately removes several complexity steps - open an account, open R, and you’re ready to go.</p>
+<p>I’ve designed the slides so that, once you’ve run through the set up, you should be able to make a version of the same plot for whatever geographies you want (<a href="https://danolner.github.io/RegionalEconomicTools/setupRonline_n_getstarted_revealjs.html#/grabbing-some-code-from-github-a-gva-x-jobs-blocks-example" target="_blank">jump to this slide</a> to skip all the R intro stuff and just make the plot). I imagine and hope it might be possible to go from zero R knowledge to a plot for your own region by the time the slides are done. And that could be something to build on - more self-contained, reproducible chunks of analysis and visualisation, reducing wheel reinvention.</p>
+<p>That at least is the nice theory. I’ve run a couple of workshops using this approach, but those were only tasters. I could do with more feedback on what works and what doesn’t.</p>
+<p>If you do have a go at this, I’d really appreciate any thoughts, successes, failures, anything learned from looking at this data for your own region.</p>
+</section>
+<section id="the-gva-factory-method" class="level2">
+<h2 class="anchored" data-anchor-id="the-gva-factory-method">The GVA factory method…</h2>
+<p>Let’s just mention <a href="https://freethinkecon.wordpress.com/2024/10/22/innovation-competition-and-pitfalls-of-the-sector-method/" target="_blank">Giles Wilkes’ point</a> about the ‘<strong>GVA factory</strong> model’. Dividing GVA by jobs (or indeed by hours, as official productivity measures do; R example in the <a href="https://danolner.github.io/RegionalEconomicTools/R_regecon_pipelines_2025_revealjs.html#/7/1" target="_blank">slides here</a>!) I don’t think is the ‘horribly obvious maths’ he’s complaining about - instead, that’s what can happen if we treat these numbers in the way he parodies:</p>
+<blockquote class="blockquote">
+<p>If you have three sectors, A, B and C, each with 10 workers, and their productivities are £100/worker, £50/worker and £20/worker , your strategy is to shift workers from C to B and A. For every worker you shift from C to A, you make £80 more a year – for free! Stop cutting hair, start making microchips!</p>
+</blockquote>
+<p>The energy or telecoms sectors are prime examples: huge apparent output per worker, but their huge capital intensity isn’t directly visible in simple GVA x jobs data. GVA also spreads across value chains, accumulating in e.g.&nbsp;<a href="https://en.wikipedia.org/wiki/Apple_Park">Apple’s Cupertino campus</a>, not in the places iphones are assembled.</p>
+<p>Fundamentally, output per worker going up is what we want - it directly measures how wealthy everyone is on average. ( ‘This is what we want’ is <em>very</em> open to question, though I think it still stands even if e.g.&nbsp;we impose ‘constrain so planetary boundaries are respected’).</p>
+<p>But the <a href="https://en.wikipedia.org/wiki/Streetlight_effect" target="_blank">streetlight effect</a> is always present. Looking where ‘output per worker’ shines a light may lead us to <a href="https://y-pern.org.uk/blog/prototyping-open-econ-tools/" target="_blank">badly misinterpret the pachyderm</a> - that’s what I take Wilkes’ point to be. Do we have any option except to remain cautious and vigilant though? There isn’t any dataset or approach that can replace our need to think about how we use it.</p>
+<p>That said, actually laying out ways to think about it in more detail would probably be useful…</p>
+<p>Anyway, enough here to keep us busy. Here’s some data notes.</p>
+</section>
+<section id="data-notes" class="level2">
+<h2 class="anchored" data-anchor-id="data-notes">Data notes</h2>
+<ul>
+<li><p>The ‘bres.gva.2d’ dataframe that the <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/5e5b695face1d8f27ce1ed2b852211c3cddde67a/selfcontained_rscripts/jobgva_cumulativeplot.R#L24">script loads in</a> contains linked <a href="https://www.ons.gov.uk/economy/grossvalueaddedgva/datasets/nominalandrealregionalgrossvalueaddedbalancedbyindustry" target="_blank">ONS regional GVA x sector data</a> and <a href="https://www.nomisweb.co.uk/sources/bres" target="_blank">BRES</a> full time job count data.</p></li>
+<li><p>That’s <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/5e5b695face1d8f27ce1ed2b852211c3cddde67a/prepcode/yorkshire_n_humber_sectors_dataprep.R#L668" target="_blank">processed here</a> - if and when I make the data wrangling more legible, I’ll edit this and pretend it was well-organised all along. The prior steps include downloading/wrangling the latest (2023) GVA data <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/regionalGVA_processing.R" target="_blank">here</a> and bulk downloading the latest (2024) BRES data <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/BRES_API_download.R" target="_blank">here</a>.</p></li>
+<li><p>The pre-prepared data has a 3-year moving average applied - BRES data is volatile. So the plot is the 2021-23 average. It’s a better recent-history picture using that (edit the year in the script to look back as far as 2015-17).</p></li>
+<li><p>There are some fun<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> steps to harmonise the two:</p>
+<ul>
+<li><p>The GVA data uses the 2025 ITL3 definitions. BRES doesn’t have those yet. But you can use local authorities from BRES - they mostly nest into 2025 ITL3, so can be summed where they don’t quite match. I <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/5e5b695face1d8f27ce1ed2b852211c3cddde67a/functions/misc_functions.R#L2638">made a function</a> for checking geographical matches like this and getting automatic groupings for adding up jobs. It also tells you where things don’t nest - Arran in Scotland is the only tricky overlap that differs.</p></li>
+<li><p>(There’s also one spelling mistake in BRES geographies that stops a correct match - “Rhondda Cynon Taff” should be “Rhondda Cynon Taf”. Make of that what you will.)</p></li>
+<li><p>The regional GVA data has bespoke sector SIC code groupings - a different number for every different geographical level, with ITL3 having the fewest (disclosure reasons). So the BRES data has been binned into that same shorter sector list - 45 in total, though I’ve removed ‘households’ and ‘membership organisations’ as neither are present in BRES. I’ve then made some shorter names for nice plots.</p></li>
+</ul></li>
+</ul>
+<p><strong>That’s it!</strong> Any questions/issues, let me know at d dot olner at gmail dot com or <a href="https://www.linkedin.com/in/danolner/" target="_blank">message me on LinkedIn</a>.</p>
+<p><img src="images/clipboard-3859633262.png" class="img-fluid"></p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>AAAAAARGH<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/danolner\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

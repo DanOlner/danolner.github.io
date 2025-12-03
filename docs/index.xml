@@ -10,7 +10,83 @@
 <atom:link href="https://danolner.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Dan Olner&#39;s Data Dispatch</description>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Thu, 15 May 2025 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 03 Dec 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>GVA + job blocks: a code example with intro to R online</title>
+  <dc:creator>Dan Olner</dc:creator>
+  <link>https://danolner.github.io/posts/r_introslides_gvajobsblocks/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In <a href="https://danolner.github.io/RegionalEconomicTools/setupRonline_n_getstarted_revealjs.html" target="_blank">these online slides</a>, I’ve combined a step-by-step introduction to using R and RStudio online with an interesting way to look at regional productivity data.</p>
+<p>The final output <a href="https://danolner.github.io/RegionalEconomicTools/setupRonline_n_getstarted_revealjs.html#/6/10" target="_blank">looks like this</a> for the four ITL3 zones in West Yorkshire. What you’re looking at:</p>
+<ul>
+<li><p>The area of each rectangle is the <strong>total output of that sector in GVA</strong> (relative to each place - the jobcount axis varies across each sub-plot). If two blocks are the same size in different places, they make up the same <strong>proportion of GVA</strong> in both, even if their pound value differs.</p></li>
+<li><p>Sectors are stacked up in order of productivity (here defined as GVA per full-time job).</p></li>
+<li><p>Each rectangle is made up of full-time job count on the vertical and GVA per job on the horizontal. The GVA per job axis is fixed, so each place is directly comparable.</p></li>
+<li><p>We can see, for example, how finance’s total output comes from very high productivity more than large job numbers.</p></li>
+<li><p>And also (in Wakefield) that there are a very large number of jobs in warehousing, but their average output is at the lower end.</p></li>
+</ul>
+<p>It’s all in a <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/selfcontained_rscripts/jobgva_cumulativeplot.R" target="_blank">self-contained R script</a> that you can just drop into RStudio via <a href="https://posit.cloud" target="_blank">posit.cloud</a>’s tidyverse template (see <a href="https://danolner.github.io/RegionalEconomicTools/setupRonline_n_getstarted_revealjs.html#/3/1" target="_blank">this slide</a>) and run as is. Here’s how to <a href="https://danolner.github.io/RegionalEconomicTools/setupRonline_n_getstarted_revealjs.html#/grabbing-some-code-from-github-a-gva-x-jobs-blocks-example">get it from Github</a> and run it line by line. (You can of course also run it in R on your <a href="https://danolner.github.io/posts/setting_up_w_r_online/" target="_blank">own machine</a> - you’ll need Tidyverse installed).</p>
+<p>Those slides explain each step – here, I want to yabbit about two other things:</p>
+<ol type="1">
+<li>The idea I’m trying to test with these slides: a way of making R and data like this more useable and reproducible and accessible.</li>
+<li>A few notes on the theory and data sources, and the prior wrangling stages.</li>
+</ol>
+<section id="the-idea" class="level2">
+<h2 class="anchored" data-anchor-id="the-idea">The idea</h2>
+<p>This is an experiment. I’m testing ways to make the on-ramp for data analysis using R as easy as possible. Using R through posit.cloud in the browser immediately removes several complexity steps - open an account, open R, and you’re ready to go.</p>
+<p>I’ve designed the slides so that, once you’ve run through the set up, you should be able to make a version of the same plot for whatever geographies you want (<a href="https://danolner.github.io/RegionalEconomicTools/setupRonline_n_getstarted_revealjs.html#/grabbing-some-code-from-github-a-gva-x-jobs-blocks-example" target="_blank">jump to this slide</a> to skip all the R intro stuff and just make the plot). I imagine and hope it might be possible to go from zero R knowledge to a plot for your own region by the time the slides are done. And that could be something to build on - more self-contained, reproducible chunks of analysis and visualisation, reducing wheel reinvention.</p>
+<p>That at least is the nice theory. I’ve run a couple of workshops using this approach, but those were only tasters. I could do with more feedback on what works and what doesn’t.</p>
+<p>If you do have a go at this, I’d really appreciate any thoughts, successes, failures, anything learned from looking at this data for your own region.</p>
+</section>
+<section id="the-gva-factory-method" class="level2">
+<h2 class="anchored" data-anchor-id="the-gva-factory-method">The GVA factory method…</h2>
+<p>Let’s just mention <a href="https://freethinkecon.wordpress.com/2024/10/22/innovation-competition-and-pitfalls-of-the-sector-method/" target="_blank">Giles Wilkes’ point</a> about the ‘<strong>GVA factory</strong> model’. Dividing GVA by jobs (or indeed by hours, as official productivity measures do; R example in the <a href="https://danolner.github.io/RegionalEconomicTools/R_regecon_pipelines_2025_revealjs.html#/7/1" target="_blank">slides here</a>!) I don’t think is the ‘horribly obvious maths’ he’s complaining about - instead, that’s what can happen if we treat these numbers in the way he parodies:</p>
+<blockquote class="blockquote">
+<p>If you have three sectors, A, B and C, each with 10 workers, and their productivities are £100/worker, £50/worker and £20/worker , your strategy is to shift workers from C to B and A. For every worker you shift from C to A, you make £80 more a year – for free! Stop cutting hair, start making microchips!</p>
+</blockquote>
+<p>The energy or telecoms sectors are prime examples: huge apparent output per worker, but their huge capital intensity isn’t directly visible in simple GVA x jobs data. GVA also spreads across value chains, accumulating in e.g.&nbsp;<a href="https://en.wikipedia.org/wiki/Apple_Park">Apple’s Cupertino campus</a>, not in the places iphones are assembled.</p>
+<p>Fundamentally, output per worker going up is what we want - it directly measures how wealthy everyone is on average. ( ‘This is what we want’ is <em>very</em> open to question, though I think it still stands even if e.g.&nbsp;we impose ‘constrain so planetary boundaries are respected’).</p>
+<p>But the <a href="https://en.wikipedia.org/wiki/Streetlight_effect" target="_blank">streetlight effect</a> is always present. Looking where ‘output per worker’ shines a light may lead us to <a href="https://y-pern.org.uk/blog/prototyping-open-econ-tools/" target="_blank">badly misinterpret the pachyderm</a> - that’s what I take Wilkes’ point to be. Do we have any option except to remain cautious and vigilant though? There isn’t any dataset or approach that can replace our need to think about how we use it.</p>
+<p>That said, actually laying out ways to think about it in more detail would probably be useful…</p>
+<p>Anyway, enough here to keep us busy. Here’s some data notes.</p>
+</section>
+<section id="data-notes" class="level2">
+<h2 class="anchored" data-anchor-id="data-notes">Data notes</h2>
+<ul>
+<li><p>The ‘bres.gva.2d’ dataframe that the <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/5e5b695face1d8f27ce1ed2b852211c3cddde67a/selfcontained_rscripts/jobgva_cumulativeplot.R#L24">script loads in</a> contains linked <a href="https://www.ons.gov.uk/economy/grossvalueaddedgva/datasets/nominalandrealregionalgrossvalueaddedbalancedbyindustry" target="_blank">ONS regional GVA x sector data</a> and <a href="https://www.nomisweb.co.uk/sources/bres" target="_blank">BRES</a> full time job count data.</p></li>
+<li><p>That’s <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/5e5b695face1d8f27ce1ed2b852211c3cddde67a/prepcode/yorkshire_n_humber_sectors_dataprep.R#L668" target="_blank">processed here</a> - if and when I make the data wrangling more legible, I’ll edit this and pretend it was well-organised all along. The prior steps include downloading/wrangling the latest (2023) GVA data <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/regionalGVA_processing.R" target="_blank">here</a> and bulk downloading the latest (2024) BRES data <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/gh-pages/prepcode/BRES_API_download.R" target="_blank">here</a>.</p></li>
+<li><p>The pre-prepared data has a 3-year moving average applied - BRES data is volatile. So the plot is the 2021-23 average. It’s a better recent-history picture using that (edit the year in the script to look back as far as 2015-17).</p></li>
+<li><p>There are some fun<sup>1</sup> steps to harmonise the two:</p>
+<ul>
+<li><p>The GVA data uses the 2025 ITL3 definitions. BRES doesn’t have those yet. But you can use local authorities from BRES - they mostly nest into 2025 ITL3, so can be summed where they don’t quite match. I <a href="https://github.com/DanOlner/RegionalEconomicTools/blob/5e5b695face1d8f27ce1ed2b852211c3cddde67a/functions/misc_functions.R#L2638">made a function</a> for checking geographical matches like this and getting automatic groupings for adding up jobs. It also tells you where things don’t nest - Arran in Scotland is the only tricky overlap that differs.</p></li>
+<li><p>(There’s also one spelling mistake in BRES geographies that stops a correct match - “Rhondda Cynon Taff” should be “Rhondda Cynon Taf”. Make of that what you will.)</p></li>
+<li><p>The regional GVA data has bespoke sector SIC code groupings - a different number for every different geographical level, with ITL3 having the fewest (disclosure reasons). So the BRES data has been binned into that same shorter sector list - 45 in total, though I’ve removed ‘households’ and ‘membership organisations’ as neither are present in BRES. I’ve then made some shorter names for nice plots.</p></li>
+</ul></li>
+</ul>
+<p><strong>That’s it!</strong> Any questions/issues, let me know at d dot olner at gmail dot com or <a href="https://www.linkedin.com/in/danolner/" target="_blank">message me on LinkedIn</a>.</p>
+<p><img src="https://danolner.github.io/posts/r_introslides_gvajobsblocks/images/clipboard-3859633262.png" class="img-fluid"></p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>AAAAAARGH↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>training</category>
+  <category>code</category>
+  <category>ons</category>
+  <guid>https://danolner.github.io/posts/r_introslides_gvajobsblocks/</guid>
+  <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Getting started with using R and RStudio (in the cloud or on your own computer)</title>
   <dc:creator>Dan Olner</dc:creator>
@@ -304,17 +380,6 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
   <category>planning</category>
   <guid>https://danolner.github.io/posts/outputs_livelist/</guid>
   <pubDate>Wed, 12 Feb 2025 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title></title>
-  <dc:creator>Dan Olner</dc:creator>
-  <link>https://danolner.github.io/posts/companies_house_geog/</link>
-  <description><![CDATA[ undefined ]]></description>
-  <category>code</category>
-  <category>firms</category>
-  <category>geo</category>
-  <guid>https://danolner.github.io/posts/companies_house_geog/</guid>
-  <pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Open data and code used for ONS subnational data conference</title>
